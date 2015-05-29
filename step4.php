@@ -9,7 +9,7 @@ next_if_test_pass('voting',  'step5.php');
 
 
 if ($_POST) {
-    header('Location: step5.php');
+    var_dump($_POST);
 }
 
 require(get_template('step4'));

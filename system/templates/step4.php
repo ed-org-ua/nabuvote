@@ -5,8 +5,8 @@
 </p>
 
 <p class="timer_text">
-  Залишилось <span class="countdown"></span> щоб обрати кандидатів.
-  Не хвилюйтесь, якщо не встигнете, ви можете переголосувати.
+  Залишилось <span class="countdown">?? хв.</span> щоб обрати кандидатів.
+  Не хвилюйтесь, якщо не встигнете, можна буде переголосувати.
 </p>
 
 <form method="POST" role="form" class="form-horizontal">
@@ -32,13 +32,14 @@
 
 <script>
   (function(){
-    var current_session_lifetime = <?= current_session_lifetime(); ?>
+    var current_session_lifetime = <?= current_session_lifetime(); ?>;
     if (window.vote_timer)
       clearInterval(window.vote_timer);
     window.vote_timer = setInterval(function(){
-      if (current_session_lifetime < 5) {
+      if (current_session_lifetime < 15) {
         $('.timer_text').html('Час сплив. Будь ласка, переголосуйте.');
         clearInterval(window.vote_timer);
+        return;
       }
       current_session_lifetime = current_session_lifetime - 1;
       var ts = Math.floor(current_session_lifetime/60) + ' хв.';
