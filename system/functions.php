@@ -69,12 +69,12 @@ function print_errors() {
  *
  */
 function db_connect() {
+    global $settings;
     $db = mysqli_connect(
         $settings['mysql_host'],
         $settings['mysql_user'],
         $settings['mysql_password'],
-        $settings['mysql_database'])
-    or die("Error ".mysqli_error());
+        $settings['mysql_database']);
     return $db;
 }
 
