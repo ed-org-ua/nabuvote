@@ -16,9 +16,10 @@ if ($_POST) {
     } elseif (count($keys) > 15) {
         append_error("Ви обрали більше 15 кандидатів.");
     } else {
-        save_vote($keys);
-        set_test_passed('voting');
-        redirect('step5.php');
+        if (save_vote($keys) && !$_ERRORS) {
+            set_test_passed('voting');
+            redirect('step5.php');
+        }
     }
 }
 

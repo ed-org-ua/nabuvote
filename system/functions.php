@@ -66,6 +66,35 @@ function print_errors() {
 }
 
 /**
+ *
+ */
+function db_connect() {
+    $db = mysqli_connect(
+        $settings['mysql_host'],
+        $settings['mysql_user'],
+        $settings['mysql_password'],
+        $settings['mysql_database'])
+    or die("Error ".mysqli_error());
+    return $db;
+}
+
+/**
+ *
+ */
+function db_close($db) {
+    mysqli_close($db);
+}
+
+/**
+ *
+ */
+function db_row_exists($db, $key, $value, $table="ballot_box") {
+    $value = $db->escape_string($value);
+    $res = $db->query("SELECT $key FROM $table WHERE $key = '$value' LIMIT 1");
+    return $res->num_rows;
+}
+
+/**
  * Save message to debug.log
  */
 function log_debug($func, $msg="-") {
@@ -170,7 +199,10 @@ function current_session_lifetime() {
  *
  */
 function email_not_used($email) {
-    return true;
+    $db = db_connect();
+    $res = db_row_exists($db, 'email', $email);
+    db_close($db);
+    return ($res == 0);
 }
 
 /**
@@ -198,7 +230,10 @@ function send_email_code($email, $code) {
  *
  */
 function mobile_not_used($mobile) {
-    return true;
+    $db = db_connect();
+    $res = db_row_exists($db, 'mobile', $mobile);
+    db_close($db);
+    return ($res == 0);
 }
 
 /**
@@ -301,8 +336,30 @@ function anon_mobile($m) {
 /**
  *
  */
-function save_vote_to_database() {
-
+function save_vote_to_database($table="ballot_box") {
+    $db = db_connect();
+    $ip_addr = $_SESSION['ip_addr'];
+    $email = $_SESSION['email_value'];
+    $mobile = $_SESSION['mobile_value'];
+    $choice = $_SESSION['vote_keys'];
+    $choice = implode(',', $choice);
+    if (db_row_exists($db, 'email', $email)) {
+        append_error("Такий e-mail вже проголосував.");
+        return false;
+    }
+    if (db_row_exists($db, 'mobile', $mobile)) {
+        append_error("Такий мобільний вже проголосував.");
+        return false;
+    }
+    $stmt = $db->prepare("INSERT INTO $table (ip_addr, email, mobile, choice) ".
+        "VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $ip_addr, $email, $mobile, $choice);
+    $stmt->execute();
+    if ($stmt->affected_rows == 0) {
+        append_error("Запис голосу не вдався по технічним причинам.")
+        return false;
+    }
+    return tue;
 }
 
 /**
@@ -315,6 +372,8 @@ function save_vote_to_public($keys) {
     $logline .= " ".anon_email($_SESSION['email_value']);
     $logline .= " ".anon_mobile($_SESSION['mobile_value']);
     $logline .= " ".implode(',', $_SESSION['vote_keys']);
+    if ($_ERRORS)
+        $logline .= " WITH_ERRORS";
     $logline .= "\r\n";
     if (!($filename = $settings['public_log']))
         return false;
@@ -335,6 +394,7 @@ function save_vote($keys) {
     save_vote_to_database();
     save_vote_to_public();
     log_debug("save_vote", implode(",", $keys));
+    return true;
 }
 
 /**
