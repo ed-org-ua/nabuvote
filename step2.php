@@ -18,7 +18,7 @@ $ecode_value = "";
 if ($_POST) {
     check_and_dec_limit('check_email_limit');
 
-    $email_value = post_arg('email_input', '/^[\w\d_\-\+\.]+@[\w\d\-\.]+\.\w+$/', 'strtolower');
+    $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\+\.]+@[\w\d\-\.]+\.\w+$/');
     $ecode_value = post_arg('ecode_input', 'intval');
 
     if ($ecode_value && $_SESSION['email_value'])

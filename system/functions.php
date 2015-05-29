@@ -10,10 +10,11 @@ function h($s) {
 /**
  * return verified arg from $_POST or empty string
  */
-function post_arg($name, $pattern=false, $filter=false) {
+function post_arg($name, $filter=false, $pattern=false, $maxlen=250) {
     if (!isset($_POST[$name]))
         return "";
-    $value = trim($_POST[$name]);
+    if (strlen($value = trim($_POST[$name])) > $maxlen)
+        return "";
     if ($value && $filter)
         $value = call_user_func($filter, $value);
     if ($pattern && !preg_match($pattern, $value))
@@ -128,8 +129,11 @@ function remote_addr() {
 function init_user_session() {
     global $settings;
     session_set_cookie_params($settings['session_lifetime']);
-    @session_unset();
-    @session_start();
+    if (isset($_SESSION) && count($_SESSION)) {
+        session_unset();
+        session_destroy();
+    }
+    session_start();
     $_SESSION['ip_addr'] = remote_addr();
     $_SESSION['expires'] = time() + $settings['session_lifetime'];
     $_SESSION['total_post_limit'] = $settings['total_post_limit'];
