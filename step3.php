@@ -20,7 +20,7 @@ $mcode_value = "";
 if ($_POST) {
     check_and_dec_limit('check_mobile_limit');
 
-    $mobile_value = post_arg('mobile_input', 'mobile_clean', '/^[\d]{10,12}$/');
+    $mobile_value = post_arg('mobile_input', 'mobile_phone', '/^[\d]{10,12}$/');
     $mcode_value = post_arg('mcode_input', 'intval');
 
     if ($mcode_value && $_SESSION['mobile_value'])
@@ -63,6 +63,6 @@ if ($_POST) {
 }
 
 if ($mobile_value)
-    $mobile_readonly = 'readonly="readonly"';
+    $mobile_readonly = ' readonly="readonly"';
 
 require(get_template('step3'));

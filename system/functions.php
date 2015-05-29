@@ -25,7 +25,7 @@ function post_arg($name, $filter=false, $pattern=false, $maxlen=250) {
 /**
  * Simple remove + - () and spaces from mobile number
  */
-function mobile_clean($mobile) {
+function mobile_phone($mobile) {
     $mobile = preg_replace('/[\+\-\(\)\s]/', '', $mobile);
     if (strlen($mobile) == 9)
         $mobile = "380".$mobile;
@@ -47,6 +47,8 @@ function redirect($location) {
  */
 function append_error($msg) {
     global $_ERRORS;
+    if (!isset($_ERRORS))
+        $_ERRORS = array();
     $_ERRORS[] = $msg;
 }
 
@@ -129,11 +131,11 @@ function remote_addr() {
 function init_user_session() {
     global $settings;
     session_set_cookie_params($settings['session_lifetime']);
-    if (isset($_SESSION) && count($_SESSION)) {
-        session_unset();
-        session_destroy();
-    }
-    session_start();
+    session_destroy();
+    if (!session_id())
+        session_start();
+    session_regenerate_id();
+    $_SESSION = array();
     $_SESSION['ip_addr'] = remote_addr();
     $_SESSION['expires'] = time() + $settings['session_lifetime'];
     $_SESSION['total_post_limit'] = $settings['total_post_limit'];
@@ -222,6 +224,7 @@ function send_mobile_code($mobile, $code) {
     curl_setopt_array($ch, $curlopts);
     $res = curl_exec($ch);
     $res = strtr($res, "\r\n", "  ");
+    $res = "mid=$mid sin=$sin ".$res;
     log_debug("send_mobile_code", $res);
 }
 

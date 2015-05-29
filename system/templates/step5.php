@@ -11,6 +11,8 @@
       <table class="table">
         <tr><td>Час голосування:</td>
           <td>2.06.2015 11:22:33</td></tr>
+        <tr><td>IP адреса:</td>
+          <td>127.0.0.1</td></tr>
         <tr><td>Адреса e-mail:</td>
           <td>us_____ol.com</td></tr>
         <tr><td>Номер мобільного:</td>

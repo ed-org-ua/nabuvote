@@ -12,7 +12,7 @@
 <div class="checkbox">
     <input type="checkbox" id="ukr_citizen" name="ukr_citizen">
     <label for="ukr_citizen">
-        Підтверджую, що голосую в цьому конкурсі вперше і є громадянином,
+        Підтверджую, що голосую в цьому конкурсі вперше і що я є громадянином,
         який проживає на території України.
     </label>
 </div>

@@ -36,6 +36,10 @@ if ($_POST) {
             $ecode_value = "";
         }
     } else {
+        if (strlen($email_value) < 6)
+            $email_value = "";
+        if (strpos($email_value, "\n") !== false)
+            $email_value = "";
         if ($email_value && email_not_used($email_value)) {
             $secret_code = rand(100000, 999999);
             $_SESSION['email_value'] = $email_value;
@@ -60,6 +64,6 @@ if ($_POST) {
 }
 
 if ($email_value)
-    $email_readonly = 'readonly="readonly"';
+    $email_readonly = ' readonly="readonly"';
 
 require(get_template('step2'));
