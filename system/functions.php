@@ -86,7 +86,7 @@ function log_debug($func, $msg="-") {
 /**
  * Error handler
  */
-function debug_log_err_handler($errno, $errstr, $errfile, $errline) {
+function debug_error_handler($errno, $errstr, $errfile, $errline) {
     log_debug("$errfile:$errline", "$errno, $errstr");
 }
 
@@ -205,6 +205,7 @@ function send_mobile_code($mobile, $code) {
     $ch = curl_init();
     curl_setopt_array($ch, $curlopts);
     $res = curl_exec($ch);
+    $res = strtr($res, "\r\n", "  ");
     log_debug("send_mobile_code", $res);
 }
 

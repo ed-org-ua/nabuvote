@@ -1,7 +1,7 @@
 <?php
 
 error_reporting(0);
-set_error_handler(debug_log_err_handler);
+set_error_handler(debug_error_handler);
 date_default_timezone_set("Europe/Kiev");
 
 $settings = array();
