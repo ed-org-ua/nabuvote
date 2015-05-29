@@ -356,7 +356,7 @@ function save_vote_to_database($table="ballot_box") {
     $stmt->bind_param("ssss", $ip_addr, $email, $mobile, $choice);
     $stmt->execute();
     if ($stmt->affected_rows == 0) {
-        append_error("Запис голосу не вдався по технічним причинам.")
+        append_error("Запис голосу не вдався по технічним причинам.");
         return false;
     }
     return tue;
