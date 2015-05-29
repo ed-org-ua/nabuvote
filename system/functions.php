@@ -273,10 +273,89 @@ function next_if_test_pass($name, $next) {
 }
 
 /**
+ * anonymize ip address
+ */
+function anon_ip($ip) {
+    $a = explode('.', $ip);
+    if (count($a) < 4)
+        return $ip;
+    return "$a[0].$a[1].__.$a[3]";
+}
+
+/**
+ * anonymize email address
+ */
+function anon_email($e) {
+    if (strlen($e) < 10)
+        return substr($e, 0, 3)."_@_".substr($e, -3);
+    return substr($e, 0, 4)."__@__".substr($e, -4);
+}
+
+/**
+ * anonymize mobile number
+ */
+function anon_mobile($m) {
+    return substr($m, 0, 5)."____".substr($m, -3);
+}
+
+/**
+ *
+ */
+function save_vote_to_database() {
+
+}
+
+/**
+ *
+ */
+function save_vote_to_public($keys) {
+    global $settings;
+    $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
+    $logline .= " ".anon_ip($_SESSION['ip_addr']);
+    $logline .= " ".anon_email($_SESSION['email_value']);
+    $logline .= " ".anon_mobile($_SESSION['mobile_value']);
+    $logline .= " ".implode(',', $_SESSION['vote_keys']);
+    $logline .= "\r\n";
+    if (!($filename = $settings['public_log']))
+        return false;
+    if (!($fp = fopen($filename, "at")))
+        return false;
+    if (flock($fp, LOCK_EX))
+        fwrite($fp, $logline);
+    flock($fp, LOCK_UN);
+    fclose($fp);
+}
+
+/**
+ *
+ */
+function save_vote($keys) {
+    $_SESSION['vote_time'] = time();
+    $_SESSION['vote_keys'] = $keys;
+    save_vote_to_database();
+    save_vote_to_public();
+}
+
+/**
  * return full template filename for use in include
  */
 function get_template($name) {
     return "system/templates/{$name}.php";
+}
+
+/**
+ * return html candidates from array of ids
+ */
+function keys_to_candidates($keys) {
+    require_once("candidates.php");
+    $list = array();
+    foreach ($candidates as $c) {
+        if (in_array($c['id'], $keys)) {
+            $list[] = sprintf("%d. %s",
+                $c['id'], h($c['name']));
+        }
+    }
+    return implode('<br>', $list);
 }
 
 /**

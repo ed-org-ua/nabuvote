@@ -7,6 +7,7 @@ date_default_timezone_set("Europe/Kiev");
 $settings = array();
 
 $settings['debug_log'] = '/path/to/protected/debug.log';
+$settings['public_log'] = '/path/to/public/report.txt';
 
 $settings['session_lifetime'] = 900;
 $settings['total_post_limit'] = 10;

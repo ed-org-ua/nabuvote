@@ -10,15 +10,15 @@
       <div class="panel-heading">Дані, що були записані</div>
       <table class="table">
         <tr><td>Час голосування:</td>
-          <td>2.06.2015 11:22:33</td></tr>
-        <tr><td>IP адреса:</td>
-          <td>127.0.0.1</td></tr>
+          <td><?= date('Y-m-d H:i:s', $_SESSION['vote_time']); ?></td></tr>
+        <tr><td>Ваша IP адреса:</td>
+          <td><?= h($_SESSION['ip_addr']); ?></td></tr>
         <tr><td>Адреса e-mail:</td>
-          <td>us_____ol.com</td></tr>
+          <td><?= h($_SESSION['email_value']); ?></td></tr>
         <tr><td>Номер мобільного:</td>
-          <td>38050___7295</td></tr>
+          <td><?= h($_SESSION['mobile_value']); ?></td></tr>
         <tr><td>Обрані кандидати:</td>
-          <td>3<br>4<br>5</td></tr>
+          <td><?= keys_to_candidates($_SESSION['vote_keys']); ?></td></tr>
       </table>
     </div>
   </div>
