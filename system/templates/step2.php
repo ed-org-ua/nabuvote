@@ -8,7 +8,7 @@
   <div class="form-group">
     <label for="email_input" class="col-sm-2 control-label">Ваша адреса e-mail</label>
     <div class="col-sm-4">
-        <input type="email" class="form-control" id="email_input" name="email_input"
+        <input type="email" class="form-control" id="email_input" name="email_input" maxlength="80"
             placeholder="Введіть e-mail" value="<?= h($email_value); ?>" <?= $email_readonly; ?>>
     </div>
   </div>
@@ -16,7 +16,7 @@
   <div class="form-group">
     <label for="ecode_input" class="col-sm-2 control-label">Код підтвердження</label>
     <div class="col-sm-4">
-        <input type="text" class="form-control" id="ecode_input" name="ecode_input"
+        <input type="text" class="form-control" id="ecode_input" name="ecode_input" maxlength="10"
             placeholder="Введіть код з листа" value="<?= h($ecode_value); ?>">
     </div>
   </div>

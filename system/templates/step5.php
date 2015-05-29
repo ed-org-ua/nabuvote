@@ -12,9 +12,9 @@
         <tr><td>Час голосування:</td>
           <td>2.06.2015 11:22:33</td></tr>
         <tr><td>Адреса e-mail:</td>
-          <td>user@aol.com</td></tr>
+          <td>us_____ol.com</td></tr>
         <tr><td>Номер мобільного:</td>
-          <td>380501307295</td></tr>
+          <td>38050___7295</td></tr>
         <tr><td>Обрані кандидати:</td>
           <td>3<br>4<br>5</td></tr>
       </table>

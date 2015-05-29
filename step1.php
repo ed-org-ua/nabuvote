@@ -19,7 +19,7 @@ if ($_POST) {
     $captcha_res = captcha_verify();
 
     if (!$ukr_citizen)
-        append_error("Не підтвердена згода з правилами конкурсу.");
+        append_error("Не підтверджена згода з правилами голосування.");
     if (!$personal_data)
         append_error("Немає згоди на обробку персональних даних.");
     if (!$captcha_res)
