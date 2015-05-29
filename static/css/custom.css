@@ -1,0 +1,63 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+@media (max-width:770px) {
+    body {
+      padding-top: 0;
+    }
+    .navbar-fixed-top {
+        width:100%;
+        height: auto;
+        position: relative;
+    }
+}
+.hr {
+    border-bottom: 1px solid #eee;
+}
+.nowrap {
+    white-space: nowrap;
+}
+a.ext {
+  background-image: url(../img/ext-link.png);
+  background-position: center right;
+  background-repeat: no-repeat;
+  padding-right: 13px;
+}
+.navbar-inverse {
+  background-image: none;
+}
+.navbar-custom {
+  background-color: #003366;
+  background-image: linear-gradient(to bottom,#00468c 0,#002449 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00468c', endColorstr='#002449', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav>li>a {
+  color: #d9d9d9;
+}
+.navbar-brand {
+  background-image: url(../img/gerb.png);
+  background-position: 16px 6px;
+  background-size: 27px 38px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+}
+.space-top {
+  margin-top: 40px;
+}
+footer .text {
+  margin-right: 70px;
+}
+footer .logo {
+  float: right;
+  width: 70px;
+}
+footer .logo img {
+  float: right;
+  height: 24px;
+  margin: -5px 5px 0;
+}
