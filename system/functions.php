@@ -72,7 +72,7 @@ function log_debug($func, $msg="-") {
     if (!($fp = fopen($filename, "at")))
         return;
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
-    $logline .= " ".$_SERVER['REMOTE_ADDR'];
+    $logline .= " ".remote_addr();
     $logline .= " ".session_id();
     $logline .= " ".http_build_query($_SESSION);
     $logline .= " ".$func;
@@ -87,7 +87,7 @@ function log_debug($func, $msg="-") {
  * Error handler
  */
 function debug_error_handler($errno, $errstr, $errfile, $errline) {
-    log_debug("$errfile:$errline", "$errno, $errstr");
+    log_debug("$errfile:$errline", "Error($errno) $errstr");
 }
 
 /**
@@ -102,12 +102,24 @@ function captcha_verify() {
     $response = file_get_contents($url.
         "?secret=".$privatekey.
         "&response=".$_POST['g-recaptcha-response'].
-        "&remoteip=".$_SERVER['REMOTE_ADDR']);
+        "&remoteip=".remote_addr();
     $data = json_decode($response);
     if (isset($data->success) && $data->success == true) {
         return true;
     }
     return false;
+}
+
+/**
+ * Remote add fix for proxy
+ */
+function remote_addr() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        return $_SERVER['HTTP_CLIENT_IP'];
+    } else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    return $_SERVER['REMOTE_ADDR'];
 }
 
 /**
@@ -118,7 +130,7 @@ function init_user_session() {
     session_set_cookie_params($settings['session_lifetime']);
     @session_unset();
     @session_start();
-    $_SESSION['ip_addr'] = $_SERVER['REMOTE_ADDR'];
+    $_SESSION['ip_addr'] = remote_addr();
     $_SESSION['expires'] = time() + $settings['session_lifetime'];
     $_SESSION['total_post_limit'] = $settings['total_post_limit'];
     $_SESSION['check_email_limit'] = $settings['check_email_limit'];
@@ -131,8 +143,8 @@ function init_user_session() {
 /**
  * verify basic session restrictions
  */
-function check_session() {
-    if ($_SESSION['ip_addr'] != $_SERVER['REMOTE_ADDR'])
+function check_session_limits() {
+    if ($_SESSION['ip_addr'] != remote_addr())
         return false;
     if ($_SESSION['expires'] < time())
         return false;

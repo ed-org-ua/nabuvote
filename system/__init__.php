@@ -13,9 +13,9 @@ if (isset($_COOKIE[session_name()])) {
 }
 
 /**
- * if session present check base restrictions
+ * if session present check common restrictions
  */
-if ($_SESSION && !check_session()) {
+if (isset($_SESSION) && $_SESSION && !check_session_limits()) {
     session_unset();
     session_destroy();
 }
@@ -23,6 +23,6 @@ if ($_SESSION && !check_session()) {
 /**
  * check total post limit
  */
-if ($_SESSION && $_POST) {
+if (isset($_SESSION) && $_SESSION && $_POST) {
     check_and_dec_limit('total_post_limit');
 }
