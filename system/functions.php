@@ -202,7 +202,7 @@ function mobile_not_used($mobile) {
 }
 
 /**
- *
+ * send SMS via Kyivstar CPI
  */
 function send_mobile_code($mobile, $code) {
     global $settings;
@@ -334,6 +334,7 @@ function save_vote($keys) {
     $_SESSION['vote_keys'] = $keys;
     save_vote_to_database();
     save_vote_to_public();
+    log_debug("save_vote", implode(",", $keys));
 }
 
 /**

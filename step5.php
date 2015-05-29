@@ -2,7 +2,6 @@
 
 require("system/__init__.php");
 
-require_test_pass('captcha', 'step1.php');
 require_test_pass('voting',  'step4.php');
 
 
