@@ -56,7 +56,7 @@ function append_error($msg) {
 function print_errors() {
     global $_ERRORS;
     if ($_ERRORS) {
-        array_walk($_ERRORS, htmlspecialchars);
+        array_walk($_ERRORS, 'htmlspecialchars');
         print('<div class="alert alert-danger" role="alert">');
         print(implode('<br>', $_ERRORS).'</div>');
     }
@@ -87,7 +87,7 @@ function log_debug($func, $msg="-") {
  * Error handler
  */
 function debug_log_err_handler($errno, $errstr, $errfile, $errline) {
-    log_debug("$errfile:$errline", "errno, $errstr");
+    log_debug("$errfile:$errline", "$errno, $errstr");
 }
 
 /**
@@ -116,8 +116,8 @@ function captcha_verify() {
 function init_user_session() {
     global $settings;
     session_set_cookie_params($settings['session_lifetime']);
-    session_unset();
-    session_start();
+    @session_unset();
+    @session_start();
     $_SESSION['ip_addr'] = $_SERVER['REMOTE_ADDR'];
     $_SESSION['expires'] = time() + $settings['session_lifetime'];
     $_SESSION['total_post_limit'] = $settings['total_post_limit'];
