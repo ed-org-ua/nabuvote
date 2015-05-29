@@ -1,0 +1,11 @@
+*~
+*.db
+*.mo
+.svn
+.git
+._*
+*.log
+*.out
+*.rdb
+*.pid
+system/settings.php
