@@ -1,7 +1,12 @@
 <?php include("header.php"); ?>
 
 <p class="lead">
-    Будь ласка, оберіть ваших кандидатів в Раду громадського контролю.
+  Будь ласка, оберіть ваших кандидатів в Раду громадського контролю.
+</p>
+
+<p class="timer_text">
+  Залишилось <span class="countdown"></span> щоб обрати кандидатів.
+  Не хвилюйтесь, якщо не встигнете, ви можете переголосувати.
 </p>
 
 <form method="POST" role="form" class="form-horizontal">
@@ -24,5 +29,22 @@
     <button type="submit" class="btn btn-danger">Проголосувати &raquo;</button>
   </div>
 </form>
+
+<script>
+  (function(){
+    var current_session_lifetime = <?= current_session_lifetime(); ?>
+    if (window.vote_timer)
+      clearInterval(window.vote_timer);
+    window.vote_timer = setInterval(function(){
+      if (current_session_lifetime < 5) {
+        $('.timer_text').html('Час сплив. Будь ласка, переголосуйте.');
+        clearInterval(window.vote_timer);
+      }
+      current_session_lifetime = current_session_lifetime - 1;
+      var ts = Math.floor(current_session_lifetime/60) + ' хв.';
+      $('.countdown').html(ts);
+    }, 1000);
+  })();
+</script>
 
 <?php include("footer.php"); ?>

@@ -158,6 +158,15 @@ function check_session_limits() {
 }
 
 /**
+ * returns current session left time in seconds
+ */
+function current_session_lifetime() {
+    $left = $_SESSION['expires'] - time();
+    if ($left < 10) $left = 0;
+    return $left;
+}
+
+/**
  *
  */
 function email_not_used($email) {
