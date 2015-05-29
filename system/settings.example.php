@@ -1,6 +1,7 @@
 <?php
 
-error_reporting(E_ALL);
+error_reporting(0);
+set_error_handler(debug_log_err_handler);
 date_default_timezone_set("Europe/Kiev");
 
 $settings = array();
@@ -22,7 +23,7 @@ $settings['recaptcha_secret'] = '6Le_________________________________apRf';
 
 $settings['kyivstar_cpi_url'] = "http://cpa.net.ua:8080/cpa2/receiver";
 $settings['kyivstar_cpi_paid'] = "free";
-$settings['kyivstar_cpi_username'] = "_username_";
-$settings['kyivstar_cpi_password'] = "_password_";
+$settings['kyivstar_cpi_username'] = "____username____";
+$settings['kyivstar_cpi_password'] = "____password____";
 
 # vim: syntax=php ts=4

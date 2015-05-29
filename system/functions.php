@@ -84,6 +84,13 @@ function log_debug($func, $msg="-") {
 }
 
 /**
+ * Error handler
+ */
+function debug_log_err_handler($errno, $errstr, $errfile, $errline) {
+    log_debug("$errfile:$errline", "errno, $errstr");
+}
+
+/**
  * return true if reCAPTCHA verified
  */
 function captcha_verify() {
