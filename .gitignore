@@ -8,4 +8,5 @@
 *.out
 *.rdb
 *.pid
+report.txt
 system/settings.php
