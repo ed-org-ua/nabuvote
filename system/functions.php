@@ -102,7 +102,7 @@ function captcha_verify() {
     $response = file_get_contents($url.
         "?secret=".$privatekey.
         "&response=".$_POST['g-recaptcha-response'].
-        "&remoteip=".remote_addr();
+        "&remoteip=".remote_addr());
     $data = json_decode($response);
     if (isset($data->success) && $data->success == true) {
         return true;
