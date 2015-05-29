@@ -21,7 +21,7 @@ if ($_POST) {
     check_and_dec_limit('check_mobile_limit');
 
     $mobile_value = post_arg('mobile_input', '/^[\d]{12}$/', 'mobile_clean');
-    $mcode_value = post_arg('mcode_input');
+    $mcode_value = post_arg('mcode_input', 'intval');
 
     if ($mcode_value && $_SESSION['mobile_value'])
         $mobile_value = $_SESSION['mobile_value'];
@@ -61,9 +61,6 @@ if ($_POST) {
         $mobile_value = $_SESSION['mobile_value'];
     }
 }
-
-if ($mobile_value)
-    $mobile_readonly = 'readonly="readonly"';
 
 if ($mobile_value)
     $mobile_readonly = 'readonly="readonly"';
