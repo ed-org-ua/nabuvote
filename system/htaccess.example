@@ -1,2 +1,3 @@
+# rename to .htaccess before use
 Order deny,allow
 Deny from all

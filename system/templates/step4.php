@@ -10,6 +10,7 @@
 </p>
 
 <form method="POST" role="form" class="form-horizontal">
+  <?= csrf_token_input(); ?>
   <table class="table table-striped">
     <thead>
       <tr>

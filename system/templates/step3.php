@@ -5,6 +5,7 @@
 </p>
 
 <form method="POST" role="form" class="form-horizontal">
+  <?= csrf_token_input(); ?>
   <div class="form-group">
     <label for="mobile_input" class="col-sm-2 control-label">Ваш номер мобільного</label>
     <div class="col-sm-4">
@@ -14,9 +15,9 @@
   </div>
   <?php if ($mobile_value): ?>
   <div class="form-group">
-    <label for="mcode_input" class="col-sm-2 control-label">Код підтвердження</label>
+    <label for="mobile_code_input" class="col-sm-2 control-label">Код підтвердження</label>
     <div class="col-sm-4">
-        <input type="text" class="form-control" id="mcode_input" name="mcode_input" maxlength="10"
+        <input type="text" class="form-control" id="mobile_code_input" name="mobile_code_input" maxlength="10"
             placeholder="Введіть код з SMS" value="">
     </div>
   </div>

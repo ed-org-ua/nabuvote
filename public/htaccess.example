@@ -1,0 +1,4 @@
+# rename to .htaccess before use
+Order allow,deny
+Allow from all
+Options +Indexes

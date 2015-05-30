@@ -12,7 +12,7 @@ next_if_test_pass('mobile',  'step4.php');
  */
 $mobile_value = "";
 $mobile_readonly = "";
-$mcode_value = "";
+$mobile_code = "";
 
 /**
  * Handle form data
@@ -20,34 +20,44 @@ $mcode_value = "";
 if ($_POST) {
     check_and_dec_limit('check_mobile_limit');
 
-    $mobile_value = post_arg('mobile_input', 'mobile_phone', '/^[\d]{10,12}$/');
-    $mcode_value = post_arg('mcode_input', 'intval');
+    $mobile_value = post_arg('mobile_input', 'clean_mobile', '/^[\d]{10,12}$/');
+    $mobile_code = post_arg('mobile_code_input', 'intval');
 
-    if ($mcode_value && $_SESSION['mobile_value'])
+    if ($mobile_code && $_SESSION['mobile_value'])
         $mobile_value = $_SESSION['mobile_value'];
 
     /**
      * if sms already sent
      */
-    if ($_SESSION['mobile_value'] && $_SESSION['mcode_value']) {
-        if ($mcode_value && $mcode_value == $_SESSION['mcode_value']) {
+    if (!empty($_SESSION['mobile_value']) &&
+        !empty($_SESSION['mobile_code'])) {
+        // pass this test if user has entered correct code
+        if ($mobile_code && $mobile_code == $_SESSION['mobile_code']) {
             set_test_passed('mobile');
             redirect('step4.php');
         } else {
             append_error("Код невірний");
-            $mcode_value = "";
+            $mobile_code = "";
         }
     } else {
+        // last few simple checks
         if (strlen($mobile_value) != 12)
             $mobile_value = "";
         if (substr($mobile_value, 0, 3) != "380")
             $mobile_value = "";
+        // verify not empty and not used mobile number
         if ($mobile_value && mobile_not_used($mobile_value)) {
+            // accept any +380 mobile w/o sms test
+            if (!empty($settings['disable_sms_test'])) {
+                set_test_passed('mobile');
+                redirect('step4.php');
+            }
+            // generate code and send sms
             $secret_code = rand(100000, 999999);
             $_SESSION['mobile_value'] = $mobile_value;
-            $_SESSION['mcode_value'] = $secret_code;
+            $_SESSION['mobile_code'] = $secret_code;
             send_mobile_code($mobile_value, $secret_code);
-            $mcode_value = "";
+            $mobile_code = "";
         } else {
             append_error("Цей номер телефону неможливо використати.");
             $mobile_value = "";

@@ -2,10 +2,11 @@
 
 require("system/__init__.php");
 
+
 /**
  * Session must be clean on this step
  */
-if ($_SESSION) {
+if (!empty($_SESSION)) {
     session_unset();
     session_destroy();
 }

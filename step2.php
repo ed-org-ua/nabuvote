@@ -5,12 +5,13 @@ require("system/__init__.php");
 require_test_pass('captcha', 'step1.php');
 next_if_test_pass('email',   'step3.php');
 
+
 /**
  * Set defaults
  */
 $email_value = "";
 $email_readonly = "";
-$ecode_value = "";
+$email_code = "";
 
 /**
  * Handle form data
@@ -19,33 +20,39 @@ if ($_POST) {
     check_and_dec_limit('check_email_limit');
 
     $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\+\.]+@[\w\d\-\.]+\.\w+$/');
-    $ecode_value = post_arg('ecode_input', 'intval');
+    $email_code = post_arg('email_code_input', 'intval');
 
-    if ($ecode_value && $_SESSION['email_value'])
+    if ($email_code && $_SESSION['email_value'])
         $email_value = $_SESSION['email_value'];
 
     /**
      * if email already sent
      */
-    if ($_SESSION['email_value'] && $_SESSION['ecode_value']) {
-        if ($ecode_value && $ecode_value == $_SESSION['ecode_value']) {
+    if (!empty($_SESSION['email_value']) &&
+        !empty($_SESSION['email_code'])) {
+        // pass this test if user has entered correct code
+        if ($email_code && $email_code == $_SESSION['email_code']) {
             set_test_passed('email');
             redirect('step3.php');
         } else {
             append_error("Код невірний");
-            $ecode_value = "";
+            $email_code = "";
         }
     } else {
+        // some checks before send code
         if (strlen($email_value) < 6)
             $email_value = "";
         if (strpos($email_value, "\n") !== false)
             $email_value = "";
+        if (strpos($email_value, ",") !== false)
+            $email_value = "";
+        // verify not empty and not used email then send code
         if ($email_value && email_not_used($email_value)) {
             $secret_code = rand(100000, 999999);
             $_SESSION['email_value'] = $email_value;
-            $_SESSION['ecode_value'] = $secret_code;
+            $_SESSION['email_code'] = $secret_code;
             send_email_code($email_value, $secret_code);
-            $ecode_value = "";
+            $email_code = "";
         } else {
             append_error("Цю адресу неможливо використати.");
             $email_value = "";
@@ -59,7 +66,7 @@ if ($_POST) {
         $email_value = $_SESSION['email_value'];
     }
     if (isset($_GET['code'])) {
-        $ecode_value = $_GET['code'];
+        $email_code = $_GET['code'];
     }
 }
 

@@ -11,7 +11,7 @@ function h($s) {
  * return verified arg from $_POST or empty string
  */
 function post_arg($name, $filter=false, $pattern=false, $maxlen=250) {
-    if (!isset($_POST[$name]))
+    if (empty($_POST[$name]))
         return "";
     if (strlen($value = trim($_POST[$name])) > $maxlen)
         return "";
@@ -23,13 +23,38 @@ function post_arg($name, $filter=false, $pattern=false, $maxlen=250) {
 }
 
 /**
+ *
+ */
+function get_csrf_token() {
+    if (empty($_SESSION['csrf_token']))
+        $_SESSION['csrf_token'] = uniqid(mt_rand(), true);
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ *
+ */
+function csrf_token_input() {
+    return '<input type="hidden" name="csrf_token" value="'.h(get_csrf_token()).'">';
+}
+
+/**
+ *
+ */
+function check_csrf_token() {
+    if (empty($_SESSION['csrf_token']))
+        return false;
+    if ($_POST['csrf_token'] != $_SESSION['csrf_token'])
+        die("csrf protection");
+    unset($_SESSION['csrf_token']);
+}
+
+/**
  * Simple remove + - () and spaces from mobile number
  */
-function mobile_phone($mobile) {
+function clean_mobile($mobile) {
     $mobile = preg_replace('/[\+\-\(\)\s]/', '', $mobile);
-    if (strlen($mobile) == 9)
-        $mobile = "380".$mobile;
-    elseif (strlen($mobile) == 10)
+    if (strlen($mobile) == 10)
         $mobile = "38".$mobile;
     return $mobile;
 }
@@ -47,7 +72,7 @@ function redirect($location) {
  */
 function append_error($msg) {
     global $_ERRORS;
-    if (!isset($_ERRORS))
+    if (empty($_ERRORS))
         $_ERRORS = array();
     $_ERRORS[] = $msg;
 }
@@ -66,32 +91,15 @@ function print_errors() {
 }
 
 /**
- *
+ * return full remote addr include ip behind proxy
  */
-function db_connect() {
-    global $settings;
-    $db = mysqli_connect(
-        $settings['mysql_host'],
-        $settings['mysql_user'],
-        $settings['mysql_password'],
-        $settings['mysql_database']);
-    return $db;
-}
-
-/**
- *
- */
-function db_close($db) {
-    mysqli_close($db);
-}
-
-/**
- *
- */
-function db_row_exists($db, $key, $value, $table="ballot_box") {
-    $value = $db->escape_string($value);
-    $res = $db->query("SELECT $key FROM $table WHERE $key = '$value' LIMIT 1");
-    return $res->num_rows;
+function full_remote_addr() {
+    $ip_addr = $_SERVER['REMOTE_ADDR'];
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))
+        $ip_addr .= "/".$_SERVER['HTTP_CLIENT_IP'];
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ip_addr .= "/".$_SERVER['HTTP_X_FORWARDED_FOR'];
+    return $ip_addr;
 }
 
 /**
@@ -100,11 +108,11 @@ function db_row_exists($db, $key, $value, $table="ballot_box") {
 function log_debug($func, $msg="-") {
     global $settings;
     if (!($filename = $settings['debug_log']))
-        return;
+        return false;
     if (!($fp = fopen($filename, "at")))
-        return;
+        return false;
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
-    $logline .= " ".remote_addr();
+    $logline .= " ".full_remote_addr();
     $logline .= " ".session_id();
     $logline .= " ".http_build_query($_SESSION);
     $logline .= " ".$func;
@@ -116,7 +124,7 @@ function log_debug($func, $msg="-") {
 }
 
 /**
- * Error handler
+ * Error handler with save to debug.log
  */
 function debug_error_handler($errno, $errstr, $errfile, $errline) {
     log_debug("$errfile:$errline", "Error($errno) $errstr");
@@ -127,14 +135,12 @@ function debug_error_handler($errno, $errstr, $errfile, $errline) {
  */
 function captcha_verify() {
     global $settings;
-    if ((int)$settings['captcha_always_true'])
-        return true;
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $privatekey = $settings['recaptcha_secret'];
     $response = file_get_contents($url.
         "?secret=".$privatekey.
         "&response=".$_POST['g-recaptcha-response'].
-        "&remoteip=".remote_addr());
+        "&remoteip=".$_SERVER['REMOTE_ADDR']);
     $data = json_decode($response);
     if (isset($data->success) && $data->success == true) {
         return true;
@@ -143,35 +149,21 @@ function captcha_verify() {
 }
 
 /**
- * Remote add fix for proxy
- */
-function remote_addr() {
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        return $_SERVER['HTTP_CLIENT_IP'];
-    } else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-    }
-    return $_SERVER['REMOTE_ADDR'];
-}
-
-/**
  * start the session and set basic limits
  */
 function init_user_session() {
     global $settings;
     session_set_cookie_params($settings['session_lifetime']);
-    session_destroy();
-    if (!session_id())
-        session_start();
+    if (session_id())
+        session_destroy();
+    session_start();
     session_regenerate_id();
     $_SESSION = array();
-    $_SESSION['ip_addr'] = remote_addr();
+    $_SESSION['ip_addr'] = full_remote_addr();
     $_SESSION['expires'] = time() + $settings['session_lifetime'];
     $_SESSION['total_post_limit'] = $settings['total_post_limit'];
     $_SESSION['check_email_limit'] = $settings['check_email_limit'];
     $_SESSION['check_mobile_limit'] = $settings['check_mobile_limit'];
-    $_SESSION['email_value'] = "";
-    $_SESSION['mobile_value'] = "";
     log_debug('init_user_session');
 }
 
@@ -179,7 +171,7 @@ function init_user_session() {
  * verify basic session restrictions
  */
 function check_session_limits() {
-    if ($_SESSION['ip_addr'] != remote_addr())
+    if ($_SESSION['ip_addr'] != full_remote_addr())
         return false;
     if ($_SESSION['expires'] < time())
         return false;
@@ -191,12 +183,59 @@ function check_session_limits() {
  */
 function current_session_lifetime() {
     $left = $_SESSION['expires'] - time();
-    if ($left < 10) $left = 0;
+    if ($left < 0)
+        $left = 0;
     return $left;
 }
 
 /**
- *
+ * database abstract layer - connect
+ */
+function db_connect() {
+    global $settings;
+    $db = mysqli_connect(
+        $settings['mysql_host'],
+        $settings['mysql_user'],
+        $settings['mysql_password'],
+        $settings['mysql_database'])
+    or die("Can't connect to database");
+    return $db;
+}
+
+/**
+ * database abstract layer - close
+ */
+function db_close($db) {
+    mysqli_close($db);
+}
+
+/**
+ * database abstract layer - test row exists by unique key
+ */
+function db_row_exists($db, $key, $value, $table="ballot_box") {
+    $value = $db->escape_string($value);
+    $res = $db->query("SELECT $key FROM $table WHERE $key = '$value' LIMIT 1");
+    return $res && $res->num_rows;
+}
+
+/**
+ * database abstract layer - insert single row from assoc array
+ */
+function db_insert_row($db, $row, $table="ballot_box") {
+    $keys = implode(",", array_keys($row));
+    $count = count($row);
+    $types = str_repeat("s", $count);
+    $values = substr(str_repeat(",?", $count), 1);
+    $stmt = $db->prepare("INSERT INTO $table ($keys) VALUES ($values)");
+    $bind_args = array(&$types);
+    foreach ($row as &$r)
+        $bind_args[] = &$r;
+    call_user_func_array(array($stmt, 'bind_param'), $bind_args);
+    return $stmt->execute() && $stmt->affected_rows;
+}
+
+/**
+ * check for previous used email
  */
 function email_not_used($email) {
     $db = db_connect();
@@ -206,10 +245,24 @@ function email_not_used($email) {
 }
 
 /**
+ * check for previous used mobile number
+ */
+function mobile_not_used($mobile) {
+    $db = db_connect();
+    $res = db_row_exists($db, 'mobile', $mobile);
+    db_close($db);
+    return ($res == 0);
+}
+
+/**
  *
  */
 function send_email_code($email, $code) {
     global $settings;
+    if (strpos($email, "\n") !== false)
+        return false;
+    if (strpos($email, ",") !== false)
+        return false;
     $headers = "From: ".$settings['email_from_header']."\r\n".
         "MIME-Version: 1.0\r\n".
         "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
@@ -223,17 +276,7 @@ function send_email_code($email, $code) {
         $message .= "\r\n";
     }
     mail($email, $subject, $message, $headers);
-    log_debug('send_email_code');
-}
-
-/**
- *
- */
-function mobile_not_used($mobile) {
-    $db = db_connect();
-    $res = db_row_exists($db, 'mobile', $mobile);
-    db_close($db);
-    return ($res == 0);
+    log_debug('send_email_code', "to=$email");
 }
 
 /**
@@ -242,7 +285,7 @@ function mobile_not_used($mobile) {
 function send_mobile_code($mobile, $code) {
     global $settings;
     if (!preg_match('/^380\d{9}$/', $mobile))
-        return;
+        return false;
     $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n".
         '<message mid="%s" paid="%s" bearer="SMS">'."\n".
         '<sn>NAB vote</sn><sin>%s</sin>'."\n".
@@ -267,6 +310,7 @@ function send_mobile_code($mobile, $code) {
     $ch = curl_init();
     curl_setopt_array($ch, $curlopts);
     $res = curl_exec($ch);
+    curl_close($ch);
     $res = strtr($res, "\r\n", "  ");
     $res = "mid=$mid sin=$sin ".$res;
     log_debug("send_mobile_code", $res);
@@ -275,9 +319,9 @@ function send_mobile_code($mobile, $code) {
 /**
  * check and decrease limit by name
  */
-function check_and_dec_limit($name) {
+function check_and_dec_limit($name, $start='step1.php') {
     if ((int)$_SESSION[$name] < 1)
-        redirect('step1.php');
+        redirect($start);
     $_SESSION[$name] -= 1;
 }
 
@@ -285,16 +329,15 @@ function check_and_dec_limit($name) {
  * set some test (captcha, email, mobile) as passed
  */
 function set_test_passed($name) {
-    $name = $name.'_pass';
-    $_SESSION[$name] = 1;
+    $_SESSION[$name.'_pass'] = 1;
+    log_debug('set_test_passed', $name);
 }
 
 /**
  * check test or redirect to start
  */
 function require_test_pass($name, $start) {
-    $name = $name.'_pass';
-    if (!isset($_SESSION[$name]))
+    if (empty($_SESSION[$name.'_pass']))
         redirect($start);
 }
 
@@ -302,80 +345,78 @@ function require_test_pass($name, $start) {
  *
  */
 function next_if_test_pass($name, $next) {
-    $name = $name.'_pass';
-    if (isset($_SESSION[$name]))
+    if (!empty($_SESSION[$name.'_pass']))
         redirect($next);
+}
+
+/**
+ * unset passed tests on final page
+ */
+function clean_passed_tests($tests) {
+    foreach ($tests as $name)
+        unset($_SESSION[$name.'_pass']);
 }
 
 /**
  * anonymize ip address
  */
-function anon_ip($ip) {
-    $a = explode('.', $ip);
-    if (count($a) < 4)
-        return $ip;
-    return "$a[0].$a[1].__.$a[3]";
+function anon_ipaddr($ip) {
+    $arr = explode('.', $ip, 4);
+    $arr[2] = '***';
+    return implode('.', $arr);
 }
 
 /**
  * anonymize email address
  */
-function anon_email($e) {
-    if (strlen($e) < 10)
-        return substr($e, 0, 3)."_@_".substr($e, -3);
-    return substr($e, 0, 4)."__@__".substr($e, -4);
+function anon_email($email) {
+    $p = explode('@', $email, 2);
+    $n = strlen($p[0]) < 6 ? 2 : 4;
+    $d = strlen($p[1]) < 6 ? 4 : 6;
+    $p[0] = substr($p[0], 0, $n).'***';
+    $p[1] = '***'.substr($p[1], -1*$d);
+    return implode('@', $p);
 }
 
 /**
  * anonymize mobile number
  */
-function anon_mobile($m) {
-    return substr($m, 0, 5)."____".substr($m, -3);
+function anon_mobile($mob) {
+    return substr($mob, 0, 5)."***".substr($mob, 8);
 }
 
 /**
- *
+ * save vote using database abstraction layer api
  */
-function save_vote_to_database($table="ballot_box") {
+function save_vote_database($table="ballot_box") {
     $db = db_connect();
-    $ip_addr = $_SESSION['ip_addr'];
-    $email = $_SESSION['email_value'];
-    $mobile = $_SESSION['mobile_value'];
-    $choice = $_SESSION['vote_keys'];
-    $choice = implode(',', $choice);
-    if (db_row_exists($db, 'email', $email)) {
+    $row = array();
+    $row['ip_addr'] = $_SESSION['ip_addr'];
+    $row['email'] = $_SESSION['email_value'];
+    $row['mobile'] = $_SESSION['mobile_value'];
+    $row['choice'] = implode(',', $_SESSION['vote_keys']);
+    if (db_row_exists($db, 'email', $row['email']))
         append_error("Такий e-mail вже проголосував.");
-        return false;
-    }
-    if (db_row_exists($db, 'mobile', $mobile)) {
+    if (db_row_exists($db, 'mobile', $row['mobile']))
         append_error("Такий мобільний вже проголосував.");
-        return false;
-    }
-    $stmt = $db->prepare("INSERT INTO $table (ip_addr, email, mobile, choice) ".
-        "VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $ip_addr, $email, $mobile, $choice);
-    $stmt->execute();
-    if ($stmt->affected_rows == 0) {
-        append_error("Запис голосу не вдався по технічним причинам.");
-        return false;
-    }
-    return tue;
+    if (db_insert_row($db, $row) == false)
+        append_error("Запис голосу не вдався.");
 }
 
 /**
- *
+ * save vote to public report
  */
-function save_vote_to_public($keys) {
-    global $settings;
+function save_vote_public() {
+    global $settings, $_ERRORS;
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
-    $logline .= " ".anon_ip($_SESSION['ip_addr']);
-    $logline .= " ".anon_email($_SESSION['email_value']);
-    $logline .= " ".anon_mobile($_SESSION['mobile_value']);
-    $logline .= " ".implode(',', $_SESSION['vote_keys']);
+    $logline .= " IP=".anon_ipaddr($_SESSION['ip_addr']);
+    $logline .= " EML=".anon_email($_SESSION['email_value']);
+    $logline .= " MOB=".anon_mobile($_SESSION['mobile_value']);
+    $logline .= " SEL=".implode(',', $_SESSION['vote_keys']);
     if ($_ERRORS)
         $logline .= " WITH_ERRORS";
     $logline .= "\r\n";
-    if (!($filename = $settings['public_log']))
+    if (!($filename = $settings['public_report']))
         return false;
     if (!($fp = fopen($filename, "at")))
         return false;
@@ -388,13 +429,14 @@ function save_vote_to_public($keys) {
 /**
  *
  */
-function save_vote($keys) {
+function safe_save_vote($keys) {
+    global $_ERRORS;
     $_SESSION['vote_time'] = time();
     $_SESSION['vote_keys'] = $keys;
-    save_vote_to_database();
-    save_vote_to_public();
+    save_vote_database();
+    save_vote_public();
     log_debug("save_vote", implode(",", $keys));
-    return true;
+    return count($_ERRORS) == 0;
 }
 
 /**
