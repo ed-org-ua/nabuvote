@@ -11,7 +11,7 @@
 
 <form method="POST" role="form" class="form-horizontal">
   <?= csrf_token_input(); ?>
-  <table class="table table-striped">
+  <table class="table table-striped candidates_table">
     <thead>
       <tr>
         <th>#</th>
@@ -33,6 +33,20 @@
 
 <script>
   (function(){
+    var max_selected_limit = <?= get_selected_limit(); ?>;
+    setTimeout(function(){
+      $('.candidates_table input[type=checkbox]').click(function(event){
+        var selected_count = $('.candidates_table input:checked').length;
+        if (selected_count > max_selected_limit) {
+          event.preventDefault();
+          event.stopPropagation();
+          setTimeout(function(){
+            alert("Ви обрали більше ніж дозволено кандидатів.");
+          }, 500);
+          return false;
+        }
+      });
+    }, 1000);
     var current_session_lifetime = <?= current_session_lifetime(); ?>;
     if (window.vote_timer)
       clearInterval(window.vote_timer);

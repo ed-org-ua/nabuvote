@@ -15,12 +15,10 @@ if ($_POST) {
     $keys = array();
     if (is_array($_POST['id']))
         $keys = array_keys($_POST['id']);
-    if (empty($settings['max_selected_limit']))
-        $settings['max_selected_limit'] = 15;
     if (count($keys) < 1) {
         append_error("Ви не обрали жодного кандидата.");
-    } elseif (count($keys) > $settings['max_selected_limit']) {
-        append_error("Ви обрали більше 15 кандидатів.");
+    } elseif (count($keys) > get_selected_limit()) {
+        append_error("Ви обрали більше ніж дозволено кандидатів.");
     } else {
         if (safe_save_vote($keys)) {
             set_test_passed('vote');

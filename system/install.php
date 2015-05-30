@@ -26,6 +26,8 @@ foreach ($required_functions as $func)
 
 require("settings.php");
 
+set_error_handler(NULL);
+
 $create_table = <<<SQL
 CREATE TABLE IF NOT EXISTS `ballot_box` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

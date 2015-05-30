@@ -35,7 +35,8 @@ function get_csrf_token() {
  *
  */
 function csrf_token_input() {
-    return '<input type="hidden" name="csrf_token" value="'.h(get_csrf_token()).'">';
+    return '<input type="hidden" name="csrf_token" value="'.
+        h(get_csrf_token()).'">';
 }
 
 /**
@@ -207,6 +208,16 @@ function current_session_lifetime() {
 }
 
 /**
+ *
+ */
+function get_selected_limit() {
+    global $settings;
+    if (empty($settings['max_selected_limit']))
+        return 15;
+    return $settings['max_selected_limit'];
+}
+
+/**
  * database abstract layer - connect
  */
 function db_connect() {
@@ -354,7 +365,7 @@ function set_test_passed($name) {
 /**
  * check test or redirect to start
  */
-function require_test_pass($name, $start) {
+function require_test_pass($name, $start='step1.php') {
     if (empty($_SESSION[$name.'_pass']))
         redirect($start);
 }

@@ -7,6 +7,8 @@ require "functions.php";
 require "candidates.php";
 require "settings.php";
 
+set_error_handler(NULL);
+
 if (empty($settings['show_res_secret']))
     die("Not configured\n");
 
