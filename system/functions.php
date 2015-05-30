@@ -50,6 +50,25 @@ function check_csrf_token() {
 }
 
 /**
+ *
+ */
+function check_request_referer() {
+    if (!empty($_SERVER['HTTP_HOST']))
+        $host = $_SERVER['HTTP_HOST'];
+    else
+        $host = $_SERVER['SERVER_NAME'];
+    if (empty($host))
+        return false;
+    $ref = parse_url($_SERVER['HTTP_REFERER']);
+    if (!empty($ref['host']) && strcasecmp($host, $ref['host']) != 0) {
+        if (empty($_GET['error']))
+            redirect('index.php?error=bad_referer');
+        else
+            die("Bad referer");
+    }
+}
+
+/**
  * Simple remove + - () and spaces from mobile number
  */
 function clean_mobile($mobile) {
@@ -157,7 +176,6 @@ function init_user_session() {
     if (session_id())
         session_destroy();
     session_start();
-    session_regenerate_id();
     $_SESSION = array();
     $_SESSION['ip_addr'] = full_remote_addr();
     $_SESSION['expires'] = time() + $settings['session_lifetime'];

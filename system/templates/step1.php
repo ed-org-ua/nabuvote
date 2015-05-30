@@ -7,7 +7,6 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <form method="POST" role="form">
-  <?= csrf_token_input(); ?>
   <div class="g-recaptcha" data-sitekey="<?= $settings['recaptcha_key']; ?>"></div>
   <br>
   <div class="checkbox">
