@@ -7,6 +7,7 @@ require_test_pass('email',   'step2.php');
 require_test_pass('mobile',  'step3.php');
 next_if_test_pass('vote',    'step5.php');
 
+
 /**
  * Handle form data
  */

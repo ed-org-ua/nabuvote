@@ -15,6 +15,10 @@ $email_code = "";
 
 /**
  * Handle form data
+ *
+ * There are two steps on same form
+ * 1. Entering e-mail address
+ * 2. Entering verification code
  */
 if ($_POST) {
     check_and_dec_limit('check_email_limit');
@@ -22,6 +26,7 @@ if ($_POST) {
     $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\+\.]+@[\w\d\-\.]+\.\w+$/');
     $email_code = post_arg('email_code_input', 'intval');
 
+    // if we on second step restore email from session
     if ($email_code && $_SESSION['email_value'])
         $email_value = $_SESSION['email_value'];
 

@@ -16,6 +16,10 @@ $mobile_code = "";
 
 /**
  * Handle form data
+ *
+ * There are two steps on same form
+ * 1. Entering mobile phone number
+ * 2. Entering verification code
  */
 if ($_POST) {
     check_and_dec_limit('check_mobile_limit');
@@ -23,6 +27,7 @@ if ($_POST) {
     $mobile_value = post_arg('mobile_input', 'clean_mobile', '/^[\d]{10,12}$/');
     $mobile_code = post_arg('mobile_code_input', 'intval');
 
+    // if we on second step restore mobile number from session
     if ($mobile_code && $_SESSION['mobile_value'])
         $mobile_value = $_SESSION['mobile_value'];
 
