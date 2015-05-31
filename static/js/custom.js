@@ -18,7 +18,7 @@ $(document).ready(function(){
 
   $('.show-candidates').click(function(event){
     event.preventDefault();
-    $('.candidates_list').show();
+    $('.candidates_list').show(500);
     return false;
   });
 
