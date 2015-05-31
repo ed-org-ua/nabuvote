@@ -31,7 +31,7 @@ $(document).ready(function(){
         event.stopPropagation();
         setTimeout(function(){
           alert("Ви обрали більше ніж дозволено кандидатів.");
-        }, 500);
+        }, 100);
         return false;
       }
     });
