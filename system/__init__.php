@@ -3,6 +3,9 @@
 require("functions.php");
 require("settings.php");
 
+set_error_handler(debug_error_handler);
+date_default_timezone_set("Europe/Kiev");
+
 $_ERRORS = array();
 
 /**

@@ -1,10 +1,11 @@
 <?php
 
 error_reporting(0);
-set_error_handler(debug_error_handler);
-date_default_timezone_set("Europe/Kiev");
 
 $settings = array();
+
+$settings['open_elections_time'] = "2015-06-01 08:00:00";
+$settings['close_elections_time'] = "2015-06-01 20:00:00";
 
 $settings['debug_log'] = '/path/to/secure/nabu_debug.log'; # MUST BE SECURE!!!
 $settings['public_report'] = 'public/report.txt';
