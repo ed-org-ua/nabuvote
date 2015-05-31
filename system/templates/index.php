@@ -52,7 +52,7 @@
 
 <br>
 
-<div id="candidates_list" style="display:none">
+<div class="candidates_list" style="display:none">
   <h2>Список кандидатів у Раду громадського контролю</h2>
   <table class="table table-striped candidates_table">
     <thead>
