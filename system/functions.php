@@ -243,7 +243,8 @@ function db_close($db) {
  */
 function db_row_exists($db, $key, $value, $table="ballot_box") {
     $value = $db->escape_string($value);
-    $res = $db->query("SELECT $key FROM $table WHERE $key = '$value' LIMIT 1");
+    $stmt = $db->prepare("SELECT $key FROM $table WHERE ? = ? LIMIT 1");
+    $res = $stmt->execute(array($key, $value));
     return $res && $res->num_rows;
 }
 
