@@ -57,7 +57,6 @@
   <table class="table table-striped candidates_table">
     <thead>
       <tr>
-        <th>#</th>
         <th>ПІБ</th>
         <th>ІГС</th>
         <th>Досьє</th>
