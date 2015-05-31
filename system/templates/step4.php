@@ -31,4 +31,9 @@
   </div>
 </form>
 
+<script>
+  window.max_selected_limit = <?= get_selected_limit(); ?>;
+  window.current_session_lifetime = <?= current_session_lifetime(); ?>;
+</script>
+
 <?php include("footer.php"); ?>

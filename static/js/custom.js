@@ -23,7 +23,7 @@ $(document).ready(function(){
   });
 
   (function(){
-    var max_selected_limit = <?= get_selected_limit(); ?>;
+    var max_selected_limit = window.max_selected_limit;
     $('.candidates_table input[type=checkbox]').click(function(event){
       var selected_count = $('.candidates_table input:checked').length;
       if (selected_count > max_selected_limit) {
@@ -38,7 +38,7 @@ $(document).ready(function(){
   })();
 
   (function(){
-    var current_session_lifetime = <?= current_session_lifetime(); ?>;
+    var current_session_lifetime = window.current_session_lifetime;
     if (window.vote_timer)
       clearInterval(window.vote_timer);
     window.vote_timer = setInterval(function(){
@@ -47,7 +47,7 @@ $(document).ready(function(){
         clearInterval(window.vote_timer);
         return;
       }
-      current_session_lifetime = current_session_lifetime - 1;
+      window.current_session_lifetime = current_session_lifetime - 1;
       var ts = Math.floor(current_session_lifetime/60) + ' хв.';
       $('.countdown').html(ts);
     }, 1000);
