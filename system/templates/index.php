@@ -13,6 +13,8 @@
     Національного антикорупційного бюро України з 8:00 до 20:00 &mdash; <b>?? червня 2015 року</b>.
 </p>
 
+<h2 style="color#f33">Це тестове голосування за несправжніх кандидатів.</h2>
+
 <p>
     Будь-який громадянин, який проживає на території України, може взяти участь в рейтинговому
     Інтернет-голосуванні.
@@ -50,8 +52,14 @@
 
 <br>
 
+<div id="candidates_list" style="display:none">
+    <h2>Список кандидатів у Раду громадського контролю</h2>
+    <?= candidates_table(); ?>
+    <br>
+</div>
+
 <div class="well text-center">
-    <a href="http://nabu.gov.ua/index.php?id=14" class="btn btn-lg btn-default">Cписок кандидатів</a>
+    <a href="#" class="btn btn-lg btn-default show-candidates">Cписок кандидатів</a>
     <a href="step1.php" class="btn btn-lg btn-primary">Розпочати голосування</a>
 </div>
 

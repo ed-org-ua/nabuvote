@@ -16,4 +16,8 @@ $(document).ready(function(){
     }
   })();
 
+  $('.show-candidates').click(function(event){
+    $('#candidates_list').show();
+  });
+
 });
