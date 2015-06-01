@@ -242,9 +242,12 @@ function db_close($db) {
  * database abstract layer - test row exists by unique key
  */
 function db_row_exists($db, $key, $value, $table="ballot_box") {
-    $value = $db->escape_string($value);
-    $res = $db->query("SELECT $key FROM $table WHERE $key = '$value' LIMIT 1");
-    return $res && $res->num_rows;
+    // $key and $table isn't user data so we can use it safe w/o escaping
+    $stmt = $db->prepare("SELECT $key FROM $table WHERE $key = ? LIMIT 1");
+    $stmt->bind_param("s", $value);
+    if ($stmt && $stmt->execute() && $stmt->store_result())
+        return $stmt->affected_rows;
+    return 1; // if query fails we assume it as row exists
 }
 
 /**
@@ -256,11 +259,18 @@ function db_insert_row($db, $row, $table="ballot_box") {
     $types = str_repeat("s", $count);
     $values = substr(str_repeat(",?", $count), 1);
     $stmt = $db->prepare("INSERT INTO $table ($keys) VALUES ($values)");
-    $bind_args = array(&$types);
+    // Care must be taken when using mysqli_stmt_bind_param() in conjunction
+    // with call_user_func_array(). Note that mysqli_stmt_bind_param() requires
+    // parameters to be passed by reference, whereas call_user_func_array() can
+    // accept as a parameter a list of variables that can represent references
+    // or values. From http://php.net/manual/en/mysqli-stmt.bind-param.php
+    $bind_args = array($types);
     foreach ($row as &$r)
         $bind_args[] = &$r;
     call_user_func_array(array($stmt, 'bind_param'), $bind_args);
-    return $stmt->execute() && $stmt->affected_rows;
+    if ($stmt && $stmt->execute())
+        return ($stmt->affected_rows > 0);
+    return false;
 }
 
 /**
@@ -270,6 +280,7 @@ function email_not_used($email) {
     $db = db_connect();
     $res = db_row_exists($db, 'email', $email);
     db_close($db);
+    log_debug('email_not_used', $email." res=".$res);
     return ($res == 0);
 }
 
@@ -280,6 +291,7 @@ function mobile_not_used($mobile) {
     $db = db_connect();
     $res = db_row_exists($db, 'mobile', $mobile);
     db_close($db);
+    log_debug('mobile_not_used', $mobile." res=".$res);
     return ($res == 0);
 }
 
@@ -464,8 +476,9 @@ function safe_save_vote($keys) {
     $_SESSION['vote_keys'] = $keys;
     save_vote_database();
     save_vote_public();
-    log_debug("save_vote", implode(",", $keys));
-    return count($_ERRORS) == 0;
+    log_debug("save_vote", implode(",", $keys).
+        " errors=".count($_ERRORS));
+    return (count($_ERRORS) == 0);
 }
 
 /**
@@ -479,7 +492,8 @@ function get_template($name) {
  * return html candidates from array of ids
  */
 function keys_to_candidates($keys) {
-    require_once("candidates.php");
+    if (empty($candidates))
+        require("candidates.php");
     $list = array();
     foreach ($candidates as $c) {
         if (in_array($c['id'], $keys)) {
@@ -494,7 +508,8 @@ function keys_to_candidates($keys) {
  * return html table with candidates
  */
 function candidates_table($form=false) {
-    require_once("candidates.php");
+    if (empty($candidates))
+        require("candidates.php");
     $table = '';
     foreach ($candidates as $c) {
         $table .= '<tr>';
@@ -513,3 +528,5 @@ function candidates_table($form=false) {
     }
     return $table;
 }
+
+# vim: syntax=php ts=4
