@@ -454,6 +454,11 @@ function save_vote_public() {
     $logline .= " EML=".anon_email($_SESSION['email_value']);
     $logline .= " MOB=".anon_mobile($_SESSION['mobile_value']);
     $logline .= " SEL=".implode(',', $_SESSION['vote_keys']);
+    if (!empty($settings['public_mac_algo'])) {
+        $logline .= " MAC=".
+            hash_hmac($settings['public_mac_algo'],
+            $logline, $settings['public_mac_key']);
+    }
     if ($_ERRORS)
         $logline .= " WITH_ERRORS";
     $logline .= "\r\n";

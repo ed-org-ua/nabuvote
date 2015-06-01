@@ -18,7 +18,7 @@ foreach ($required_modules as $mod => $ver)
 
 $required_functions = array('mysqli_connect', 'mysqli_close',
   'curl_init', 'curl_setopt_array', 'curl_exec', 'curl_close',
-  'preg_match', 'preg_replace', 'strpbrk');
+  'preg_match', 'preg_replace', 'strpbrk', 'hash_hmac');
 
 foreach ($required_functions as $func)
   if (!function_exists($func))
