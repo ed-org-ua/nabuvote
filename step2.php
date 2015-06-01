@@ -47,9 +47,7 @@ if ($_POST) {
         // some checks before send code
         if (strlen($email_value) < 6)
             $email_value = "";
-        if (strpos($email_value, "\n") !== false)
-            $email_value = "";
-        if (strpos($email_value, ",") !== false)
+        if (strpbrk($email_value, " ,;'\"\t\n") !== false)
             $email_value = "";
         // verify not empty and not used email then send code
         if ($email_value && email_not_used($email_value)) {
