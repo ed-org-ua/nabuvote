@@ -7,7 +7,7 @@
 <div class="row">
   <div class="col-sm-6">
     <div class="panel panel-default">
-      <div class="panel-heading">Дані, що були записані</div>
+      <div class="panel-heading">Створено електронний документ з обов'язковими реквізитами</div>
       <table class="table">
         <tr><td>Час голосування:</td>
           <td><?= date('Y-m-d H:i:s', $_SESSION['vote_time']); ?></td></tr>
