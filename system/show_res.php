@@ -39,14 +39,19 @@ function get_db_results() {
 function get_file_results() {
     global $settings;
     $filename = $settings['public_report'];
-    if ($filename[0] != '/')
+    if (file_exists($filename))
         $filename = '../'.$filename;
     $lines = file($filename);
+    if (empty($lines))
+        die("File not found $filename\n");
     $out = array();
     foreach ($lines as $s) {
         if (($pos = strpos($s, " SEL=")) === false)
             continue;
-        $out[] = trim(substr($s, $pos+5));
+        $pos += 5;
+        if (($end = strpos($s, " ", $pos)) === false)
+            $end = strlen($s);
+        $out[] = trim(substr($s, $pos, $end-$pos));
     }
     return $out;
 }
