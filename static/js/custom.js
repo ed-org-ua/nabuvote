@@ -41,16 +41,20 @@ $(document).ready(function(){
     var current_session_lifetime = window.current_session_lifetime;
     if (window.vote_timer)
       clearInterval(window.vote_timer);
-    window.vote_timer = setInterval(function(){
-      if (current_session_lifetime < 15) {
-        $('.timer_text').html('Час сплив. Будь ласка, переголосуйте.');
-        clearInterval(window.vote_timer);
-        return;
-      }
-      window.current_session_lifetime = current_session_lifetime - 1;
-      var ts = Math.floor(current_session_lifetime/60) + ' хв.';
-      $('.countdown').html(ts);
-    }, 1000);
+    if ($('.timer_text').length && current_session_lifetime)
+      window.vote_timer = setInterval(function(){
+        if (current_session_lifetime < 5) {
+          clearInterval(window.vote_timer);
+          setTimeout(function() {
+            alert('Час сплив. Будь ласка, переголосуйте.');
+            window.location = 'step1.php';
+          }, 100);
+          return false;
+        }
+        current_session_lifetime = current_session_lifetime - 1;
+        var ts = Math.floor(current_session_lifetime/60) + ' хв.';
+        $('.countdown').html(ts);
+      }, 1000);
   })();
 
 });
