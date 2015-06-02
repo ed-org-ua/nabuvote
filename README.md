@@ -7,7 +7,7 @@
     via e-mail <info@ed.org.ua>
 
     Next text in Russian only in UTF-8 charset
-    try use translate.google.com if necessary
+    try use translate.google.com if necessary.
 
 
 
@@ -26,6 +26,7 @@
 1. Анти-робот тест (используется Google reCAPTCHA)
 2. Проверка адреса электронной почты с вводом кода проверки из письма
 3. Проверка номера мобильного телефона с получением кода в SMS
+
 
 #### Пользовательские ограничения
 
@@ -111,8 +112,4 @@
 E-mail: info@ed.org.ua
 
 Также см. раздел контакты на сайте.
-
-
-
-
 
