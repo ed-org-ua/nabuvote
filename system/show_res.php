@@ -39,7 +39,7 @@ function get_db_results() {
 function get_file_results() {
     global $settings;
     $filename = $settings['public_report'];
-    if (file_exists($filename))
+    if (!file_exists($filename))
         $filename = '../'.$filename;
     $lines = file($filename);
     if (empty($lines))
