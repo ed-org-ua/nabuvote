@@ -246,7 +246,7 @@ function db_row_exists($db, $key, $value, $table="ballot_box") {
     $stmt = $db->prepare("SELECT $key FROM $table WHERE $key = ? LIMIT 1");
     $stmt->bind_param("s", $value);
     if ($stmt && $stmt->execute() && $stmt->store_result())
-        return $stmt->affected_rows;
+        return $stmt->num_rows;
     return 1; // if query fails we assume it as row exists
 }
 
