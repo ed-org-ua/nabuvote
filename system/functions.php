@@ -253,7 +253,7 @@ function db_row_exists($db, $key, $value, $table="ballot_box") {
 /**
  * database abstract layer - insert single row from assoc array
  */
-function db_insert_row($db, $row, $table="ballot_box") {
+function db_insert_row($db, $row, &$insert_id, $table="ballot_box") {
     $keys = implode(",", array_keys($row));
     $count = count($row);
     $types = str_repeat("s", $count);
@@ -268,8 +268,10 @@ function db_insert_row($db, $row, $table="ballot_box") {
     foreach ($row as &$r)
         $bind_args[] = &$r;
     call_user_func_array(array($stmt, 'bind_param'), $bind_args);
-    if ($stmt && $stmt->execute())
+    if ($stmt && $stmt->execute()) {
+        $insert_id = $stmt->insert_id;
         return ($stmt->affected_rows > 0);
+    }
     return false;
 }
 
@@ -440,8 +442,9 @@ function save_vote_database($table="ballot_box") {
         append_error("Такий e-mail вже проголосував.");
     if (db_row_exists($db, 'mobile', $row['mobile']))
         append_error("Такий мобільний вже проголосував.");
-    if (db_insert_row($db, $row) == false)
+    if (db_insert_row($db, $row, $ballot_id) == false)
         append_error("Запис голосу не вдався.");
+    $_SESSION['ballot_id'] = $ballot_id;
 }
 
 /**
@@ -450,6 +453,7 @@ function save_vote_database($table="ballot_box") {
 function save_vote_public() {
     global $settings, $_ERRORS;
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
+    $logline .= " ID=".(string)$_SESSION['ballot_id'];
     $logline .= " IP=".anon_ipaddr($_SESSION['ip_addr']);
     $logline .= " EML=".anon_email($_SESSION['email_value']);
     $logline .= " MOB=".anon_mobile($_SESSION['mobile_value']);
