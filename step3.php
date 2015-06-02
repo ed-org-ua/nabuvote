@@ -52,15 +52,15 @@ if ($_POST) {
             $mobile_value = "";
         // verify not empty and not used mobile number
         if ($mobile_value && mobile_not_used($mobile_value)) {
+            // generate code and send sms
+            $secret_code = rand(100000, 999999);
+            $_SESSION['mobile_value'] = $mobile_value;
+            $_SESSION['mobile_code'] = $secret_code;
             // accept any +380 mobile w/o sms test
             if (!empty($settings['disable_sms_test'])) {
                 set_test_passed('mobile');
                 redirect('step4.php');
             }
-            // generate code and send sms
-            $secret_code = rand(100000, 999999);
-            $_SESSION['mobile_value'] = $mobile_value;
-            $_SESSION['mobile_code'] = $secret_code;
             send_mobile_code($mobile_value, $secret_code);
             $mobile_code = "";
         } else {
