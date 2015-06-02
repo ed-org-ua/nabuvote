@@ -23,7 +23,7 @@ $email_code = "";
 if ($_POST) {
     check_and_dec_limit('check_email_limit');
 
-    $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\+\.]+@[\w\d\-\.]+\.\w+$/');
+    $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\.]+@[\w\d\-\.]+\.\w+$/');
     $email_code = post_arg('email_code_input', 'intval');
 
     // if we on second step restore email from session
