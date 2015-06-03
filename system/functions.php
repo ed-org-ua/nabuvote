@@ -452,6 +452,8 @@ function save_vote_database($table="ballot_box") {
  */
 function save_vote_public() {
     global $settings, $_ERRORS;
+    if (empty($_SESSION['ballot_id']))
+        return false;
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
     $logline .= " ID=".(string)$_SESSION['ballot_id'];
     $logline .= " IP=".anon_ipaddr($_SESSION['ip_addr']);
