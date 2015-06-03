@@ -4,8 +4,6 @@
   Будь ласка, пройдіть тест і підтвердіть вашу згоду з правилами конкурсу.
 </p>
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
-
 <form method="POST" role="form">
   <div class="g-recaptcha" data-sitekey="<?= $settings['recaptcha_key']; ?>"></div>
   <br>
@@ -29,5 +27,7 @@
     <button type="submit" class="btn btn-primary">Продовжити &raquo;</button>
   </div>
 </form>
+
+<script src='https://www.google.com/recaptcha/api.js?hl=uk'></script>
 
 <?php include("footer.php"); ?>
