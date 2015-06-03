@@ -1,9 +1,12 @@
 <?php
 
-require("functions.php");
-require("settings.php");
+require_once("functions.php");
+require_once("settings.php");
 
-set_error_handler(debug_error_handler);
+/**
+ * @todo debug_error_handler there should be a string, not a constant, anyway it isn't defined
+ */
+set_error_handler("debug_error_handler");
 date_default_timezone_set("Europe/Kiev");
 
 $_ERRORS = array();
