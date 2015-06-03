@@ -8,7 +8,7 @@
 
 <form method="POST" role="form">
   <div class="g-recaptcha" data-sitekey="<?= $settings['recaptcha_key']; ?>"></div>
-  <br>
+  <br />
   <div class="checkbox">
     <input type="checkbox" id="ukr_citizen" name="ukr_citizen">
     <label for="ukr_citizen">
@@ -23,7 +23,7 @@
       повторного голосування.
     </label>
   </div>
-  <br>
+  <br />
   <div>
     <a href="index.php" class="btn btn-default">&laquo; На початок</a>
     <button type="submit" class="btn btn-primary">Продовжити &raquo;</button>

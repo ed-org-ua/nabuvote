@@ -2,6 +2,9 @@
 
 /**
  * Short alias for htmlspecialchars
+ *
+ * Why? Autocomplete should work almost everywhere
+ *
  */
 function h($s) {
     return htmlspecialchars($s);
@@ -36,7 +39,7 @@ function get_csrf_token() {
  */
 function csrf_token_input() {
     return '<input type="hidden" name="csrf_token" value="'.
-        h(get_csrf_token()).'">';
+        h(get_csrf_token()).'" />';
 }
 
 /**
@@ -106,7 +109,7 @@ function print_errors() {
     if ($_ERRORS) {
         array_walk($_ERRORS, 'htmlspecialchars');
         print('<div class="alert alert-danger" role="alert">');
-        print(implode('<br>', $_ERRORS).'</div>');
+        print(implode('<br />', $_ERRORS).'</div>');
     }
 }
 
@@ -249,6 +252,11 @@ function db_row_exists($db, $key, $value, $table="ballot_box") {
 
 /**
  * database abstract layer - insert single row from assoc array
+ *
+ * @todo  $row['choice'] = implode(',', $_SESSION['vote_keys']);
+ *        We are getting it actually from the POST
+ *        I'll suggest to make additional checking of the input data
+ *
  */
 function db_insert_row($db, $row, $table="ballot_box") {
     $keys = implode(",", array_keys($row));
@@ -265,6 +273,10 @@ function db_insert_row($db, $row, $table="ballot_box") {
 
 /**
  * check for previous used email
+ *
+ * @todo As for me there are too many reconnections.
+ *
+ *
  */
 function email_not_used($email) {
     $db = db_connect();
@@ -487,7 +499,7 @@ function keys_to_candidates($keys) {
                 $c['id'], h($c['name']));
         }
     }
-    return implode('<br>', $list);
+    return implode('<br />', $list);
 }
 
 /**

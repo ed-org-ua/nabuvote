@@ -4,7 +4,7 @@
     Будь ласка, вкажіть ваш номер мобільного (українського оператора).
 </p>
 
-<form method="POST" role="form" class="form-horizontal">
+<form method="post" role="form" class="form-horizontal">
   <?= csrf_token_input(); ?>
   <div class="form-group">
     <label for="mobile_input" class="col-sm-2 control-label">Ваш номер мобільного</label>
