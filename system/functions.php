@@ -329,6 +329,13 @@ function mobile_not_used($mobile) {
 }
 
 /**
+ * return session expire value in HH:MM
+ */
+function session_expires_hhmm() {
+    return date("H:i", $_SESSION['expires']);
+}
+
+/**
  *
  */
 function send_email_code($email, $code) {
@@ -343,12 +350,13 @@ function send_email_code($email, $code) {
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
     $subject = $settings['email_subject_header'];
-    $message = "Код перевірки {$code}\r\n";
-    if ($settings['email_base_url']) {
+    $message = "Код перевірки {$code}\r\n".
+    if (!empty($settings['email_code_url'])) {
         $message .= "\r\n";
         $message .= "або перейдіть ".$settings['email_base_url'].$code;
         $message .= "\r\n";
     }
+    $message .= "\r\nдійсний до ".session_expires_hhmm()."\r\n";
     mail($email, $subject, $message, $headers);
     log_debug('send_email_code', "to=$email");
 }
@@ -367,7 +375,8 @@ function send_mobile_code($mobile, $code) {
     $mid = time().".".$mobile;
     $sin = $mobile;
     $paid = $settings['kyivstar_cpi_paid'];
-    $text = "Kod proverki ".$code;
+    $text = "Kod perevirky $code \n".
+        "dijsnyj do ".session_expires_hhmm();
     $postdata = sprintf($xml, $mid, $paid, $sin, $text);
     $url = $settings['kyivstar_cpi_url'];
     $username = $settings['kyivstar_cpi_username'];
