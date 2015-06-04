@@ -31,7 +31,7 @@ if ($_POST) {
     if ($current_date > $settings['close_elections_time'])
         append_error("Вибори вже закінчились.");
 
-    if (!$_ERRORS && $ukr_citizen && $personal_data && $captcha_res) {
+    if (empty($_ERRORS) && $ukr_citizen && $personal_data && $captcha_res) {
         init_user_session();
         set_test_passed('captcha');
         redirect('step2.php');
