@@ -23,11 +23,21 @@ function post_arg($name, $filter=false, $pattern=false, $maxlen=250) {
 }
 
 /**
- *
+ * return meta refresh tag for fatal errors
+ */
+function goto_on_die($location='index.php') {
+    return ' <meta http-equiv="refresh" content="5;URL='.h($location).'"/>';
+}
+
+/**
+ * return random csrf token
  */
 function get_csrf_token() {
+    // Of course uniqid(rand) is not cryptographically secure
+    // but glibc rand() based on LFSR in combination with CAPTCHA and
+    // time-limited sessions is good enough for this particular task
     if (empty($_SESSION['csrf_token']))
-        $_SESSION['csrf_token'] = uniqid(mt_rand(), true);
+        $_SESSION['csrf_token'] = uniqid(rand(), true);
     return $_SESSION['csrf_token'];
 }
 
@@ -46,7 +56,7 @@ function check_csrf_token() {
     if (empty($_SESSION['csrf_token']))
         return false;
     if ($_POST['csrf_token'] != $_SESSION['csrf_token'])
-        die("csrf protection");
+        die("csrf protection ".goto_on_die('step1.php'));
     unset($_SESSION['csrf_token']);
 }
 
@@ -62,6 +72,7 @@ function check_request_referer() {
         return false;
     $ref = parse_url($_SERVER['HTTP_REFERER']);
     if (!empty($ref['host']) && strcasecmp($host, $ref['host']) != 0) {
+        // protect against redirect loops
         if (empty($_GET['error']))
             redirect('index.php?error=bad_referer');
         else
@@ -84,6 +95,7 @@ function clean_mobile($mobile) {
  */
 function redirect($location) {
     header('Location: '.$location);
+    echo('<meta http-equiv="refresh" content="0;URL='.$location.'"/>');
     die;
 }
 
@@ -104,9 +116,9 @@ function append_error($msg) {
 function print_errors() {
     global $_ERRORS;
     if ($_ERRORS) {
-        array_walk($_ERRORS, 'htmlspecialchars');
+        $safe_errors = array_map('htmlspecialchars', $_ERRORS);
         print('<div class="alert alert-danger" role="alert">');
-        print(implode('<br>', $_ERRORS).'</div>');
+        print(implode('<br>', $safe_errors).'</div>');
     }
 }
 
@@ -148,6 +160,25 @@ function log_debug($func, $msg="-") {
  */
 function debug_error_handler($errno, $errstr, $errfile, $errline) {
     log_debug("$errfile:$errline", "Error($errno) $errstr");
+}
+
+/**
+ * one time random seed using openssl
+ */
+function safe_seed_random() {
+    $b = openssl_random_pseudo_bytes(4);
+    $i = unpack('i', $b);
+    if (empty($i[1]))
+        $i[1] = 10000 * microtime(true);
+    srand((int)$i[1]);
+}
+
+/**
+ * rand with extra seed (may be slow)
+ */
+function safe_rand($min, $max) {
+    safe_seed_random();
+    return rand($min, $max);
 }
 
 /**
@@ -497,6 +528,27 @@ function safe_save_vote($keys) {
  */
 function get_template($name) {
     return "system/templates/{$name}.php";
+}
+
+/**
+ * filter user selected ids using real candidate ids
+ */
+function filter_candidates($keys) {
+    if (!is_array($keys))
+        return array();
+    if (array_unique($keys) != $keys)
+        return array();
+    if (empty($candidates))
+        require("candidates.php");
+    $allowed_keys = array();
+    foreach ($candidates as $c) {
+        $cid = (string)$c['id'];
+        $allowed_keys[$cid] = 1;
+    }
+    foreach ($keys as $k)
+        if (empty($allowed_keys[$k]))
+            return array();
+    return $keys;
 }
 
 /**
