@@ -15,6 +15,8 @@ if ($_POST) {
     $keys = array();
     if (is_array($_POST['id']))
         $keys = array_keys($_POST['id']);
+    if ($keys)
+        $keys = filter_candidates($keys);
     if (count($keys) < 1) {
         append_error("Ви не обрали жодного кандидата.");
     } elseif (count($keys) > get_selected_limit()) {
