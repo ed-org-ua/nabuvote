@@ -131,6 +131,9 @@ function full_remote_addr() {
         $ip_addr .= "/".$_SERVER['HTTP_CLIENT_IP'];
     if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
         $ip_addr .= "/".$_SERVER['HTTP_X_FORWARDED_FOR'];
+    // http headers data are possibly unsafe
+    if (strpbrk($ip_addr, " ,;'=\"\t\r\n"))
+        $ip_addr = $_SERVER['REMOTE_ADDR'];
     return $ip_addr;
 }
 
@@ -444,6 +447,9 @@ function clean_passed_tests($tests) {
  * anonymize ip address
  */
 function anon_ipaddr($ip) {
+    $unsafe = " ,;'=\"\t\r\n";
+    if (strpbrk($ip, $unsafe))
+        $ip = "UN.SA.*.FE";
     $arr = explode('.', $ip, 4);
     $arr[2] = '***';
     return implode('.', $arr);
@@ -507,6 +513,8 @@ function save_vote_public() {
     }
     if ($_ERRORS)
         $logline .= " WITH_ERRORS";
+    if (strpbrk($logline, "\r\n"))
+        $logline = strtr($logline, "\r\n", "  ")." UNSAFE_DATA";
     $logline .= "\r\n";
     if (!($filename = $settings['public_report']))
         return false;
