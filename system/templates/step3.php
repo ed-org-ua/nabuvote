@@ -24,7 +24,8 @@
   <div class="row">
     <div class="col-sm-offset-2 col-sm-4">
       Якщо SMS з кодом не приходить протягом 5 хвилин натисніть кнопку "На початок"
-      і пройдіть перевірку заново.
+      і пройдіть перевірку заново.<br><br>
+      Код необхідно ввести до <?= session_expires_hhmm(); ?>
     </div>
   </div>
   <?php endif; // $mobile_value ?>
