@@ -350,13 +350,13 @@ function send_email_code($email, $code) {
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
     $subject = $settings['email_subject_header'];
-    $message = "Код перевірки {$code}\r\n".
+    $message = "Код перевірки {$code}\r\n";
     if (!empty($settings['email_code_url'])) {
         $message .= "\r\n";
         $message .= "або перейдіть ".$settings['email_base_url'].$code;
         $message .= "\r\n";
     }
-    $message .= "\r\nдійсний до ".session_expires_hhmm()."\r\n";
+    $message .= "\r\n"."дійсний до ".session_expires_hhmm()."\r\n";
     mail($email, $subject, $message, $headers);
     log_debug('send_email_code', "to=$email");
 }
