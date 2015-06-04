@@ -7,7 +7,9 @@ require "functions.php";
 require "candidates.php";
 require "settings.php";
 
-set_error_handler(NULL);
+restore_error_handler();
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
 
 if (empty($settings['show_res_secret']))
     die("Not configured\n");
@@ -32,7 +34,7 @@ function get_db_results() {
     while ($obj = $res->fetch_object())
         $out[] = $obj->choice;
     $res->close();
-    db_close();
+    db_close($db);
     return $out;
 }
 
@@ -64,16 +66,20 @@ function transcode_results($res) {
     global $candidates;
     $out = array();
     foreach ($candidates as $c) {
-        $id = (int)$c['id'];
+        $id = (string)$c['id'];
         $out[$id] = $c;
         $out[$id]['votes'] = 0;
     }
     foreach ($res as $r) {
         $items = explode(',', $r);
+        $uniqs = array();
         foreach ($items as $i) {
-            $id = (int)$i;
-            if (!$id || empty($out[$id]))
-                die("Error: bad vote id=$i\n");
+            $id = (string)$i;
+            if (isset($uniqs[$id]))
+                die("two time vote line='$r' item='$i'\n");
+            $uniqs[$id] = 1;
+            if (empty($out[$id]))
+                die("bad vote key line='$r' item='$i'\n");
             $out[$id]['votes'] += 1;
         }
     }
@@ -84,7 +90,7 @@ function transcode_results($res) {
 function show_results($res) {
     $n = 0;
     printf("%3s | %8s | %s\n", "No", "Голосів ", "Кандидат");
-    printf("----+----------+----------------------------------------\n");
+    printf("----+----------+----------------------------\n");
     foreach ($res as $r) {
         $n += 1;
         printf("%3d | %8d | %2d. %s\n", $n, $r['votes'],
