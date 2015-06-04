@@ -170,7 +170,7 @@ function debug_error_handler($errno, $errstr, $errfile, $errline) {
  */
 function safe_seed_random() {
     $b = openssl_random_pseudo_bytes(4);
-    $i = unpack('i', $b);
+    $i = unpack('L', $b);
     if (empty($i[1]))
         $i[1] = 10000 * microtime(true);
     srand((int)$i[1]);
