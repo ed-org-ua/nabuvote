@@ -52,8 +52,7 @@ if ($_POST) {
             $mobile_value = "";
         // verify not empty and not used mobile number
         if ($mobile_value && mobile_not_used($mobile_value)) {
-            // generate code and send sms
-            $secret_code = rand(100000, 999999);
+            $secret_code = safe_rand(100000, 999999);
             $_SESSION['mobile_value'] = $mobile_value;
             $_SESSION['mobile_code'] = $secret_code;
             // accept any +380 mobile w/o sms test

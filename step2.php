@@ -51,7 +51,7 @@ if ($_POST) {
             $email_value = "";
         // verify not empty and not used email then send code
         if ($email_value && email_not_used($email_value)) {
-            $secret_code = rand(100000, 999999);
+            $secret_code = safe_rand(100000, 999999);
             $_SESSION['email_value'] = $email_value;
             $_SESSION['email_code'] = $secret_code;
             send_email_code($email_value, $secret_code);
