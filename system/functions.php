@@ -365,9 +365,53 @@ function send_email_code($email, $code) {
 }
 
 /**
- * send SMS via Kyivstar CPI
+ * send SMS via Kyivstar CPI (new format)
  */
 function send_mobile_code($mobile, $code) {
+    global $settings;
+    if (!preg_match('/^380\d{9}$/', $mobile))
+        return false;
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>'.
+        '<message xmlns="http://goldetele.com/cpa">'.
+        '<login>%s</login>'.
+        '<paswd>%s</paswd>'.
+        '<tid>1</tid>'.
+        '<sin>%s</sin>'.
+        '<service>bulk-request</service>'.
+        '<body content-type="text/plain">%s</body>'.
+        '</message>';
+    $text = "Kod perevirky $code \n".
+        "dijsnyj do ".session_expires_hhmm();
+    $url = $settings['kyivstar_cpi_url'];
+    $username = $settings['kyivstar_cpi_username'];
+    $password = $settings['kyivstar_cpi_password'];
+    $postdata = sprintf($xml, $username, $password,
+        $mobile, $text);
+    $curlopts = array(
+        CURLOPT_URL => $url,
+        CURLOPT_TIMEOUT => 10,
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_HTTPAUTH => CURLAUTH_BASIC,
+        CURLOPT_USERPWD => "$username:$password",
+        CURLOPT_POST => 1,
+        CURLOPT_POSTFIELDS => $postdata,
+    );
+    $ch = curl_init();
+    curl_setopt_array($ch, $curlopts);
+    $res = curl_exec($ch);
+    curl_close($ch);
+    preg_match('/mid="(\d+)"/', $res, $m);
+    $mid = isset($m[1]) ? $m[1] : "-";
+    $sin = $mobile;
+    $res = strtr($res, "\r\n", "  ");
+    $res = "mid=$mid sin=$sin ".$res;
+    log_debug("send_mobile_code", $res);
+}
+
+/**
+ * send SMS via Kyivstar CPI (old format)
+ */
+function send_mobile_code_old($mobile, $code) {
     global $settings;
     if (!preg_match('/^380\d{9}$/', $mobile))
         return false;
