@@ -553,19 +553,21 @@ function get_template($name) {
 function filter_candidates($keys) {
     if (!is_array($keys))
         return array();
-    if (array_unique($keys) != $keys)
-        return array();
+    $keys_map = array_flip($keys);
+    $keys_out = array();
     if (empty($candidates))
         require("candidates.php");
-    $allowed_keys = array();
     foreach ($candidates as $c) {
-        $cid = (string)$c['id'];
-        $allowed_keys[$cid] = 1;
+        $id = (string)$c['id'];
+        if (isset($keys_map[$id]))
+            $keys_out[] = $id;
     }
-    foreach ($keys as $k)
-        if (empty($allowed_keys[$k]))
-            return array();
-    return $keys;
+    // compare input and filtered
+    if (count($keys) !== count($keys_out)) {
+        log_debug("bad_keys", serialize($keys));
+        return array();
+    }
+    return $keys_out;
 }
 
 /**
