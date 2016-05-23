@@ -48,6 +48,9 @@ a.ext {
 .space-top {
   margin-top: 40px;
 }
+.countdown, .candidates_left {
+  font-weight: bold;
+}
 footer .text {
   margin-right: 70px;
 }
