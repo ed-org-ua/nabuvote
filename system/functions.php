@@ -600,10 +600,12 @@ function candidates_table($form=false) {
                 'id="id_%d" name="id[%d]"></td>',
                 (int)$c['id'], (int)$c['id']);
         }
-        $table .= sprintf('<td><label for="id_%d">%d. %s</label></td>',
+        $table .= sprintf('<td class="nowrap">'.
+            '<label for="id_%d">%d. %s</label></td>',
             (int)$c['id'], (int)$c['id'], h($c['name']));
         $table .= sprintf('<td>%s</td>', h($c['org']));
-        $table .= sprintf('<td class="nowrap"><a href="%s%s">',
+        $table .= sprintf('<td class="nowrap">'.
+            '<a href="%s%s" target="_blank">',
             'http://nabu.gov.ua/', h($c['link']));
         $table .= 'досьє</a></td>';
         $table .= "</tr>\n";
