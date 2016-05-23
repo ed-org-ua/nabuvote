@@ -10,7 +10,7 @@
     <label for="mobile_input" class="col-sm-2 control-label">Ваш номер мобільного</label>
     <div class="col-sm-4">
         <input type="text" class="form-control mobile" id="mobile_input" name="mobile_input" maxlength="20"
-            placeholder="+38 (067) 000-00-00" value="<?= h($mobile_value); ?>" <?= $mobile_readonly; ?>>
+            placeholder="+38 067 000-00-00" value="<?= h($mobile_value); ?>" <?= $mobile_readonly; ?>>
     </div>
   </div>
   <?php if ($mobile_value): ?>
