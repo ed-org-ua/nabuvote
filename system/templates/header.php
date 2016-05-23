@@ -23,8 +23,8 @@
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://nabu.gov.ua/index.php?id=9">Про Раду</a></li>
-            <li><a href="http://nabu.gov.ua/index.php?id=14">Про кандидатів</a></li>
+            <li><a href="https://nabu.gov.ua/polozhennya-pro-radu-gromadskogo-kontrolyu">Про Раду</a></li>
+            <li><a href="https://nabu.gov.ua/internet-golosuvannya-2016-roku">Про кандидатів</a></li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>

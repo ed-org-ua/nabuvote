@@ -25,6 +25,18 @@ foreach ($required_functions as $func)
   if (!function_exists($func))
     die("Required function $func not found\n");
 
+require("candidates.php");
+
+$cand_map = array();
+foreach ($candidates as $c) {
+  $id = intval($c['id']);
+  if ("$id" !== "{$c['id']}")
+    die("Bad candidate ID $id\n");
+  if (isset($cand_map[$id]))
+    die("Duplicate candidate ID\n");
+  $cand_map[$id] = 1;
+}
+
 require("settings.php");
 
 set_error_handler(NULL);
@@ -53,3 +65,5 @@ or die("Error ".mysqli_error());
 $db->query($create_table);
 
 mysqli_close($db);
+
+die("OK\n");
