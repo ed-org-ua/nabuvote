@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `ballot_box` (
   `mobile` varchar(20) NOT NULL,
   `choice` varchar(250) NOT NULL,
   PRIMARY KEY (`id`),
+  KEY (`ip_addr`),
   UNIQUE KEY (`email`),
   UNIQUE KEY (`mobile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
