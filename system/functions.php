@@ -308,6 +308,22 @@ function db_row_exists($db, $key, $value, $table="ballot_box") {
 }
 
 /**
+ * database abstract layer - count by columnt value
+ */
+function db_row_count($db, $key, $value, $table="ballot_box") {
+    // $key and $table isn't user data so we can use it safe w/o escaping
+    $stmt = $db->prepare("SELECT COUNT(1) FROM $table WHERE $key = ?");
+    $stmt->bind_param("s", $value);
+    if ($stmt && $stmt->execute() && $stmt->store_result()) {
+        $count = 0; $stmt->bind_result($count);
+        if($stmt->fetch())
+            return $count;
+    }
+    return 1; // if query fails we assume it as only one row exists
+}
+
+
+/**
  * database abstract layer - insert single row from assoc array
  */
 function db_insert_row($db, $row, &$insert_id, $table="ballot_box") {
@@ -352,6 +368,43 @@ function mobile_not_used($mobile) {
     db_close($db);
     log_debug('mobile_not_used', $mobile." res=".$res);
     return ($res == 0);
+}
+
+/**
+ * load ip addr map from exceptions.txt
+ */
+function load_ip_addr_exceptions() {
+    $lines = @file("system/exceptions.txt");
+    $exceptions = array();
+    foreach ($lines as $line) {
+        $p = explode("=", $line);
+        $exceptions[trim($p[0])] = (int)$p[1];
+    }
+    return $exceptions;
+}
+
+/**
+ * check limits based on IP address, return true if exceeded
+ */
+function check_ip_addr_limits() {
+    global $settings;
+    if (empty($settings['votes_per_ip_limit']))
+        return false;
+    $ip_addr = $_SESSION['ip_addr'];
+    $db = db_connect();
+    $res = db_row_exists($db, 'ip_addr', $ip_addr);
+    if ($res > 0)
+        $res = db_row_count($db, 'ip_addr', $ip_addr);
+    db_close($db);
+    if ($res < $settings['votes_per_ip_limit'])
+        return false;
+    $exceptions = load_ip_addr_exceptions();
+    foreach ($exceptions as $key => $limit) {
+        if ((strpos($ip_addr, $key) === 0) && ($res < $limit))
+            return false;
+    }
+    log_debug("check_ip_addr_limits", "res=$res");
+    return true;
 }
 
 /**
@@ -516,8 +569,10 @@ function set_test_passed($name) {
  * check test or redirect to start
  */
 function require_test_pass($name, $start='step1.php') {
-    if (empty($_SESSION[$name.'_pass']))
+    if (empty($_SESSION[$name.'_pass'])) {
+        log_debug("require_test_pass", "$name redirect to $start");
         redirect($start);
+    }
 }
 
 /**

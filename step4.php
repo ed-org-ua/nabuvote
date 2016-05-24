@@ -7,6 +7,14 @@ require_test_pass('email',   'step2.php');
 require_test_pass('mobile',  'step3.php');
 next_if_test_pass('vote',    'step5.php');
 
+/**
+ * Check IP address limits
+ */
+if (check_ip_addr_limits()) {
+    append_error("Перевищено обмеження голосувань з однієї IP адреси.");
+    require(get_template('step4e'));
+    die;
+}
 
 /**
  * Handle form data
