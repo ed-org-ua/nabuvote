@@ -19,10 +19,11 @@
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">Рада громадського контролю при НАБ України</a>
+          <a class="navbar-brand" href="./">Рада громадського контролю при НАБ України</a>
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://nabu.gov.ua/kontakty">Не можу проголосувати</a></li>
             <li><a href="https://nabu.gov.ua/polozhennya-pro-radu-gromadskogo-kontrolyu">Про Раду</a></li>
             <li><a href="https://nabu.gov.ua/internet-golosuvannya-2016-roku">Про кандидатів</a></li>
           </ul>
