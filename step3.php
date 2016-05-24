@@ -50,6 +50,8 @@ if ($_POST) {
             $mobile_value = "";
         if (substr($mobile_value, 0, 3) != "380")
             $mobile_value = "";
+        if (!check_mobile_operator_code($mobile_value))
+            $mobile_value = "";
         // verify not empty and not used mobile number
         if ($mobile_value && mobile_not_used($mobile_value)) {
             $secret_code = safe_rand(100000, 999999);
