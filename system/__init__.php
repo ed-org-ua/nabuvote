@@ -16,6 +16,13 @@ if (isset($_COOKIE[session_name()])) {
 }
 
 /**
+ * log all post data
+ */
+if ($_POST) {
+    log_debug_post_data();
+}
+
+/**
  * if session present check common restrictions
  */
 if (!empty($_SESSION) && !check_session_limits()) {
