@@ -55,8 +55,10 @@ function csrf_token_input() {
 function check_csrf_token() {
     if (empty($_SESSION['csrf_token']))
         return false;
-    if ($_POST['csrf_token'] != $_SESSION['csrf_token'])
+    if ($_POST['csrf_token'] != $_SESSION['csrf_token']) {
+        log_debug("check_csrf_token", "csrf protection");
         die("csrf protection ".goto_on_die('step1.php'));
+    }
     unset($_SESSION['csrf_token']);
 }
 
@@ -68,10 +70,13 @@ function check_request_referer() {
         $host = $_SERVER['HTTP_HOST'];
     else
         $host = $_SERVER['SERVER_NAME'];
-    if (empty($host))
+    if (empty($host)) {
+        log_debug("check_request_referer", "empty host");
         return false;
+    }
     $ref = parse_url($_SERVER['HTTP_REFERER']);
     if (!empty($ref['host']) && strcasecmp($host, $ref['host']) != 0) {
+        log_debug("check_request_referer", "not match ".$ref['host']);
         // protect against redirect loops
         if (empty($_GET['error']))
             redirect('index.php?error=bad_referer');
@@ -107,6 +112,7 @@ function append_error($msg) {
     if (empty($_ERRORS))
         $_ERRORS = array();
     $_ERRORS[] = $msg;
+    log_debug("append_error", $msg);
 }
 
 /**
@@ -146,16 +152,29 @@ function log_debug($func, $msg="-") {
         return false;
     if (!($fp = fopen($filename, "at")))
         return false;
+    if (!empty($_SESSION))
+        $session_data = http_build_query($_SESSION);
+    else
+        $session_data = "-";
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
     $logline .= " ".full_remote_addr();
     $logline .= " ".session_id();
-    $logline .= " ".http_build_query($_SESSION);
+    $logline .= " ".$_SERVER['REQUEST_URI'];
+    $logline .= " ".$session_data;
     $logline .= " ".$func;
     $logline .= " ".$msg."\r\n";
     if (flock($fp, LOCK_EX))
         fwrite($fp, $logline);
     flock($fp, LOCK_UN);
     fclose($fp);
+}
+
+/**
+ *  log all post data
+ */
+function log_debug_post_data() {
+    $post_data = http_build_query($_POST);
+    log_debug("RAW_POST_DATA", $post_data);
 }
 
 /**
@@ -224,10 +243,14 @@ function init_user_session() {
  * verify basic session restrictions
  */
 function check_session_limits() {
-    if ($_SESSION['ip_addr'] != full_remote_addr())
+    if ($_SESSION['ip_addr'] != full_remote_addr()) {
+        log_debug("check_session_limits", "ip not match");
         return false;
-    if ($_SESSION['expires'] < time())
+    }
+    if ($_SESSION['expires'] < time()) {
+        log_debug("check_session_limits", "session expired");
         return false;
+    }
     return true;
 }
 
@@ -362,6 +385,32 @@ function send_email_code($email, $code) {
     $message .= "\r\n"."дійсний до ".session_expires_hhmm()."\r\n";
     mail($email, $subject, $message, $headers);
     log_debug('send_email_code', "to=$email");
+}
+
+/**
+ *  check mobile code before send
+ */
+function check_mobile_operator_code($mobile) {
+    $allowed_codes = array(
+        "50", // МТС, Vodafone Україна
+        "63", // Lifecell
+        "66", // МТС, Vodafone Україна
+        "67", // Київстар
+        "68", // Київстар
+        "73", // Lifecell
+        "91", // ТриМоб
+        "92", // PEOPLEnet
+        "93", // Lifecell
+        "95", // МТС, Vodafone Україна
+        "96", // Київстар
+        "97", // Київстар
+        "98", // Київстар
+        "99"  // МТС, Vodafone Україна
+    );
+    if (substr($mobile, 0, 3) !== "380")
+        return false;
+    $code = substr($mobile, 3, 2);
+    return in_array($code, $allowed_codes);
 }
 
 /**
