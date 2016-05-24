@@ -23,9 +23,9 @@
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://nabu.gov.ua/kontakty">Не можу проголосувати</a></li>
             <li><a href="https://nabu.gov.ua/polozhennya-pro-radu-gromadskogo-kontrolyu">Про Раду</a></li>
             <li><a href="https://nabu.gov.ua/internet-golosuvannya-2016-roku">Про кандидатів</a></li>
+            <li><a href="https://nabu.gov.ua/kontakty">Не можу проголосувати</a></li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
