@@ -16,6 +16,7 @@ $settings['total_post_limit'] = 10;
 $settings['check_email_limit'] = 5;
 $settings['check_mobile_limit'] = 5;
 $settings['max_selected_limit'] = 15;
+$settings['votes_per_ip_limit'] = 20;
 
 $settings['mysql_host']     = 'localhost';
 $settings['mysql_user']     = '__________(change_me)__________';
