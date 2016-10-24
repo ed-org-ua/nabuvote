@@ -17,7 +17,7 @@
   <div class="form-group">
     <label for="email_code_input" class="col-sm-2 control-label">Код підтвердження</label>
     <div class="col-sm-4">
-        <input type="text" class="form-control" id="email_code_input" name="email_code_input" maxlength="10"
+        <input type="text" class="form-control" id="email_code_input" name="email_code_input" maxlength="12"
             placeholder="Введіть код з листа" value="<?= h($email_code); ?>">
     </div>
   </div>
