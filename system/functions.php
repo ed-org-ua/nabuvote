@@ -602,7 +602,7 @@ function send_mobile_code($mobile, $code) {
     if ($settings['kyivstar_cpi_new'])
         send_mobile_code_new($mobile, $code);
     else
-        send_mobile_code_old($mobile, $code)
+        send_mobile_code_old($mobile, $code);
 }
 
 /**
