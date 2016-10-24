@@ -25,7 +25,7 @@ if ($_POST) {
     check_and_dec_limit('check_mobile_limit');
 
     $mobile_value = post_arg('mobile_input', 'clean_mobile', '/^[\d]{10,12}$/');
-    $mobile_code = post_arg('mobile_code_input', 'intval');
+    $mobile_code = post_arg('mobile_code_input', 'clean_intval', '/^\d+$/');
 
     // if we on second step restore mobile number from session
     if ($mobile_code && $_SESSION['mobile_value'])
@@ -54,7 +54,7 @@ if ($_POST) {
             $mobile_value = "";
         // verify not empty and not used mobile number
         if ($mobile_value && mobile_not_used($mobile_value)) {
-            $secret_code = safe_rand(100000, 999999);
+            $secret_code = safe_rand(1000, 9999, 2);
             $_SESSION['mobile_value'] = $mobile_value;
             $_SESSION['mobile_code'] = $secret_code;
             // accept any +380 mobile w/o sms test

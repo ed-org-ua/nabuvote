@@ -24,7 +24,7 @@ if ($_POST) {
     check_and_dec_limit('check_email_limit');
 
     $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\.]+@[\w\d\-\.]+\.\w+$/');
-    $email_code = post_arg('email_code_input', 'intval');
+    $email_code = post_arg('email_code_input', 'clean_intval', '/^\d+$/');
 
     // if we on second step restore email from session
     if ($email_code && $_SESSION['email_value'])
@@ -51,7 +51,7 @@ if ($_POST) {
             $email_value = "";
         // verify not empty and not used email then send code
         if ($email_value && email_not_used($email_value)) {
-            $secret_code = safe_rand(100000, 999999);
+            $secret_code = safe_rand(1000, 9999, 2);
             $_SESSION['email_value'] = $email_value;
             $_SESSION['email_code'] = $secret_code;
             send_email_code($email_value, $secret_code);
