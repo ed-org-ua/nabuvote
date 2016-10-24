@@ -86,6 +86,14 @@ function check_request_referer() {
 }
 
 /**
+ * return filtered inval code, remove spaces and dahses
+ */
+function clean_intval($var) {
+    $var = preg_replace("/\D/", "", $var);
+    return intval($var);
+}
+
+/**
  * Simple remove + - () and spaces from mobile number
  */
 function clean_mobile($mobile) {
@@ -198,9 +206,11 @@ function safe_seed_random() {
 /**
  * rand with extra seed (may be slow)
  */
-function safe_rand($min, $max) {
+function safe_rand($min, $max, $times=1) {
     safe_seed_random();
-    return rand($min, $max);
+    for($res = ""; $times > 0; $times--)
+        $res .= rand($min, $max);
+    return $res;
 }
 
 /**
@@ -417,6 +427,13 @@ function session_expires_hhmm() {
 /**
  *
  */
+function format_secret_code($code) {
+    return implode("-", str_split($code, 2));
+}
+
+/**
+ *
+ */
 function send_email_code($email, $code) {
     global $settings;
     if (strpos($email, "\n") !== false)
@@ -429,6 +446,7 @@ function send_email_code($email, $code) {
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
     $subject = $settings['email_subject_header'];
+    $code = format_secret_code($code);
     $message = "Код перевірки {$code}\r\n";
     if (!empty($settings['email_code_url'])) {
         $message .= "\r\n";
@@ -438,6 +456,33 @@ function send_email_code($email, $code) {
     $message .= "\r\n"."дійсний до ".session_expires_hhmm()."\r\n";
     mail($email, $subject, $message, $headers);
     log_debug('send_email_code', "to=$email");
+}
+
+function send_summary_email($publine, $logline) {
+    global $settings;
+    $email = $_SESSION['email_value'];
+    $selected = implode(',', $_SESSION['vote_keys']);
+    if (strpos($email, "\n") !== false)
+        return false;
+    if (strpos($email, ",") !== false)
+        return false;
+    $headers = "From: ".$settings['email_from_header']."\r\n".
+        "MIME-Version: 1.0\r\n".
+        "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
+        "Content-Transfer-Encoding: binary\r\n".
+        "Content-Disposition: inline";
+    $subject = "=?UTF-8?b?0JLQsNGIINCz0L7Qu9C+0YEg0LfQsdC10YDQtdC20LXQvdC+?=";
+    $message = "Дякуємо що проголосували!\r\n"."\r\n".
+        "Ви обрали кандидатів: {$selected}\r\n"."\r\n".
+        "Про що зроблено запис у протоколі голосування:\r\n".
+        "{$logline}\r\n"."\r\n".
+        "та до кінця голосування цей запис буде відображатись частково закодованим:\r\n".
+        "{$publine}\r\n"."\r\n".
+        "З повагою,\r\n".
+        "Розробники системи рейтингового інтернет-голосування.\r\n".
+        "Запитання та зауваження надсилайте на vote@ed.org.ua";
+    mail($email, $subject, $message, $headers);
+    log_debug('send_summary_email', "to=$email");
 }
 
 /**
@@ -482,6 +527,7 @@ function send_mobile_code($mobile, $code) {
         '<service>bulk-request</service>'.
         '<body content-type="text/plain">%s</body>'.
         '</message>';
+    $code = format_secret_code($code);
     $text = "Kod perevirky $code \n".
         "dijsnyj do ".session_expires_hhmm();
     $url = $settings['kyivstar_cpi_url'];
@@ -623,6 +669,16 @@ function anon_mobile($mob) {
 }
 
 /**
+ * hash user voting data for intermediate logfile
+ */
+function hash_logline($data) {
+    $n = 100000;
+    while ($n--)
+        $data = hash("sha256", $data, 1);
+    return bin2hex($data);
+}
+
+/**
  * save vote using database abstraction layer api
  */
 function save_vote_database($table="ballot_box") {
@@ -642,40 +698,82 @@ function save_vote_database($table="ballot_box") {
 }
 
 /**
+ * search encodedd (hashed) value in public log
+ */
+function search_log_line($args) {
+    global $settings;
+    // these keys will be hashed
+    $forhash = "EML=".anon_email($args['email_value']);
+    $forhash .= " MOB=".anon_mobile($args['mobile_value']);
+    $forhash .= " SEL=".$args['vote_keys'];
+    // salt logline with known rand values before hashing
+    $forhash .= " K1=".$args['email_code'];
+    $forhash .= " K2=".$args['mobile_code'];
+    // construct lines
+    $publine = " HASH=".hash_logline($forhash);
+    $logline = $forhash;
+    $foundline = "(не знайдено)";
+    if (($filename = $settings['hashed_report']) !== false) {
+        if (($fp = fopen($filename, "r")) !== false) {
+            while (($s = fgets($fp, 500)) !== false) {
+                if (strpos($s, $publine) !== false)
+                    $foundline = $s;
+            }
+            fclose($fp);
+        }
+    }
+    return array($publine, $logline, $foundline);
+}
+
+/**
  * save vote to public report
  */
 function save_vote_public() {
     global $settings, $_ERRORS;
     if (empty($_SESSION['ballot_id']))
         return false;
-    $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
-    $logline .= " ID=".(string)$_SESSION['ballot_id'];
-    $logline .= " IP=".anon_ipaddr($_SESSION['ip_addr']);
-    $logline .= " EML=".anon_email($_SESSION['email_value']);
-    $logline .= " MOB=".anon_mobile($_SESSION['mobile_value']);
-    $logline .= " SEL=".implode(',', $_SESSION['vote_keys']);
-    if (!empty($settings['public_mac_algo'])) {
-        $logline .= " MAC=".
-            hash_hmac($settings['public_mac_algo'],
-            $logline, $settings['public_mac_key']);
-    }
+    $logbase = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
+    $logbase .= " ID=".(string)$_SESSION['ballot_id'];
+    $logbase .= " IP=".anon_ipaddr($_SESSION['ip_addr']);
+    // these keys will be hashed
+    $forhash = "EML=".anon_email($_SESSION['email_value']);
+    $forhash .= " MOB=".anon_mobile($_SESSION['mobile_value']);
+    $forhash .= " SEL=".implode(',', $_SESSION['vote_keys']);
+    // salt logline with known rand values before hashing
+    $forhash .= " K1=".$_SESSION['email_code'];
+    $forhash .= " K2=".$_SESSION['mobile_code'];
+    // construct lines
+    $publine = $logbase." HASH=".hash_logline($forhash)."\r\n";
+    $logline = $logbase." ".$forhash;
     if ($_ERRORS)
         $logline .= " WITH_ERRORS";
     if (strpbrk($logline, "\r\n"))
         $logline = strtr($logline, "\r\n", "  ")." UNSAFE_DATA";
     $logline .= "\r\n";
-    if (!($filename = $settings['public_report']))
-        return false;
-    if (!($fp = fopen($filename, "at")))
-        return false;
-    if (flock($fp, LOCK_EX))
-        fwrite($fp, $logline);
-    flock($fp, LOCK_UN);
-    fclose($fp);
+    // first write public_report
+    if (($filename = $settings['public_report']) !== false) {
+        if (($fp = fopen($filename, "at")) !== false) {
+            if (flock($fp, LOCK_EX))
+                fwrite($fp, $logline);
+            flock($fp, LOCK_UN);
+            fclose($fp);
+        }
+    }
+    // and then hashed_report
+    if (($filename = $settings['hashed_report']) !== false) {
+        if (($fp = fopen($filename, "at")) !== false) {
+            if (flock($fp, LOCK_EX))
+                fwrite($fp, $publine);
+            flock($fp, LOCK_UN);
+            fclose($fp);
+        }
+    }
+    // send notification email
+    send_summary_email($publine, $logline);
 }
 
 /**
- *
+ * save selected candidates to database and public report
  */
 function safe_save_vote($keys) {
     global $_ERRORS;
@@ -754,7 +852,7 @@ function candidates_table($form=false) {
         $table .= sprintf('<td>%s</td>', h($c['org']));
         $table .= sprintf('<td class="nowrap">'.
             '<a href="%s%s" target="_blank">',
-            'http://nabu.gov.ua/', h($c['link']));
+            'https://nabu.gov.ua', h($c['link']));
         $table .= 'досьє</a></td>';
         $table .= "</tr>\n";
     }
