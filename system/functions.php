@@ -514,7 +514,7 @@ function check_mobile_operator_code($mobile) {
 /**
  * send SMS via Kyivstar CPI (new format)
  */
-function send_mobile_code($mobile, $code) {
+function send_mobile_code_new($mobile, $code) {
     global $settings;
     if (!preg_match('/^380\d{9}$/', $mobile))
         return false;
@@ -592,6 +592,17 @@ function send_mobile_code_old($mobile, $code) {
     $res = strtr($res, "\r\n", "  ");
     $res = "mid=$mid sin=$sin ".$res;
     log_debug("send_mobile_code", $res);
+}
+
+/**
+ * Send SMS router
+ */
+function send_mobile_code($mobile, $code) {
+    global $settings;
+    if ($settings['kyivstar_cpi_new'])
+        send_mobile_code_new($mobile, $code);
+    else
+        send_mobile_code_old($mobile, $code)
 }
 
 /**
