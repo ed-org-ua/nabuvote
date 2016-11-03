@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/imaginal/nabuvote/badges/gpa.svg)](https://codeclimate.com/github/imaginal/nabuvote)
+[![Test Coverage](https://codeclimate.com/github/imaginal/nabuvote/badges/coverage.svg)](https://codeclimate.com/github/imaginal/nabuvote/coverage)
+
     National Anti-Corruption Bureau of Ukraine
     E-Voting System for Public Control Council
     Complies TU U 58.29.4-39582446-001:2015 v1
