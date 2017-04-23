@@ -1,7 +1,7 @@
 <?php include("header.php"); ?>
 
 <p class="lead">
-  Список учасників установчих зборів для формування складу Громадської ради при Мінприроди
+  Список учасників установчих зборів для формування складу Громадської ради
 </p>
 
 <div class="row candidates">
@@ -34,7 +34,7 @@
               <a href="<?= $c['link'] ?>"><?= h($d) ?></a><br>
             <?php endforeach; ?>
           </dd>
-        </dl>        
+        </dl>
       </div>
     </div>
   </div>
@@ -44,5 +44,20 @@
 <div class="well text-center">
   <a href="step1.php" class="btn btn-lg btn-primary">Розпочати голосування</a>
 </div>
+
+<script>
+// check and force SSL
+setTimeout(function() {
+  var href = window.location.href,
+  if (href.indexOf('http://gromrada.moz.gov.ua') === 0) {
+    $.ajax({
+      url: 'https://gromrada.moz.gov.ua/robots.txt',
+      success: function(){
+        window.location = window.location.href.replace(/^http:/, 'https:');
+      },
+    });
+  }
+}, 500);
+</script>
 
 <?php include("footer.php"); ?>

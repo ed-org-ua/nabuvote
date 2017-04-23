@@ -8,8 +8,7 @@
         </p>
         <p class="text">
           &copy; 2016 Розробка ГО «<a href="http://ed.org.ua/">Електронна демократія</a>»
-          на замовлення <a href="http://menr.gov.ua/">Міністерстві екології та природних 
-          ресурсів України</a>.
+          на замовлення <a href="http://moz.gov.ua/">Міністерства охорони здоров'я України</a>.
         </p>
       </footer>
     </div> <!-- /container -->
@@ -25,8 +24,8 @@
           </div>
           <div class="modal-body">
             <p>Якщо у вас виникли запитання або труднощі в процесі голосування
-              надішліть листа з детальним описом проблеми (і бажано скріншотом) 
-              на адресу: <b>vote&#64;menr&#46;gov.ua</b></p>
+              надішліть листа з детальним описом проблеми (і бажано знімком екрана,
+              скріншотом) на адресу: <b>gromrada@moz.gov.ua</b></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success" data-dismiss="modal">Закрити</button>
@@ -44,7 +43,7 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-86216588-1', 'auto');
+      ga('create', 'UA-93470322-1', 'auto');
       ga('send', 'pageview');
     </script>
   </body>

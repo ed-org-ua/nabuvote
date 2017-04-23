@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Конкурс з формування складу Громадської ради при Міністерстві екології та природних ресурсів України</title>
+    <title>Рейтингове голосування з формування складу Громадської ради
+      при Міністерстві охорони здоров'я України</title>
 
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -16,11 +17,11 @@
 
   <body style="background-color:#fff;">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+    <nav class="navbar navbar-inverse navbar-custom">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="./">
-            Громадська рада при Міністерстві екології та природних ресурсів України
+            Громадська рада при Міністерстві охорони здоров'я України
           </a>
         </div>
         <div id="navbar">
