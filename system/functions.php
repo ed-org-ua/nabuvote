@@ -487,7 +487,7 @@ function send_summary_email($publine, $logline) {
         "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
-        "Запитання та зауваження надсилайте на vote@menr.gov.ua";
+        "Запитання та зауваження надсилайте на gromrada@moz.gov.ua";
     mail($email, $subject, $message, $headers);
     log_debug('send_summary_email', "to=$email");
 }
@@ -885,7 +885,7 @@ function candidates_table($form=false) {
         $table .= sprintf(
             '<td class="nowrap">'.
             '<a href="%s" target="_blank">сторінка</a>'.
-            '</td>', 
+            '</td>',
             h($c['link']));
         $table .= "</tr>\n";
     }
