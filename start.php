@@ -4,4 +4,4 @@
 
 require("system/__init__.php");
 
-require(get_template('index'));
+require(get_template('start'));

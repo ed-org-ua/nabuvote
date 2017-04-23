@@ -471,16 +471,23 @@ function send_summary_email($publine, $logline) {
         "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
+    $vcodes = substr($logline, strpos($logline, " K1="));
     $subject = "=?UTF-8?b?0JLQsNGIINCz0L7Qu9C+0YEg0LfQsdC10YDQtdC20LXQvdC+?=";
     $message = "Дякуємо що проголосували!\r\n"."\r\n".
-        "Ви обрали кандидатів: {$selected}\r\n"."\r\n".
-        "Про що зроблено запис у протоколі голосування:\r\n".
-        "{$logline}\r\n"."\r\n".
-        "та до кінця голосування цей запис буде відображатись частково закодованим:\r\n".
-        "{$publine}\r\n"."\r\n".
+        "Ви обрали кандидатів з номерами: {$selected}\r\n"."\r\n".
+        "Про що зроблено наступний запис у протоколі голосування:\r\n".
+        "{$logline}\r\n".
+        "\r\n".
+        "до кінця голосування цей запис буде закодованим і виглядатиме так:\r\n".
+        "{$publine}\r\n".
+        "\r\n".
+        "щоб перевірити свій голос в базі даних відкрийте на сторінці голосування\r\n".
+        "посилання \"Форма перевірки\" (внизу сторінки) та введіть коди перевірки,\r\n".
+        "які ви отримали під час голосування: {$vcodes}\r\n".
+        "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
-        "Запитання та зауваження надсилайте на vote@ed.org.ua";
+        "Запитання та зауваження надсилайте на vote@menr.gov.ua";
     mail($email, $subject, $message, $headers);
     log_debug('send_summary_email', "to=$email");
 }
@@ -805,6 +812,18 @@ function get_template($name) {
 }
 
 /**
+ *  get candidates list (from json, db, cache, etc)
+ */
+function get_candidates() {
+    global $g_candidates;
+    if (!isset($g_candidates)) {
+        $res = json_decode(file_get_contents("system/candidates.json"), true);
+        $g_candidates = $res['candidates'];
+    }
+    return $g_candidates;
+}
+
+/**
  * filter user selected ids using real candidate ids
  */
 function filter_candidates($keys) {
@@ -812,8 +831,7 @@ function filter_candidates($keys) {
         return array();
     $keys_map = array_flip($keys);
     $keys_out = array();
-    if (empty($candidates))
-        require("candidates.php");
+    $candidates = get_candidates();
     foreach ($candidates as $c) {
         $id = (string)$c['id'];
         if (isset($keys_map[$id]))
@@ -831,8 +849,7 @@ function filter_candidates($keys) {
  * return html candidates from array of ids
  */
 function keys_to_candidates($keys) {
-    if (empty($candidates))
-        require("candidates.php");
+    $candidates = get_candidates();
     $list = array();
     foreach ($candidates as $c) {
         if (in_array($c['id'], $keys)) {
@@ -847,24 +864,29 @@ function keys_to_candidates($keys) {
  * return html table with candidates
  */
 function candidates_table($form=false) {
-    if (empty($candidates))
-        require("candidates.php");
+    $candidates = get_candidates();
     $table = '';
     foreach ($candidates as $c) {
         $table .= '<tr>';
         if ($form) {
-            $table .= sprintf('<td><input type="checkbox" '.
+            $table .= sprintf(
+                '<td><input type="checkbox" '.
                 'id="id_%d" name="id[%d]"></td>',
                 (int)$c['id'], (int)$c['id']);
         }
-        $table .= sprintf('<td class="nowrap">'.
-            '<label for="id_%d">%d. %s</label></td>',
+        $table .= sprintf(
+            '<td class="nowrap">'.
+            '<label for="id_%d">%d. %s</label>'.
+            '</td>',
             (int)$c['id'], (int)$c['id'], h($c['name']));
-        $table .= sprintf('<td>%s</td>', h($c['org']));
-        $table .= sprintf('<td class="nowrap">'.
-            '<a href="%s%s" target="_blank">',
-            'https://nabu.gov.ua', h($c['link']));
-        $table .= 'досьє</a></td>';
+        $table .= sprintf(
+            '<td>%s</td>',
+            h($c['org']));
+        $table .= sprintf(
+            '<td class="nowrap">'.
+            '<a href="%s" target="_blank">сторінка</a>'.
+            '</td>', 
+            h($c['link']));
         $table .= "</tr>\n";
     }
     return $table;

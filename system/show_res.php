@@ -4,12 +4,14 @@ if (php_sapi_name() != "cli")
     die("Please use php-cli\n");
 
 require "functions.php";
-require "candidates.php";
+#require "candidates.php";
 require "settings.php";
 
 restore_error_handler();
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
+
+$candidates = get_candidates();
 
 if (empty($settings['show_res_secret']))
     die("Not configured\n");

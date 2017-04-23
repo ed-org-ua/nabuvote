@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Конкурс з формування складу Ради громадського контролю</title>
+    <title>Конкурс з формування складу Громадської ради при Міністерстві екології та природних ресурсів України</title>
 
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -19,13 +19,14 @@
     <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="./">Рада громадського контролю при НАБ України</a>
+          <a class="navbar-brand" href="./">
+            Громадська рада при Міністерстві екології та природних ресурсів України
+          </a>
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://nabu.gov.ua/polozhennya-pro-radu-gromadskogo-kontrolyu">Про Раду</a></li>
-            <li><a href="https://nabu.gov.ua/dovybory-do-rady-gromadskogo-kontrolyu-2016-5-osib">Про кандидатів</a></li>
-            <li><a href="https://nabu.gov.ua/zvernennya-gromadyan">Не можу проголосувати</a></li>
+            <li class="text-right"><a href="#" data-toggle="modal"
+              data-target="#aboutModal">Зворотній зв'язок</a></li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
@@ -34,7 +35,7 @@
     <div class="container">
       <!-- Main content container -->
 
-      <h1>Сторінка інтернет-голосування за кандидатів до Ради громадського контролю при НАБУ у 2016 році</h1>
+      <h1>Сторінка рейтингового інтернет-голосування</h1>
 
       <?php print_errors(); ?>
 

@@ -13,8 +13,16 @@ body {
         position: relative;
     }
 }
+@media (min-width: 768px) {
+  .dl-horizontal.sm dt {
+      width: 100px;
+  }
+  .dl-horizontal.sm dd {
+      margin-left: 120px;
+  }
+}
 .hr {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
 }
 .nowrap {
     white-space: nowrap;
@@ -27,29 +35,61 @@ a.ext {
 }
 .navbar-inverse {
   background-image: none;
+  border: none;
 }
-.navbar-custom {
+.navbar-nabu {
   background-color: #003366;
   background-image: linear-gradient(to bottom,#00468c 0,#002449 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00468c', endColorstr='#002449', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   background-repeat: repeat-x;
 }
+.navbar-custom {
+  background-color: #006633;
+  background-image: linear-gradient(to bottom,#008c46 0,#004924 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff008c46', endColorstr='#004924', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+}
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav>li>a {
-  color: #d9d9d9;
+  color: #e0e0e0;
 }
 .navbar-brand {
-  background-image: url(../img/gerb.png);
-  background-position: 16px 6px;
+  background-image: url(../img/logo-menr.png);
+  background-position: 16px 0;
   background-repeat: no-repeat;
-  padding-left: 50px;
+  padding-left: 75px;
 }
 .space-top {
-  margin-top: 40px;
+  margin-top: 50px;
+}
+.quotes-indent {
+  text-indent: -6px;
 }
 .countdown, .candidates_left {
   font-weight: bold;
+}
+.candidates .photo {
+  padding-bottom: 80px;
+}
+.candidates .photo input {
+  margin-top: 15px;
+  margin-left: 30px;
+}
+.candidates .row {
+  border-bottom: 1px solid #eee;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.well dl {
+  margin: 0;
+}
+.well dd {
+  margin: 5px 0 20px;
+}
+.well dd.last {
+  margin-bottom: 0;
 }
 footer .text {
   margin-right: 70px;
