@@ -12,7 +12,7 @@ next_if_test_pass('vote',    'step5.php');
  */
 if (check_ip_addr_limits()) {
     append_error("Перевищено обмеження голосувань з однієї IP адреси.");
-    require(get_template('stop4'));
+    require(get_template('step4e'));
     die;
 }
 
