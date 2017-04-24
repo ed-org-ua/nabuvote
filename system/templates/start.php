@@ -9,7 +9,7 @@
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-3 photo">
-        <img src="<?= $c['photo'] ? $c['photo'] : 'candidate/nophoto.jpg' ?>"
+        <img src="../candidates/photo/<?= $c['photo'] ?>"
           alt="<?= h($c['name']) ?>">
         <!-- <label><input type="checkbox"> Обрати</label> -->
       </div>
@@ -17,22 +17,35 @@
         <dl class="dl-horizontal sm">
           <dt>№</dt><dd><?= $c['id'] ?></dd>
           <dt>П.І.Б.</dt><dd><?= h($c['name']) ?></dd>
-          <dt>Організація</dt><dd><?= h($c['org']) ?></dd>
+          <dt>Організація</dt><dd><?= h($c['ngo_name']) ?></dd>
           <dt>Посилання</dt>
           <dd>
             <?php if($c['social']): ?>
               <a href="<?= $c['social'] ?>" target="_blank">Персональна сторінка</a><br>
             <?php endif; ?>
-            <?php if($c['site']): ?>
-              <a href="<?= $c['site'] ?>" target="_blank">Сайт організації</a><br>
+            <?php if($c['ngo_social']): ?>
+              <a href="<?= $c['ngo_social'] ?>" target="_blank">Сторінка організації</a><br>
             <?php endif; ?>
-            <?php if (!$c['social'] && !$c['site']) echo "-"; ?>
+            <?php if($c['ngo_web']): ?>
+              <a href="<?= $c['ngo_web'] ?>" target="_blank">Сайт організації</a><br>
+            <?php endif; ?>
           </dd>
           <dt>Документи</dt>
           <dd>
-            <?php foreach ($c['docs'] as $d): ?>
-              <a href="<?= $c['link'] ?>"><?= h($d) ?></a><br>
-            <?php endforeach; ?>
+            <?php
+              $keys = array(
+                'mot' => 'Мотиваційний лист',
+                'bio' => 'Біографія',
+                'res' => 'Результати діяльності',
+                'tax' => 'Звіт про використання коштів');
+              foreach ($keys as $key => $val) {
+                if($c['docs'][$key]) {
+                  echo "<a href=\"../candidates/$c[id].html\">$val</a><br>\n";
+                } else {
+                  echo "$val - немає<br>\n";
+                }
+              }
+            ?>
           </dd>
         </dl>
       </div>

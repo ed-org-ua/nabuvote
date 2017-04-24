@@ -79,8 +79,14 @@ a.ext {
 .countdown, .candidates_left {
   font-weight: bold;
 }
-.candidates .photo {
-  padding-bottom: 80px;
+.candidates .row {
+  height: 300px;
+}
+.candidates .photo img {
+  max-width: 150px;
+}
+.candidates .photo-big img {
+  max-width: 280px;
 }
 .candidates .photo input {
   margin-top: 15px;

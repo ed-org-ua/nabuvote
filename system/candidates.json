@@ -1,4 +1,1669 @@
 {
   "candidates": [
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 59, 
+      "name": "\u0410\u0434\u0430\u043c\u0447\u0443\u043a \u0421\u0435\u0440\u0433\u0456\u0439 \u041c\u0438\u043a\u043e\u043b\u0430\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0411\u041b\u0410\u0413\u041e\u0414\u0406\u0419\u041d\u0418\u0419 \u0424\u041e\u041d\u0414 \"\u0421\u0422\u041e\u041f\u0420\u0410\u041a\"  (37537784)", 
+      "ngo_social": "http://facebook.com/STOPCANCER.Foundation", 
+      "ngo_web": "http://stopcancer.com.ua", 
+      "photo": "059-05-1490197245.3804767.jpg", 
+      "social": "http://facebook.com/serhiy.adamchuk"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 16, 
+      "name": "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0430 \u041e\u043a\u0441\u0430\u043d\u0430 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0445\u0432\u043e\u0440\u0438\u0445 \u043d\u0430 \u043b\u0435\u0433\u0435\u043d\u0435\u0432\u0443 \u0433\u0456\u043f\u0435\u0440\u0442\u0435\u043d\u0437\u0456\u044e\"  (38451787)", 
+      "ngo_social": "https://www.facebook.com/pha.org.ua, https://vk.com/club40748309", 
+      "ngo_web": "http://pha.org.ua/", 
+      "photo": "016-05-1490105585.0537393.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100006801759504"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 246, 
+      "name": "\u0410\u043d\u0442\u043e\u043d\u043e\u0432 \u0421\u0435\u0440\u0433\u0456\u0439 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0421\u043f\u0456\u043b\u043a\u0430 \"\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0435 \u041e\u0431'\u0454\u0434\u043d\u0430\u043d\u043d\u044f \"\u0417\u0410\u0425\u0418\u0429\u0415\u041d\u0410 \u041c\u0415\u0414\u0418\u0426\u0418\u041d\u0410\"  (38689463)", 
+      "ngo_social": "https://www.facebook.com/ProtectedMedicine?fref=ts", 
+      "ngo_web": "http://www.protectedmedicine.org.ua/ua/", 
+      "photo": "246-05-1493014665.6175163.jpg", 
+      "social": "https://www.facebook.com/sergii.antonov"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 4
+      }, 
+      "id": 171, 
+      "name": "\u0410\u0440\u043d\u0430\u0443\u0442\u043e\u0432\u0430 \u0412\u0456\u043a\u0442\u043e\u0440\u0456\u044f \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0420\u0435\u0441\u0443\u0440\u0441\u043d\u0438\u0439 \u0446\u0435\u043d\u0442\u0440 \"\u041c\u0430\u0439\u0431\u0443\u0442\u0442\u044f\"  (39188537)", 
+      "ngo_social": "https://www.facebook.com/groups/1682404131990937/", 
+      "ngo_web": "http://www.maibuttia.com.ua/", 
+      "photo": "171-05-1490618669.2783737.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100001216897783"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 222, 
+      "name": "\u0410\u0440\u0445\u0456\u043f\u043e\u0432 \u0412\u0456\u0442\u0430\u043b\u0456\u0439 \u0412\u0456\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u0417\u0410\u0425\u0418\u0421\u0422 \u0417\u0414\u041e\u0420\u041e\u0412'\u042f \u0423\u041a\u0420\u0410\u0407\u041d\u0418\"  (39940199)", 
+      "ngo_social": "", 
+      "ngo_web": "http://ua.healthcare", 
+      "photo": "222-05-1490702122.9293735.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 6, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 168, 
+      "name": "\u0411\u0430\u0433\u0440\u0456\u0439 \u041f\u0435\u0442\u0440\u043e \u0406\u0432\u0430\u043d\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \"\u0412\u0438\u0440\u043e\u0431\u043d\u0438\u043a\u0438 \u043b\u0456\u043a\u0456\u0432 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (37509029)", 
+      "ngo_social": "", 
+      "ngo_web": "http://www.avlu.org.ua", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 15, 
+      "name": "\u0411\u0430\u0434\u0456\u043a\u043e\u0432 \u0422\u0438\u043c\u043e\u0444\u0456\u0439 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0411\u0430\u0442\u044c\u043a\u0438 \u0437\u0430 \u0432\u0430\u043a\u0446\u0438\u043d\u0430\u0446\u0456\u044e\"  (40303065)", 
+      "ngo_social": "https://www.facebook.com/bzvorgua/?fref=ts", 
+      "ngo_web": "http://www.bzv.org.ua/", 
+      "photo": "015-05-1490358143.1226668.png", 
+      "social": "https://www.facebook.com/badikov.t"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 262, 
+      "name": "\u0411\u043e\u0433\u0430\u0442\u043e\u0432\u0430 \u0421\u043e\u0444\u0456\u044f \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u041e \u00ab\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0456\u043d\u0456\u0446\u0456\u0430\u0442\u0438\u0432\u0430 \u00ab\u041f\u0440\u0430\u0432\u043e \u043d\u0430 \u0437\u0434\u043e\u0440\u043e\u0432'\u044f\u00bb  ()", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 224, 
+      "name": "\u0411\u043e\u0436\u0443\u043a \u0411\u043e\u0433\u0434\u0430\u043d \u0421\u0442\u0435\u043f\u0430\u043d\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0430\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u043b\u0456\u043a\u0430\u0440\u0456\u0432-\u043f\u0441\u0438\u0445\u043e\u043b\u043e\u0433\u0456\u0432\"  (37700957)", 
+      "ngo_social": "https://www.facebook.com/ualip.org.ua/", 
+      "ngo_web": "http://ualip.org.ua", 
+      "photo": "224-05-1490698407.5223153.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100004141412483"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 1
+      }, 
+      "id": 36, 
+      "name": "\u0411\u043e\u0439\u043a\u043e \u041b\u0456\u043b\u0456\u044f \u041c\u0438\u0445\u0430\u0439\u043b\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \u041a\u043e\u043c\u0456\u0442\u0435\u0442 \u043f\u0456\u0434\u043f\u0440\u0438\u0454\u043c\u0446\u0456\u0432 \u041b\u044c\u0432\u0456\u0432\u0449\u0438\u043d\u0438  (33533042)", 
+      "ngo_social": "https://www.facebook.com/kpl.info/?fref=hovercard", 
+      "ngo_web": "http://kpl.org.ua", 
+      "photo": "036-05-1490877060.2836525.jpg", 
+      "social": "https://www.facebook.com/kavasonata?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 2, 
+        "res": 3, 
+        "tax": 1
+      }, 
+      "id": 101, 
+      "name": "\u0411\u0443\u043d\u0456\u043d\u0430 \u0410\u043b\u043b\u0430 \u041e\u043b\u0435\u043a\u0441\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0426\u0435\u043d\u0442\u0440 \u0441\u0456\u043c\u0435\u0439\u043d\u043e\u0457 \u0431\u0435\u0437\u043f\u0435\u043a\u0438 \"\u0420\u041e\u0414\"  (40563285)", 
+      "ngo_social": "http://www.facebook.com/profile.php?id=10000126558958904", 
+      "ngo_web": "http://www.csb-rod.org.ua/", 
+      "photo": "101-05-1490611581.3763356.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 121, 
+      "name": "\u0411\u0443\u0446\u044c\u043a\u0430 \u041b\u0456\u0434\u0456\u044f \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0415\u043a\u043e\u043b\u043e\u0433\u0456\u044f \u0456 \u0437\u0434\u043e\u0440\u043e\u0432'\u044f\"  (25391177)", 
+      "ngo_social": "https://www.facebook.com/groups/487546461348303/", 
+      "ngo_web": "", 
+      "photo": "121-05-1490634935.2309444.jpg", 
+      "social": "https://www.facebook.com/lidiya.butska"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 6, 
+        "tax": 0
+      }, 
+      "id": 220, 
+      "name": "\u0412\u0430\u0445\u043d\u0435\u043d\u043a\u043e \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u041c\u0438\u043a\u043e\u043b\u0430\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0441\u0442\u043e\u043c\u0430\u0442\u043e\u043b\u043e\u0433\u0456\u0432 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (130080)", 
+      "ngo_social": "https://www.facebook.com/udenta.org.ua/?ref=page_internal", 
+      "ngo_web": "http://www.udenta.org.ua", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 47, 
+      "name": "\u0412\u0434\u043e\u0432\u0435\u043d\u043a\u043e \u041e\u043b\u0435\u043a\u0441\u0456\u0439 \u0421\u0435\u0440\u0433\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0414\u043e\u043f\u0430\u043c\u0456\u043d\"  (40733804)", 
+      "ngo_social": "https://www.facebook.com/dopamun/  ", 
+      "ngo_web": "https://www.facebook.com/kinder.nir", 
+      "photo": "047-05-1490639748.7974143.jpg", 
+      "social": "https://www.facebook.com/kinder.nir"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 2, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 225, 
+      "name": "\u0412\u0438\u043d\u043d\u0438\u043a \u041d\u0430\u0442\u0430\u043b\u0456\u044f \u041f\u0435\u0442\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0406\u043c\u0443\u043d\u043d\u0438\u0439 \u0449\u0438\u0442 \u043d\u0430\u0446\u0456\u0457\"  (36426099)", 
+      "ngo_social": "", 
+      "ngo_web": "http://privivka.org.ua/", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 5, 
+        "tax": 0
+      }, 
+      "id": 84, 
+      "name": "\u0412\u043e\u0440\u043e\u043d\u043a\u043e\u0432\u0430 \u041d\u0430\u0442\u0430\u043b\u0456\u044f \u041e\u043b\u0435\u0433\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u041e \"\u0412\u043e\u043b\u043e\u043d\u0442\u0435\u0440\u0441\u044c\u043a\u0430 \u0421\u043e\u0442\u043d\u044f \u0414\u043e\u0431\u0440\u043e\u0432\u043e\u043b\u044f\"  (39288814)", 
+      "ngo_social": "https://www.facebook.com/%D0%92%D0%BE%D0%BB%D0%BE%D0%BD%D1%82%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F-%D0%A1%D0%BE%D1%82%D0%BD%D1%8F-%D0%93%D0%BE%D1%81%D0%BF%D0%B8%D1%82%D0%B0%D0%BB%D1%8C-547369658737346/?pnref=lhc", 
+      "ngo_web": "http://dobrovolya.org/", 
+      "photo": "084-05-1490728717.7081015.jpg", 
+      "social": "https://www.facebook.com/nata.voronkova"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 49, 
+      "name": "\u0412\u043e\u0442\u0447\u0435\u0440 \u042e\u043b\u0456\u044f \u041b\u0443\u043a\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u041c\u043e\u043b\u044c\u0444\u0430\u0440\"  (39209271)", 
+      "ngo_social": "https://www.facebook.com/molfar.org/?fref=ts", 
+      "ngo_web": "http://www.molfar.org", 
+      "photo": "049-05-1490100143.2872155.jpg", 
+      "social": "https://www.facebook.com/votcher.j"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 211, 
+      "name": "\u0413\u0430\u0439\u043e\u0432\u0438\u0447 \u0406\u0433\u043e\u0440 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u041d\u0430\u0443\u043a\u043e\u0432\u043e-\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u043d\u0438\u0439 \u0446\u0435\u043d\u0442\u0440 \"\u042e\u041d\u0406\u0422\"  (40336038)", 
+      "ngo_social": "https://www.facebook.com/unit.ukraine/?pnref=lhc", 
+      "ngo_web": "http://www.unit.org.ua/", 
+      "photo": "211-05-1493024181.0384233.jpeg", 
+      "social": "https://www.facebook.com/gajigor"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 263, 
+      "name": "\u0413\u0430\u043d\u043d\u043e\u0445\u0430 \u041b\u044e\u0434\u043c\u0438\u043b\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u041c\u0456\u0436\u043d\u0430\u0440\u043e\u0434\u043d\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \u041d.\u041f\u043e\u0442\u043e\u043f\u0430\u0454\u0432\u043e\u0457  ()", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 164, 
+      "name": "\u0413\u0430\u043f\u043e\u043d\u0435\u043d\u043a\u043e \u0421\u0435\u0440\u0433\u0456\u0439 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u041c\u0435\u0440\u0438\u0434\u0456\u0430\u043d\"  (40222950)", 
+      "ngo_social": "https://www.facebook.com/bomeridian/", 
+      "ngo_web": "https://www.meridian.org.ua/", 
+      "photo": "164-05-1490612482.4083664.jpg", 
+      "social": "https://www.facebook.com/sergey.gapon.7"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 9
+      }, 
+      "id": 40, 
+      "name": "\u0413\u0430\u0440\u043c\u0430\u0448 \u041e\u043b\u0435\u043d\u0430 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0424\u043e\u043d\u0434 \"\u0421\u0442\u0430\u043d\u0446\u0456\u044f \"\u0425\u0430\u0440\u043a\u0456\u0432\"  (39479164)", 
+      "ngo_social": "https://www.facebook.com/Station.Kharkov/?fref=ts", 
+      "ngo_web": "http://station.kharkov.ua/", 
+      "photo": "040-05-1490088440.6750517.png", 
+      "social": "https://www.facebook.com/Garmash.Olena"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 116, 
+      "name": "\u0413\u0430\u0440\u043d\u0438\u043a \u041a\u0438\u0440\u0438\u043b\u043e \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0413\u041e \"\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0444\u0430\u0445\u0456\u0432\u0446\u0456\u0432 \u0437 \u043d\u0430\u0440\u043e\u0434\u043d\u043e\u0457 \u0456 \u043d\u0435\u0442\u0440\u0430\u0434\u0438\u0446\u0456\u0439\u043d\u043e\u0457 \u043c\u0435\u0434\u0438\u0446\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (33443640)", 
+      "ngo_social": "https://www.facebook.com/vgouanm/", 
+      "ngo_web": "http://uanm.org.ua/", 
+      "photo": "116-05-1490644776.7374494.jpg", 
+      "social": "https://www.facebook.com/dr.kerlick"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 2, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 147, 
+      "name": "\u0413\u043e\u043d\u0447\u0430\u0440 \u0404\u0432\u0433\u0435\u043d\u0456\u0439 \u0412'\u042f\u0447\u0435\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u0406\u041d\u0424\u041e\u0420\u041c\u0410\u0426\u0406\u0419\u041d\u041e-\u0410\u041d\u0410\u041b\u0406\u0422\u0418\u0427\u041d\u0418\u0419 \u0426\u0415\u041d\u0422\u0420 \"\u041b\u041e\u0413\u041e\u0421\"  (38172335)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "147-05-1490455225.191047.jpg", 
+      "social": "https://www.facebook.com/ukraine.evgeniy"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 3, 
+        "res": 6, 
+        "tax": 7
+      }, 
+      "id": 218, 
+      "name": "\u0413\u043e\u0440\u0456\u043b\u0435\u0439 \u041e\u043a\u0441\u0430\u043d\u0430 \u0421\u0435\u0440\u0433\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0412\u0456\u0434\u043d\u043e\u0432\u043b\u044e\u0432\u0430\u043b\u044c\u043d\u043e\u0457 \u0415\u043d\u0435\u0440\u0433\u0435\u0442\u0438\u043a\u0438 \"\u0410\u043b\u044c\u0442\u0435\u0440\u043d\u0430\u0442\u0438\u0432\u0430\"  (38217627)", 
+      "ngo_social": "https://www.facebook.com/www.alternativa.info/?hc_ref=SEARCH", 
+      "ngo_web": "http://alternativa.info", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/www.alternativa.info/?hc_ref=SEARCH"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 126, 
+      "name": "\u0413\u0440\u0430\u043d\u0446\u0435\u0432 \u0404\u0432\u0433\u0435\u043d\u0456\u0439 \u0413\u0435\u043e\u0440\u0433\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0411\u041b\u0410\u0413\u041e\u0414\u0406\u0419\u041d\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \u00ab\u0412\u0421\u0415\u0423\u041a\u0420\u0410\u0407\u041d\u0421\u042c\u041a\u0418\u0419 \u0411\u041b\u0410\u0413\u041e\u0414\u0406\u0419\u041d\u0418\u0419 \u0424\u041e\u041d\u0414 \u00ab\u0421\u041a\u0415\u041b\u042f \u041f\u041e\u0420\u042f\u0422\u0423\u041d\u041a\u0423\u00bb  (39066514)", 
+      "ngo_social": "https://www.facebook.com/skalaspaseniya2014/?fref=ts", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100009089723402&fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 5, 
+        "mot": 2, 
+        "res": 2, 
+        "tax": 2
+      }, 
+      "id": 207, 
+      "name": "\u0413\u0440\u0435\u0432\u0446\u043e\u0432\u0430 \u0420\u0430\u0434\u043c\u0438\u043b\u0430 \u042e\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0430\u0434\u0432\u043e\u043a\u0430\u0442\u0456\u0432 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (34294645)", 
+      "ngo_social": "https://www.facebook.com/\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f-\u0430\u0434\u0432\u043e\u043a\u0430\u0442\u0456\u0432-\u0423\u043a\u0440\u0430\u0457\u043d\u0438-\u0410\u0410\u0423-Ukrainian-Advocates-Association-UAA-219266061451490/?fref=ts", 
+      "ngo_web": "http://www.uaa.org.ua", 
+      "photo": "207-05-1490701518.1745288.jpg", 
+      "social": "https://www.facebook.com/radmila.hrevtsova"
+    }, 
+    {
+      "docs": {
+        "bio": 3, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 249, 
+      "name": "\u0413\u0440\u0438\u0448\u0438\u043d \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \u041c\u0435\u0434\u0438\u043a\u0438 \u0434\u043e\u0431\u0440\u043e\u0457 \u0432\u043e\u043b\u0456  (39444634)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "249-05-1492975841.650027.jpg", 
+      "social": "https://www.facebook.com/vladimir.grishin.5?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 221, 
+      "name": "\u0413\u0443\u0437\u044c \u041e\u043a\u0441\u0430\u043d\u0430 \u041e\u043b\u0435\u0433\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0406\u043d\u0441\u0430\u0439\u0442\"  (35873020)", 
+      "ngo_social": "https://www.facebook.com/insight.ngo/?fref=ts", 
+      "ngo_web": "http://insight-ukraine.org/", 
+      "photo": "221-05-1490696865.4551086.jpg", 
+      "social": "https://www.facebook.com/ook.guz"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 195, 
+      "name": "\u0413\u0443\u043a \u0410\u043d\u0434\u0440\u0456\u0439 \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u041e \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0430\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0441\u043f\u0440\u0438\u044f\u043d\u043d\u044f \u043e\u0445\u043e\u0440\u043e\u043d\u0456 \u0437\u0434\u043e\u0440\u043e\u0432'\u044f \u043d\u0430\u0441\u0435\u043b\u0435\u043d\u043d\u044f\"  (25680740)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "195-05-1490640692.7995722.jpg", 
+      "social": "https://www.facebook.com/andriy.huk?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 153, 
+      "name": "\u0414\u0456\u043d\u0435\u0446\u044c \u0410\u043d\u0434\u0440\u0456\u0439 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u041a\u043b\u0443\u0431 \u043f\u043b\u0430\u0441\u0442\u0438\u0447\u043d\u0438\u0457 \u0445\u0456\u0440\u0443\u0440\u0433\u0456\u0432  (33308447)", 
+      "ngo_social": "https://www.facebook.com/groups/1095723897182565/", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 35, 
+      "name": "\u0414\u0456\u0447\u0435\u043a \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0406\u0432\u0430\u043d\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0441\u043f\u0456\u043b\u043a\u0430 \"\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0432\u0438\u0440\u043e\u0431\u043d\u0438\u043a\u0456\u0432 \u043c\u0435\u0434\u0438\u0447\u043d\u043e\u0457 \u0442\u0435\u0445\u043d\u0456\u043a\u0438 \"\u0423\u041a\u0420\u041c\u0415\u0414\u041f\u0420\u041e\u041c\"  (38780855)", 
+      "ngo_social": "", 
+      "ngo_web": "http://ukrmedprom.info", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 39, 
+      "name": "\u0414\u0435\u043c\u0447\u0435\u043d\u043a\u043e \u0406\u0432\u0430\u043d \u0421\u0435\u0440\u0433\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \u00ab \u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0415 \u041e\u0411 \u2019\u0404\u0414\u041d\u0410\u041d\u041d\u042f   \u00ab\u0417\u0414\u041e\u0420\u041e\u0412\u0415 \u0421\u0423\u0421\u041f\u0406\u041b\u042c\u0421\u0422\u0412\u041e\u00bb  (38928673)", 
+      "ngo_social": "http://www.facebook.com/zdorovesuspilstvo", 
+      "ngo_web": "http://zdorovesuspilstvo.com.ua", 
+      "photo": "039-05-1493019852.8895674.jpg", 
+      "social": "http://facebook.com/zdorovesuspilstvo."
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 6, 
+      "name": "\u0414\u0437\u0443\u043d\u0434\u0437\u0430 \u0420\u043e\u0441\u0442\u0438\u0441\u043b\u0430\u0432 \u041c\u0438\u0440\u043e\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u041e \"\u0411\u044e\u0440\u043e \u0441\u043e\u0446\u0456\u0430\u043b\u044c\u043d\u0438\u0445 \u0442\u0430 \u043f\u043e\u043b\u0456\u0442\u0438\u0447\u043d\u0438\u0445 \u0440\u043e\u0437\u0440\u043e\u0431\u043e\u043a\"  (38692790)", 
+      "ngo_social": "https://www.facebook.com/\u0411\u044e\u0440\u043e-\u0441\u043e\u0446\u0456\u0430\u043b\u044c\u043d\u0438\u0445-\u0442\u0430-\u043f\u043e\u043b\u0456\u0442\u0438\u0447\u043d\u0438\u0445-\u0440\u043e\u0437\u0440\u043e\u0431\u043e\u043a-1502076653374621/", 
+      "ngo_web": "http://bureau.in.ua/", 
+      "photo": "006-05-1490545473.8915112.jpg", 
+      "social": "https://www.facebook.com/rostek.dzundza"
+    }, 
+    {
+      "docs": {
+        "bio": 3, 
+        "mot": 1, 
+        "res": 3, 
+        "tax": 0
+      }, 
+      "id": 213, 
+      "name": "\u0417\u0430\u0445\u0430\u0440\u0438\u0447\u0435\u0432 \u042e\u0440\u0456\u0439 \u042e\u0440\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u0420\u0415\u0424\u041e\u0420\u041c\u0410\u0426\u0406\u042f\" \u0413\u0420\u041e\u041c\u0410\u0414\u042f\u041d\u0421\u042c\u041a\u0418\u0419 \u0420\u0423\u0425\"  (40441584)", 
+      "ngo_social": "https://www.facebook.com/groups/reformacia/?fref=ts", 
+      "ngo_web": "", 
+      "photo": "213-05-1491400981.0457728.jpg", 
+      "social": "https://www.facebook.com/zakharichev "
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 241, 
+      "name": "\u0406\u0433\u043d\u0430\u0442\u043e\u0432 \u0404\u0432\u0433\u0435\u043d \u041c\u0438\u0445\u0430\u0439\u043b\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0421\u043f\u0456\u043b\u043a\u0430 \u00ab\u0421\u043f\u0456\u043b\u043a\u0430 \u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0445 \u043f\u0456\u0434\u043f\u0440\u0438\u0454\u043c\u0446\u0456\u0432\u00bb  (40326145)", 
+      "ngo_social": "https://www.facebook.com/sup.org.ua/", 
+      "ngo_web": "http://sup.org.ua/", 
+      "photo": "241-05-1490708667.644952.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100006955699427 "
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 187, 
+      "name": "\u041a\u0430\u0441\u043f\u0430\u0440\u0435\u0432\u0438\u0447 \u0410\u043d\u0434\u0440\u0456\u0439 \u042e\u0440\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0441\u043f\u0456\u043b\u043a\u0430 \u00ab\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u00ab\u0421\u0445\u0456\u0434\u043d\u0435 \u043f\u0430\u0440\u0442\u043d\u0435\u0440\u0441\u0442\u0432\u043e\u00bb  (40278165)", 
+      "ngo_social": "https://www.facebook.com/sharer.php?u=http%3A%2F%2Flugansk.lugansk.ua%2F%25d0%25ba%25d0%25be%25d0%25bd%25d1%2582%25d0%25b0%25d0%25ba%25d1%2582%25d1%258b%2F&t=%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B", 
+      "ngo_web": "http://lugansk.lugansk.ua/", 
+      "photo": "187-05-1490699015.999737.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100006678660143"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 13, 
+      "name": "\u041a\u0430\u0447\u0430\u043b\u043e\u0432 \u042e\u0440\u0456\u0439 \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0417\u0430\u043f\u043e\u0440\u0456\u0437\u044c\u043a\u0438\u0439 \u043c\u0456\u0441\u044c\u043a\u0438\u0439 \u043a\u043e\u043d\u0433\u0440\u0435\u0441 \u0456\u043d\u0432\u0430\u043b\u0456\u0434\u0456\u0432\"  (37707931)", 
+      "ngo_social": "https://www.facebook.com/groups/856603844458034/", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100005731457811"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 102, 
+      "name": "\u041a\u043e\u0432\u0430\u043b\u044c \u0412\u0456\u043a\u0442\u043e\u0440\u0456\u044f \u041c\u0438\u043a\u043e\u043b\u0430\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u041f\u0440\u043e\u0444\u0435\u0441\u0456\u0439\u043d\u0430 \u0441\u043f\u0456\u043b\u043a\u0430 \u043f\u0440\u0430\u0446\u0456\u0432\u043d\u0438\u043a\u0456\u0432 \u043e\u0445\u043e\u0440\u043e\u043d\u0438 \u0437\u0434\u043e\u0440\u043e\u0432\"\u044f \u0423\u043a\u0440\u0430\u0457\u043d\u0438  (3591800)", 
+      "ngo_social": "https://www.facebook.com/\u041f\u0440\u043e\u0444\u0435\u0441\u0456\u0439\u043d\u0430-\u0441\u043f\u0456\u043b\u043a\u0430-\u043f\u0440\u0430\u0446\u0456\u0432\u043d\u0438\u043a\u0456\u0432-\u043e\u0445\u043e\u0440\u043e\u043d\u0438-\u0437\u0434\u043e\u0440\u043e\u0432\u044f-\u0423\u043a\u0440\u0430\u0457\u043d\u0438-1615728802059909", 
+      "ngo_web": "http://www.medprof.org.ua", 
+      "photo": "102-05-1490608611.527103.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 217, 
+      "name": "\u041a\u043e\u0432\u0430\u043b\u044c (\u041b\u0438\u0442\u0432\u0438\u043d\u043e\u0432\u0430) \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0430 (\u041b\u0435\u0441\u044f) \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u0421\u0412\u041e\u0407\"  (39293651)", 
+      "ngo_social": "https://www.facebook.com/frolivska911/     https://www.facebook.com/cf.svoyi/", 
+      "ngo_web": "", 
+      "photo": "217-05-1490692886.4492972.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100000060541752&fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 209, 
+      "name": "\u041a\u043e\u0432\u0430\u043b\u044c\u0447\u0443\u043a \u0410\u043d\u043d\u0430 \u042e\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u041e \"\u0413\u041e\u041f\u0410\u041a\" \u0413\u0440\u043e\u043c\u0430\u0434\u044f\u043d\u0441\u044c\u043a\u0435 \u043e\u0431\u2019\u0454\u0434\u043d\u0430\u043d\u043d\u044f \u043f\u0430\u0442\u0440\u0456\u043e\u0442\u0438\u0447\u043d\u0438\u0445 \u0430\u043a\u0442\u0438\u0432\u0456\u0441\u0442\u0456\u0432 \u043a\u0440\u0430\u0457\u043d\u0438  (39213733)", 
+      "ngo_social": "", 
+      "ngo_web": "http://ngo-gopak.com", 
+      "photo": "209-05-1490708929.801145.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 158, 
+      "name": "\u041a\u043e\u0442\u043b\u044f\u0440 \u0422\u0435\u0442\u044f\u043d\u0430 \u041c\u0438\u043a\u043e\u043b\u0430\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0441\u043f\u0456\u043b\u043a\u0430\"\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0444\u0430\u0440\u043c\u0430\u0446\u0435\u0432\u0442\u0438\u0447\u043d\u0430 \u0441\u043f\u0456\u043b\u043a\u0430 \"\u0424\u0410\u0420\u041c\u0423\u041a\u0420\u0410\u0407\u041d\u0410\"  (39771836)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 2
+      }, 
+      "id": 239, 
+      "name": "\u041a\u0443\u0431\u0430\u043d\u0441\u044c\u043a\u0438\u0439 \u0421\u0435\u0440\u0433\u0456\u0439 \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u041a\u0438\u0457\u0432\u0441\u044c\u043a\u0430 \u043c\u0456\u0441\u044c\u043a\u0430 \u043f\u0440\u043e\u0444\u0441\u043f\u0456\u043b\u043a\u0430 \u043f\u0440\u0430\u0446\u0456\u0432\u043d\u0438\u043a\u0456\u0432 \u043e\u0445\u043e\u0440\u043e\u043d\u0438 \u0437\u0434\u043e\u0440\u043e\u0432'\u044f  (2670609)", 
+      "ngo_social": "", 
+      "ngo_web": "http://kmppoz.org", 
+      "photo": "239-05-1490705585.7071729.jpeg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 258, 
+      "name": "\u041a\u0443\u0437\u044c\u043c\u0456\u043d\u0438\u0445 \u0421\u0435\u0440\u0433\u0456\u0439 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0411\u041e \u00ab\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0424\u043e\u043d\u0434 \u0431\u0440\u0430\u0442\u0456\u0432 \u041a\u0443\u0437\u044c\u043c\u0456\u043d\u0438\u0445\u00bb  ()", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 18
+      }, 
+      "id": 96, 
+      "name": "\u041a\u0443\u043b\u0456\u0448 \u041e\u043a\u0441\u0430\u043d\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u041b\u044c\u0432\u0456\u0432\u0441\u044c\u043a\u0438\u0439 \u043c\u0456\u0441\u044c\u043a\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u0421\u0435\u0441\u0442\u0440\u0438 \u0414\u0430\u043b\u0456\u043b\u0438\"  (39155436)", 
+      "ngo_social": "https://www.facebook.com/poryatunok", 
+      "ngo_web": "http://poryatunok.info/uk/", 
+      "photo": "096-05-1490562515.578642.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100008376392129"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 17, 
+      "name": "\u041a\u0443\u043b\u0435\u0448\u0430 \u0422\u0435\u0442\u044f\u043d\u0430 \u0413\u0440\u0438\u0433\u043e\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0441\u043f\u0456\u043b\u043a\u0430 \"\u041e\u0440\u0444\u0430\u043d\u043d\u0456 \u0437\u0430\u0445\u0432\u043e\u0440\u044e\u0432\u0430\u043d\u043d\u044f \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (39341591)", 
+      "ngo_social": "https://www.facebook.com/orphandisua", 
+      "ngo_web": "http://rarediseases.org.ua", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/kuleshatatiana"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 248, 
+      "name": "\u041a\u0443\u0448\u043d\u0456\u0440\u0435\u043d\u043a\u043e \u041f\u0430\u0432\u043b\u043e \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0421\u0415\u0423\u041a\u0420\u0410\u0407\u041d\u0421\u042c\u041a\u0410 \u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u0424\u0410\u0420\u041c\u0423\u041a\u0420\u0410\u0407\u041d\u0410\"  (37396275)", 
+      "ngo_social": "", 
+      "ngo_web": "http://www.pharmukraine.org", 
+      "photo": "248-05-1490710684.2696755.jpg", 
+      "social": "http://www.facebook.com/pavel.kushnirenko"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 186, 
+      "name": "\u041b\u0456\u043f\u0441\u044c\u043a\u0430 \u041d\u0430\u0442\u0430\u043b\u0456\u044f \u0421\u0435\u0440\u0433\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u041a\u0440\u0438\u043b\u0430 \u043d\u0430\u0434\u0456\u0457\"  (35620901)", 
+      "ngo_social": "https://www.facebook.com/krylanadiyi.org.ua", 
+      "ngo_web": "http://krylanadiyi.org.ua", 
+      "photo": "186-05-1490717102.964215.jpg", 
+      "social": "https://www.facebook.com/lipska.nataliya"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 234, 
+      "name": "\u041b\u0456\u0442\u0443\u0441 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0406\u0432\u0430\u043d\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0430\u043a\u0430\u0434\u0435\u043c\u0456\u044f \u0434\u0435\u0440\u043c\u0430\u0442\u043e\u0432\u0435\u043d\u0435\u0440\u043e\u043b\u043e\u0433\u0456\u0457\"  (34912853)", 
+      "ngo_social": "https://www.facebook.com/uadv.org/", 
+      "ngo_web": "http://www.uadv.org.ua", 
+      "photo": "234-05-1490703809.1914027.jpg", 
+      "social": "https://www.facebook.com/m.d.litus?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 2, 
+        "res": 1, 
+        "tax": 3
+      }, 
+      "id": 3, 
+      "name": "\u041b\u0438\u0441\u0435\u043d\u043a\u043e \u0406\u0440\u0438\u043d\u0430 \u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u041e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \u00ab\u0417\u0440\u043e\u0441\u0442\u0430\u0439\u043c\u043e \u0417\u0434\u043e\u0440\u043e\u0432\u0456\u00bb  (40024247)", 
+      "ngo_social": "http://www.facebook.com/verbaukraine", 
+      "ngo_web": "http://verba-ua.jimdo.com", 
+      "photo": "003-05-1490591844.929246.jpg", 
+      "social": "http://www.facebook.com/verbaukraine"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 172, 
+      "name": "\u041b\u0438\u0442\u0432\u0438\u043d\u0435\u043d\u043a\u043e\u0432\u0430 \u0422\u0430\u043c\u0430\u0440\u0430 \u0413\u0440\u0438\u0433\u043e\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \u00ab\u0424\u0430\u0440\u043c\u0430\u0446\u0435\u0432\u0442\u0438\u0447\u043d\u0430 \u0430\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0414\u043d\u0456\u043f\u0440\u043e\u043f\u0435\u0442\u0440\u043e\u0432\u0441\u044c\u043a\u043e\u0457 \u043e\u0431\u043b\u0430\u0441\u0442\u0456\u00bb  (34062321)", 
+      "ngo_social": "", 
+      "ngo_web": "http://fado.org.ua", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 4, 
+      "name": "\u041b\u0443\u0449\u0430\u043a \u0411\u043e\u0433\u0434\u0430\u043d \u0412\u0430\u0441\u0438\u043b\u044c\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0412\u0430\u0448 \u0417\u0456\u0440\"  (40096044)", 
+      "ngo_social": "https://www.facebook.com/\u0417\u0430\u0445\u0456\u0434\u043d\u043e\u0423\u043a\u0440\u0430\u0456\u043d\u0441\u044c\u043a\u0435-\u0432\u0456\u0434\u0434\u0456\u043b\u0435\u043d\u043d\u044f-\u041c\u0411\u0424-\u0421\u043f\u0440\u0438\u044f\u043d\u043d\u044f-\u0420\u043e\u0437\u0432\u0438\u0442\u043a\u0443-\u041c\u0435\u0434\u0438\u0446\u0438\u043d\u0438-229179754185896/?fref=ts", 
+      "ngo_web": "http://fundukrmed.org", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/bogdan.luschac?fref=hovercard"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 21
+      }, 
+      "id": 203, 
+      "name": "\u041c\u0454\u0437\u0454\u043d\u0446\u043e\u0432 \u0412\u0430\u0441\u0438\u043b\u044c \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u041e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"O\u0431\u1fbd\u0454\u0434\u043d\u0430\u043d\u043d\u044f \u0432\u043e\u043b\u043e\u043d\u0442\u0435\u0440\u0456\u0432 \u0417\u0430\u043f\u043e\u0440\u0456\u0436\u0436\u044f\"  (39491841)", 
+      "ngo_social": "https://www.facebook.com/groups/923642307725098/pending/", 
+      "ngo_web": "http://123.zp.ua/", 
+      "photo": "203-05-1490653181.7041917.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100007758906857"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 95, 
+      "name": "\u041c\u0430\u0442\u0456\u044f\u0448 \u041e\u043b\u0435\u0433 \u042f\u0440\u043e\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u0457 \u00ab\u0412\u0418\u0425\u0406\u0414-\u0404\u00bb  (40871621)", 
+      "ngo_social": "https://www.facebook.com/vyhide.ua?fref=ts", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/matijash.jaroslavovich?ref=bookmarks"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 194, 
+      "name": "\u041c\u0435\u043b\u044c\u043d\u0438\u043a \u0413\u0430\u043b\u0438\u043d\u0430 \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0414\u0456\u0442\u0438 \u0441\u043e\u043d\u0446\u044f\"  (35170178)", 
+      "ngo_social": "http://B2BToday.com.ua", 
+      "ngo_web": "http://b2btoday.com.ua/id/3618541", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 3, 
+        "tax": 0
+      }, 
+      "id": 78, 
+      "name": "\u041c\u0438\u043a\u0438\u0442\u0435\u043d\u043a\u043e \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0438\u0439 \u0420\u0443\u0445 \"\u0417\u0430 \u041c\u0430\u0439\u0431\u0443\u0442\u043d\u0454\"  (36469085)", 
+      "ngo_social": "http://vk.com/zamaybutne.org", 
+      "ngo_web": "http://www.zamaybutne.org", 
+      "photo": "nophoto.jpg", 
+      "social": "http://www.zamaybutne.org"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 18, 
+      "name": "\u041c\u043e\u0437\u0430\u043b\u044c\u043e\u0432\u0430 \u0421\u0432\u0456\u0442\u043b\u0430\u043d\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0457\u043d\u0430", 
+      "ngo_name": "\u0424\u0430\u0445\u0456\u0432\u0446\u0456 \u0443 \u0433\u0430\u043b\u0443\u0437\u0456 \u043f\u0440\u0438\u0440\u043e\u0434\u043d\u0438\u0445 \u043b\u0456\u043a\u0443\u0432\u0430\u043b\u044c\u043d\u0438\u0445 \u0440\u0435\u0441\u0443\u0440\u0441\u0456\u0432  (34995573)", 
+      "ngo_social": "http://fb.me/expertsplr ", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/feofani"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 260, 
+      "name": "\u041c\u0440\u0443\u0433\u0430 \u041c\u0430\u0440\u0438\u043d\u0430 \u0420\u0430\u0448\u0438\u0434\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u041e \u00ab\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0439 \u043d\u0430\u0443\u043a\u043e\u0432\u0438\u0439 \u043a\u043b\u0443\u0431\u00bb  ()", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 30, 
+      "name": "\u041c\u044f\u0441\u0456\u043d \u0421\u0435\u0440\u0433\u0456\u0439 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u041c\u0456\u0436\u043d\u0430\u0440\u043e\u0434\u043d\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u0414\u0435\u043c\u043e\u043a\u0440\u0430\u0442\u0438\u0447\u043d\u0438\u0439 \u0424\u0443\u043d\u0434\u0430\u043c\u0435\u043d\u0442\"  (36833260)", 
+      "ngo_social": "", 
+      "ngo_web": "http://www.d-f.net.ua", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 56, 
+      "name": "\u041d\u0430\u0432\u0430\u043b\u044c\u043a\u0456\u0432\u0441\u044c\u043a\u0430 \u0420\u043e\u043c\u0430\u043d\u0430 \u042e\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u041b\u0456\u0433\u0430 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u0438\u0445 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u0439 \u0423\u043a\u0440\u0430\u0457\u043d\u0438  (19478514)", 
+      "ngo_social": "https://www.facebook.com/uainsurcom/?fref=ts", 
+      "ngo_web": "http://uainsur.com/", 
+      "photo": "056-05-1490098632.1206415.jpg", 
+      "social": "https://www.facebook.com/romana.navalkivska "
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 104, 
+      "name": "\u041d\u0430\u043a\u043e\u043d\u0435\u0447\u043d\u0438\u0439 \u042e\u0440\u0456\u0439 \u0411\u043e\u0433\u0434\u0430\u043d\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u041c\u0456\u0436\u043d\u0430\u0440\u043e\u0434\u043d\u0438\u0439 \u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0424\u043e\u043d\u0434 \u041a\u0430\u0440\u0456\u0442\u0430\u0441 \u0423\u043a\u0440\u0430\u0457\u043d\u0430  (21695710)", 
+      "ngo_social": "https://www.facebook.com/caritas.ukraine/", 
+      "ngo_web": "http://www.caritas-ua.org/", 
+      "photo": "104-05-1490282798.5533514.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 3, 
+        "mot": 2, 
+        "res": 3, 
+        "tax": 0
+      }, 
+      "id": 161, 
+      "name": "\u041d\u0435\u0441\u0432\u0430\u0442 \u041d\u0430\u0442\u0430\u043b\u0456\u044f \u0410\u043d\u0434\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u0410\u0421\u041e\u0426\u0406\u0410\u0426\u0406\u042f \u0404\u0412\u0420\u041e\u0410\u0422\u041b\u0410\u041d\u0422\u0418\u0427\u041d\u041e\u0413\u041e \u0421\u041f\u0406\u0412\u0420\u041e\u0411\u0406\u0422\u041d\u0418\u0426\u0422\u0412\u0410\"  (40957111)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100001210030626"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 208, 
+      "name": "\u041e\u0432\u0435\u0447\u043a\u043e \u041e\u043b\u0435\u0433 \u042e\u0440\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u041c\u0456\u0436\u043d\u0430\u0440\u043e\u0434\u043d\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u0421\u043f\u0440\u0438\u044f\u043d\u043d\u044f \u0440\u043e\u0437\u0432\u0438\u0442\u043a\u0443 \u043c\u0435\u0434\u0438\u0446\u0438\u043d\u0438\"  (21655308)", 
+      "ngo_social": "", 
+      "ngo_web": "http://fundukrmed.org/ ", 
+      "photo": "208-05-1490685862.6282501.jpg", 
+      "social": "https://www.facebook.com/oleg.ovechko.9 "
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 5, 
+        "tax": 1
+      }, 
+      "id": 14, 
+      "name": "\u041e\u0434\u043d\u043e\u0431\u043e\u0447\u043a\u043e \u0412\u0456\u043a\u0442\u043e\u0440\u0456\u044f \u0412\u0456\u043a\u0442\u043e\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u041a\u0456\u0440\u043e\u0432\u043e\u0433\u0440\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0431\u043b \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \u041f\u0440\u043e\u0444\u0441\u043f\u0456\u043b\u043a\u0438 \u043f\u0440\u0430\u0446\u0456\u0432\u043d\u0438\u043a\u0456\u0432 \u043e\u0445\u043e\u0440\u043e\u043d\u0438 \u0437\u0434\u043e\u0440\u043e\u0432\"\u044f \u0423\u043a\u0440\u0430\u0457\u043d\u0438  (5426650)", 
+      "ngo_social": "https://www.facebook.com/kirovohrad.medprof/", 
+      "ngo_web": "http://kirovohrad.medprof.org.ua/", 
+      "photo": "014-05-1491224038.183777.jpg", 
+      "social": "https://www.facebook.com/vodnobochko"
+    }, 
+    {
+      "docs": {
+        "bio": 4, 
+        "mot": 4, 
+        "res": 5, 
+        "tax": 18
+      }, 
+      "id": 178, 
+      "name": "\u041e\u043b\u0456\u0444\u0456\u0440\u0435\u043d\u043a\u043e \u0406\u043d\u043d\u0430 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u041c\u0411\u0424 \u00ab\u0414\u043e\u043f\u043e\u043c\u043e\u0433\u0438 \u043f\u043e\u0441\u0442\u0440\u0430\u0436\u0434\u0430\u043b\u0438\u043c \u0432\u043d\u0430\u0441\u043b\u0456\u0434\u043e\u043a \u0414\u0422\u041f\u00bb  (35727825)", 
+      "ngo_social": "", 
+      "ngo_web": "http://dopomogadtp.com/ua/", 
+      "photo": "178-05-1490624051.225586.jpg", 
+      "social": "https://www.facebook.com/inna.olifirenko"
+    }, 
+    {
+      "docs": {
+        "bio": 8, 
+        "mot": 2, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 73, 
+      "name": "\u041e\u043b\u0435\u0444\u0456\u0440 \u041b\u0456\u043b\u0456\u044f \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\"\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0426\u0435\u043d\u0442\u0440 \u0433\u0440\u043e\u043c\u0430\u0434\u044f\u043d\u0441\u044c\u043a\u043e\u0433\u043e \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043d\u0438\u0446\u0442\u0432\u0430 \"\u0416\u0438\u0442\u0442\u044f\"  (36594108)", 
+      "ngo_social": "https://www.facebook.com/AdvocacyCenterLife/", 
+      "ngo_web": "http://center-life.org/", 
+      "photo": "073-05-1490691018.1152258.jpg", 
+      "social": "https://www.facebook.com/lilia.olefir"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 4, 
+        "tax": 0
+      }, 
+      "id": 251, 
+      "name": "\u041e\u043c\u0435\u043b\u044c\u0447\u0435\u043d\u043a\u043e \u041d\u0430\u0442\u0430\u043b\u044f \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u041e \u00ab\u0410\u043a\u0442\u0438\u0432\u043d\u0430 \u0433\u0440\u043e\u043c\u0430\u0434\u044f\u043d\u0441\u044c\u043a\u0430 \u043f\u043e\u0437\u0438\u0446\u0456\u044f\u00bb  (40070487)", 
+      "ngo_social": "https://www.facebook.com/groups/citizen1agp/", 
+      "ngo_web": "https://www.facebook.com/groups/citizen1agp/", 
+      "photo": "251-05-1493025950.4474394.jpg", 
+      "social": "https://www.facebook.com/natalia.a.omelchenko"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 115, 
+      "name": "\u041f\u0456\u0432\u043e\u0432\u0430\u0440\u043e\u0432 \u041e\u043b\u0435\u0433 \u0412\u0456\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0444\u0430\u0440\u043c\u0430\u0446\u0435\u0432\u0442\u0438\u0447\u043d\u0430 \u043f\u0430\u043b\u0430\u0442\u0430\"  (39676303)", 
+      "ngo_social": "", 
+      "ngo_web": "http://www.farmpalata.com.ua", 
+      "photo": "115-05-1490289687.9028952.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 5, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 37, 
+      "name": "\u041f\u0430\u043d\u0430\u0441\u0435\u043d\u043a\u043e \u041e\u043b\u0435\u0433 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0456\u043b\u044c\u043d\u0430 \u043f\u0440\u043e\u0444\u0441\u043f\u0456\u043b\u043a\u0430 \u043c\u0435\u0434\u0438\u0447\u043d\u0438\u0445 \u043f\u0440\u0430\u0446\u0456\u0432\u043d\u0438\u043a\u0456\u0432 \u0423\u043a\u0440\u0430\u0457\u043d\u0438  (34880502)", 
+      "ngo_social": "https://www.facebook.com/VilnaProfspilkaMedykiv/", 
+      "ngo_web": "", 
+      "photo": "037-05-1490099298.1580453.jpg", 
+      "social": "https://www.facebook.com/vpmpu"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 160, 
+      "name": "\u041f\u0438\u0448\u043d\u044c\u043e\u0445\u0430 \u041d\u0430\u0442\u0430\u043b\u0456\u044f \u0412\u0456\u043a\u0442\u043e\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \u00ab\u0420\u0430\u0434\u0430   \u0412\u0435\u0442\u0435\u0440\u0430\u043d\u0456\u0432  \u0410\u0422\u041e \u0414\u043d\u0456\u043f\u0440\u043e\u0432\u0441\u044c\u043a\u043e\u0433\u043e  \u0440\u0430\u0439\u043e\u043d\u0443  \u043c.\u041a\u0438\u0454\u0432\u0430\u00bb  (39902860)", 
+      "ngo_social": "https://www.facebook.com/soatobovodok/", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 64, 
+      "name": "\u041f\u043e\u043b\u0456\u0449\u0443\u043a \u042e\u0440\u0456\u0439 \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0410\u043d\u0442\u0438\u043a\u043e\u0440\u0443\u043f\u0446\u0456\u0439\u043d\u0438\u0439 \u043c\u043e\u043d\u0456\u0442\u043e\u0440\u0438\u043d\u0433\"  (39951331)", 
+      "ngo_social": "https://www.facebook.com/akmrivneua/", 
+      "ngo_web": "http://akm.rv.ua/ ", 
+      "photo": "064-05-1490121292.138413.jpg", 
+      "social": "https://www.facebook.com/iurii.rivne"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 4
+      }, 
+      "id": 83, 
+      "name": "\u041f\u043e\u043d\u043e\u043c\u0430\u0440\u044c\u043e\u0432\u0430 \u041e\u043a\u0441\u0430\u043d\u0430 \u0412\u0430\u043b\u0435\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u041c\u0456\u0436\u043d\u0430\u0440\u043e\u0434\u043d\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u0420\u0435\u0441.\u041f\u0443\u0431\u043b\u0456\u043a\u0430\"  (39576170)", 
+      "ngo_social": "https://www.facebook.com/res.publica.org.ua/", 
+      "ngo_web": "", 
+      "photo": "083-05-1490556529.2463653.jpg", 
+      "social": "https://www.facebook.com/ksenia.ponomarjova"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 62, 
+      "name": "\u041f\u0440\u043e\u0441\u043a\u0443\u0440\u043e\u0432 \u041c\u0430\u043a\u0441\u0438\u043c \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u041f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043d\u0438\u0446\u0442\u0432\u043e \u0410\u043c\u0435\u0440\u0438\u043a\u0430\u043d\u0441\u044c\u043a\u043e\u0457 \u0442\u043e\u0440\u0433\u0456\u0432\u0435\u043b\u044c\u043d\u043e\u0457 \u043f\u0430\u043b\u0430\u0442\u0438 \u0432 \u0423\u043a\u0440\u0430\u0457\u043d\u0456  (21661415)", 
+      "ngo_social": "https://www.facebook.com/ChamberUkraine/", 
+      "ngo_web": "http://chamber.ua", 
+      "photo": "062-05-1490186610.080546.jpg", 
+      "social": "https://www.facebook.com/max.proskurov.9"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 3, 
+        "tax": 0
+      }, 
+      "id": 52, 
+      "name": "\u041f\u0440\u0443\u0434\u0438\u0443\u0441 \u041f\u0438\u043b\u0438\u043f \u0413\u0440\u0438\u0433\u043e\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0456\u043d\u043d\u0438\u0446\u044c\u043a\u0430 \u043e\u0431\u043b\u0430\u0441\u043d\u0430 \u0430\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0435\u043d\u0434\u043e\u043a\u0440\u0438\u043d\u043e\u043b\u043e\u0433\u0456\u0432  (36886658)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "052-05-1490349717.3656917.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 107, 
+      "name": "\u0420\u0435\u0432\u0456\u043d \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0439 \u0412\u0456\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u041e \"\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043d\u0438\u043a\u0456\u0432 \u043c\u0456\u0436\u043d\u0430\u0440\u043e\u0434\u043d\u0438\u0445 \u0444\u0430\u0440\u043c\u0430\u0446\u0435\u0432\u0442\u0438\u0447\u043d\u0438\u0445 \u0432\u0438\u0440\u043e\u0431\u043d\u0438\u043a\u0456\u0432 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (36856969)", 
+      "ngo_social": "https://www.facebook.com/AIPMUkraine/", 
+      "ngo_web": "http://aipm.org.ua", 
+      "photo": "107-05-1490277203.8618996.png", 
+      "social": "https://www.linkedin.com/in/anatoliy-revin-a8831812/"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 2, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 12, 
+      "name": "\u0420\u0435\u0434\u044c\u043a\u043e \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440 \u0412\u0456\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u00ab\u0412\u0438\u0440\u043e\u0431\u043d\u0438\u043a\u0456\u0432 \u0456\u043d\u043d\u043e\u0432\u0430\u0446\u0456\u0439\u043d\u0438\u0445 \u043b\u0456\u043a\u0456\u0432\u00bb  (38392533)", 
+      "ngo_social": "http://aprad.org.ua/", 
+      "ngo_web": "http://aprad.org.ua/", 
+      "photo": "012-05-1491410863.3411653.jpg", 
+      "social": "https://www.facebook.com/vl.redko?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 4, 
+        "mot": 0, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 136, 
+      "name": "\u0420\u0443\u0434\u0435\u043d\u043a\u043e \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440 \u0412\u0430\u0441\u0438\u043b\u044c\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u0441\u043f\u0456\u043b\u043a\u0430 \"\u0410\u043f\u0442\u0435\u0447\u043d\u0430 \u043f\u0440\u043e\u0444\u0435\u0441\u0456\u0439\u043d\u0430 \u0430\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0423\u043a\u0440\u0430\u0457\u043d\u0438 (\u0410\u041f\u0410\u0423)\"  (40002066)", 
+      "ngo_social": "https://www.facebook.com/%D0%90%D0%BF%D1%82%D0%B5%D1%87%D0%BD%D0%B0-%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%96%D0%B9%D0%BD%D0%B0-%D0%B0%D1%81%D0%BE%D1%86%D1%96%D0%B0%D1%86%D1%96%D1%8F-%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8-%D0%90%D0%9F%D0%90%D0%A", 
+      "ngo_web": "http://apau.org.ua/", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/%D0%90%D0%BF%D1%82%D0%B5%D1%87%D0%BD%D0%B0-%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%96%D0%B9%D0%BD%D0%B0-%D0%B0%D1%81%D0%BE%D1%86%D1%96%D0%B0%D1%86%D1%96%D1%8F-%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8-%D0%90%D0%9F%D0%90%D0%A"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 22, 
+      "name": "\u0420\u044f\u0431\u0447\u0435\u043d\u043a\u043e \u0414\u043c\u0438\u0442\u0440\u043e \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\"\u041c\u0435\u0434\u0438\u0447\u043d\u0438\u0439 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u0442\u0430 \u0437\u0430\u0445\u0438\u0441\u0442 \u043f\u0440\u0430\u0432\"  (40513260)", 
+      "ngo_social": "https://www.facebook.com/medcontrolnikolaev", 
+      "ngo_web": "", 
+      "photo": "022-05-1490111366.9102724.jpg", 
+      "social": "https://www.facebook.com/medcontrolnikolaev"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 3, 
+        "tax": 3
+      }, 
+      "id": 135, 
+      "name": "\u0421\u0430\u0454\u043d\u043a\u043e \u041c\u0430\u0440'\u042f\u043d\u0430 \u0406\u0433\u043e\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u043f\u0440\u0430\u0432\u043d\u0438\u043a\u0456\u0432 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (26334715)", 
+      "ngo_social": "https://www.facebook.com/UkrainianBarAssociation/", 
+      "ngo_web": "http://uba.ua/", 
+      "photo": "135-05-1490367313.4847467.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 76, 
+      "name": "\u0421\u0430\u0432\u0447\u0435\u043d\u043a\u043e \u0406\u0440\u0438\u043d\u0430 \u0415\u043c\u043c\u0430\u043d\u0443\u0457\u043b\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0406\u043d\u0456\u0446\u0456\u0430\u0442\u0438\u0432\u0430 \u0415+\"  (39248876)", 
+      "ngo_social": "https://www.facebook.com/helpEplus/?fref=ts", 
+      "ngo_web": "", 
+      "photo": "076-05-1490647507.0164983.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100002308695802"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 133, 
+      "name": "\u0421\u0430\u0437\u043e\u043d\u043e\u0432\u0430 \u0406\u0440\u0438\u043d\u0430 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u0417\u0430 \u043f\u0440\u0430\u0432\u043e \u043d\u0430 \u0436\u0438\u0442\u0442\u044f\"  (36632462)", 
+      "ngo_social": "https://www.facebook.com/lisovazastava/", 
+      "ngo_web": "https://www.facebook.com/lisovazastava/", 
+      "photo": "133-05-1492851912.0378637.jpg", 
+      "social": "https://www.facebook.com/irina.kravchenko.75"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 198, 
+      "name": "\u0421\u0430\u043c\u0441\u043e\u043d\u043e\u0432 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0412\u0456\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u041e \"\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u0421\u0445\u0456\u0434\u043d\u043e\u0457 \u041c\u0435\u0434\u0438\u0446\u0438\u043d\u0438\"  (34717507)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "198-05-1490697237.7610438.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 2, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 149, 
+      "name": "\u0421\u0430\u043c\u0441\u043e\u043d\u043e\u0432\u0430 \u041b\u0430\u0440\u0438\u0441\u0430 \u0421\u0430\u043c\u0441\u043e\u043d\u043e\u0432\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \" \u0406\u043d\u0432\u0430\u043b\u0456\u0434\u0456\u0432 \" \u0420\u043e\u0434\u0438\u043d\u0430\"  (25745830)", 
+      "ngo_social": "https://uk-ua.facebook.com/rodyna.org", 
+      "ngo_web": "http://rodyna.at.ua", 
+      "photo": "149-05-1490520301.2547653.jpg", 
+      "social": "https://www.facebook.com/larsamsonova"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 229, 
+      "name": "\u0421\u0435\u0440\u0434\u044e\u043a \u0412\u0456\u043a\u0442\u043e\u0440 \u0413\u0440\u0438\u0433\u043e\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0420\u0430\u0434\u0430 \u0437\u0430\u0445\u0438\u0441\u0442\u0443 \u043f\u0440\u0430\u0432 \u0442\u0430 \u0431\u0435\u0437\u043f\u0435\u043a\u0438 \u043f\u0430\u0446\u0456\u0454\u043d\u0442\u0456\u0432\"  (26332886)", 
+      "ngo_social": "https://www.facebook.com/PatientRightsAndSafety", 
+      "ngo_web": "http://medrada.org", 
+      "photo": "229-05-1490699397.121573.jpg", 
+      "social": "https://www.facebook.com/0007ser?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 166, 
+      "name": "\u0421\u043a\u0456\u0431\u0456\u043d\u0441\u044c\u043a\u0438\u0439 \u0415\u0440\u043d\u0435\u0441\u0442 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0412\u0441\u0435\u0443\u043a\u0440 \u0433\u0430\u043b\u0443\u0437 \u043e\u0431'\u0454\u0434\u043d \u043e\u0440\u0433\u0430\u043d\u0456\u0437 \u0440\u043e\u0431\u043e\u0442\u043e\u0434-\u0432\u0438\u0440\u043e\u0431\u043d \u0442\u0435\u0445\u043d \u0437\u0430\u0441 \u0440\u0435\u0430\u0431\u0456\u043b\u0456\u0442 \u0442\u0430 \u043c\u0435\u0434 \u0432\u0438\u0440\u043e\u0431\u0456\u0432  (40779325)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "166-05-1490607057.377706.jpg", 
+      "social": "https://www.facebook.com/ernest.skibinsky?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 242, 
+      "name": "\u0421\u043c\u0438\u0440\u043d\u043e\u0432\u0430 \u042e\u043b\u0456\u044f \u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u041e \u00ab\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u041b\u0456\u0433\u0430 \u041b\u0435\u0433\u0430\u043b\u0430\u0439\u0444\u00bb  ()", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 3, 
+        "mot": 3, 
+        "res": 2, 
+        "tax": 2
+      }, 
+      "id": 27, 
+      "name": "\u0421\u043d\u0454\u0433\u0456\u0440\u044c\u043e\u0432 \u041f\u0438\u043b\u0438\u043f \u0413\u0435\u043b\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0422\u043e\u0432\u0430\u0440\u0438\u0441\u0442\u0432\u043e \u0437 \u043e\u0431\u043c\u0435\u0436\u0435\u043d\u043e\u044e \u0432\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u0430\u043b\u044c\u043d\u0456\u0441\u0442\u044e \"\u041c\u041e\u0420\u0406\u041e\u041d\"  (30116425)", 
+      "ngo_social": "https://www.facebook.com/AptekaOnline; https://vk.com/apteka__online", 
+      "ngo_web": "http://www.morion.ua", 
+      "photo": "027-05-1490084852.474422.jpg", 
+      "social": "https://www.facebook.com/AptekaOnline"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 197, 
+      "name": "\u0421\u043e\u0440\u043e\u043a\u0430 \u0406\u0432\u0430\u043d \u041c\u0438\u043a\u043e\u043b\u0430\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0439 \u043c\u0435\u0434\u0438\u0447\u043d\u0438\u0439 \u043a\u043b\u0443\u0431\"  (39801493)", 
+      "ngo_social": "https://www.facebook.com/ukrmedclub/", 
+      "ngo_web": "http://www.ukrmedclub.com", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/ivan.soroka.7?ref=ts&fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 223, 
+      "name": "\u0421\u0442\u0435\u0444\u0430\u043d\u0438\u0448\u0438\u043d\u0430 \u041e\u043b\u044c\u0433\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u041f\u0430\u0446\u0456\u0454\u043d\u0442\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (37724810)", 
+      "ngo_social": "https://www.facebook.com/patients.org.ua/?fref=ts", 
+      "ngo_web": "http://patients.org.ua/", 
+      "photo": "223-05-1490699673.261105.jpg", 
+      "social": "https://www.facebook.com/olga.stefanishina?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 2, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 230, 
+      "name": "\u0421\u0443\u0445\u043e\u0440\u0443\u043a\u043e\u0432\u0430 \u041e\u043a\u0441\u0430\u043d\u0430 \u0421\u0435\u0440\u0433\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0421\u0412\u041e\u0407\"  (36852875)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "230-05-1490699605.1726723.jpg", 
+      "social": "https://www.facebook.com/oksana.sukhorukova"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 3, 
+        "tax": 12
+      }, 
+      "id": 65, 
+      "name": "\u0422\u0435\u043b\u044f\u0442\u043d\u0438\u043a\u043e\u0432\u0430 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0430 \u041c\u0438\u043a\u043e\u043b\u0430\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u041e \u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \u0456\u043c\u0435\u043d\u0456 \u0421\u0432. \u041b\u0443\u043a\u0438 (\u0412\u043e\u0439\u043d\u043e-\u042f\u0441\u0435\u043d\u0435\u0446\u044c\u043a\u043e\u0433\u043e)  (37935873)", 
+      "ngo_social": "https://www.facebook.com/31June/", 
+      "ngo_web": "http://www.31june.com", 
+      "photo": "065-05-1490692276.4302053.jpeg", 
+      "social": "https://www.facebook.com/aleksandra.telyatnikova"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 233, 
+      "name": "\u0422\u0435\u0440\u0435\u043d\u0442\u044e\u043a \u0412\u0430\u0434\u0438\u043c \u0413\u0435\u043e\u0440\u0433\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0421 \"\u0406\u0425\u0415\u041b\u0421\"  (41118200)", 
+      "ngo_social": "https://www.facebook.com/ehealth.org.ua/", 
+      "ngo_web": "http://www.ehealth.in.ua", 
+      "photo": "233-05-1490703919.8226175.jpg", 
+      "social": "https://www.facebook.com/VadTer"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 2, 
+        "tax": 2
+      }, 
+      "id": 130, 
+      "name": "\u0422\u043a\u0430\u0447\u0443\u043a \u0412\u0456\u0442\u0430\u043b\u0456\u0439 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u043c\u0435\u0440\u0435\u0436\u0430 \u041b\u0416\u0412\"  (21721459)", 
+      "ngo_social": "https://www.facebook.com/All.Ukrainian.Network.of.PLWH/", 
+      "ngo_web": "http://network.org.ua/", 
+      "photo": "130-05-1490710163.82152.jpg", 
+      "social": "https://www.facebook.com/All.Ukrainian.Network.of.PLWH/"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 80, 
+      "name": "\u0422\u0440\u0435\u0442\u044c\u044f\u043a\u043e\u0432\u0430 \u0413\u0430\u043b\u0438\u043d\u0430 \u041c\u0438\u043a\u043e\u043b\u0430\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u00ab\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u0444\u0435\u0434\u0435\u0440\u0430\u0446\u0456\u044f \u0443\u0431\u0435\u0437\u043f\u0435\u0447\u0435\u043d\u043d\u044f\u00bb  (36309244)", 
+      "ngo_social": "https://www.facebook.com/ufu.org.ua", 
+      "ngo_web": "http://www.ufu.org.ua", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/profile.php?id=100002660029319&pnref=story"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 24, 
+      "name": "\u0422\u0443\u0442\u0443\u043a \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u0425\u0420\u041e\u0411\u0414\u0406\u0406\u0425\u0424\"\u041e\u0421\u041e\u0411\u041b\u0418\u0412\u0406 \u0414\u0406\u0422\u0418\"\"  (40328252)", 
+      "ngo_social": "https://www.facebook.com/detipku/?fref=ts", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/detipku/?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 2, 
+        "res": 3, 
+        "tax": 10
+      }, 
+      "id": 125, 
+      "name": "\u0424\u0456\u043b\u0430\u0442\u043e\u0432\u0430 \u0412\u0456\u043a\u0442\u043e\u0440\u0456\u044f \u0412\u0430\u043b\u0435\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u00ab\u041f\u0430\u0440\u0444\u0443\u043c\u0435\u0440\u0456\u044f \u0442\u0430 \u041a\u043e\u0441\u043c\u0435\u0442\u0438\u043a\u0430 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\u00bb  (37818437)", 
+      "ngo_social": "http://www.facebook.com/apcu.ua/", 
+      "ngo_web": "http://apcu.ua", 
+      "photo": "125-05-1490371496.8023758.png", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 4, 
+        "tax": 0
+      }, 
+      "id": 53, 
+      "name": "\u0425\u0438\u0436\u043d\u044f\u043a \u0412\u0456\u043a\u0442\u043e\u0440 \u0421\u0442\u0435\u043f\u0430\u043d\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u041d\u0430\u0440\u043a\u043e\u043b\u043e\u0433\u0456\u0447\u043d\u0430 \u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \"\u0420\u0415\u041d\u0415\u0421\u0410\u041d\u0421\"  (39122829)", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 0, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 38, 
+      "name": "\u0425\u0443\u0434\u0438\u043a \u041c\u0430\u0440\u0438\u043d\u0430 \u0421\u0442\u0435\u043f\u0430\u043d\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u041e \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u043c\u0439 \u0456\u043d\u0441\u0442\u0438\u0442\u0443\u0442 \u0441\u043e\u0446\u0456\u0430\u043b\u044c\u043d\u0438\u0445 \u0434\u043e\u0441\u043b\u0456\u0434\u0436\u0435\u043d\u044c \u0456\u043c\u0435\u043d\u0456 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0430 \u042f\u0440\u0435\u043c\u0435\u043d\u043a\u0430\"  (33940036)", 
+      "ngo_social": "https://www.facebook.com/ngouisr/", 
+      "ngo_web": "http://www.uisr.org.ua/", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/marina.hudik?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 132, 
+      "name": "\u0426\u0443\u043a\u0430\u043d\u043e\u0432\u0430 \u0413\u0430\u043d\u043d\u0430 \u042e\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \"\u041c\u041e\u0412\u0410 \u0414\u041e\u0411\u0420\u0410\"  (39568386)", 
+      "ngo_social": "https://www.facebook.com/movadobra/", 
+      "ngo_web": "http://movadobra.com.ua/ua/", 
+      "photo": "132-05-1490370312.4627833.jpg", 
+      "social": "https://www.facebook.com/annhel.tsukanova"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 253, 
+      "name": "\u0427\u0430\u0439\u043a\u043e\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u0440\u0430 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0456\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u041e \u00ab\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430 \u043b\u0456\u0433\u0430 \u0440\u043e\u0437\u0432\u0438\u0442\u043a\u0443 \u043f\u0430\u043b\u0456\u0430\u0442\u0438\u0432\u043d\u043e\u0457 \u0442\u0430 \u0445\u043e\u0441\u043f\u0456\u0441\u043d\u043e\u0457 \u0434\u043e\u043f\u043e\u043c\u043e\u0433\u0438\u00bb  ()", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 3
+      }, 
+      "id": 88, 
+      "name": "\u0427\u0435\u0431\u0430\u043a\u043e\u0432\u0430 \u0421\u0432\u0456\u0442\u043b\u0430\u043d\u0430 \u041e\u043b\u0435\u043a\u0441\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0420\u041e\u041c\u0410\u0414\u0421\u042c\u041a\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u041d\u0410\u0426\u0406\u041e\u041d\u0410\u041b\u042c\u041d\u0410 \u0410\u0421\u041e\u0426\u0406\u0410\u0426\u0406\u042f \u041c\u0415\u0414\u0406\u0410\u0422\u041e\u0420\u0406\u0412 \u0423\u041a\u0420\u0410\u0407\u041d\u0418\" (\u0413\u041e \"\u041d\u0410\u041c\u0423\")  (39443280)", 
+      "ngo_social": "https://www.facebook.com/NAMUkraine/", 
+      "ngo_web": "http://namu.com.ua", 
+      "photo": "088-05-1490353606.3598197.jpg", 
+      "social": "https://www.facebook.com/svetlana.chebakova"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 8
+      }, 
+      "id": 205, 
+      "name": "\u0427\u0435\u0440\u043d\u0438\u0448\u0435\u0432 \u0410\u043d\u0434\u0440\u0456\u0439 \u0412\u0456\u0442\u0430\u043b\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0410\u041b\u042c\u042f\u041d\u0421.\u0413\u041b\u041e\u0411\u0410\u041b\"  (26255464)", 
+      "ngo_social": "https://www.facebook.com/AllianceGlobalKyiv/", 
+      "ngo_web": "http://www.ga.net.ua", 
+      "photo": "205-05-1491238623.5256584.jpg", 
+      "social": "https://www.facebook.com/lgbt09"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 173, 
+      "name": "\u0427\u0443\u0436\u0438\u043a \u0406\u0433\u043e\u0440 \u0413\u0435\u043e\u0440\u0433\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u041a\u043e\u043d\u0433\u0440\u0435\u0441 \u0441\u0445\u043e\u0434\u0443 \u0423\u043a\u0440\u0430\u0457\u043d\u0438\"  (39771731)", 
+      "ngo_social": "", 
+      "ngo_web": "http://kcy.org.ua", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 2, 
+        "tax": 0
+      }, 
+      "id": 82, 
+      "name": "\u0427\u0443\u043c\u0430\u043a \u0412\u0456\u043a\u0442\u043e\u0440 \u0422\u0438\u043c\u043e\u0444\u0456\u0439\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0413\u041e \"\u041e\u041e\u0420\u041c\u041c\u041f\u0423\"  (26476415)", 
+      "ngo_social": "", 
+      "ngo_web": "http://oormmpu.com.ua", 
+      "photo": "082-05-1490187508.2404172.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 259, 
+      "name": "\u0428\u0430\u043f\u043e\u0432\u0430\u043b-\u0414\u0430\u0439\u043d\u0435\u0433\u0430 \u041a\u0441\u0435\u043d\u0456\u044f \u042e\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u041c\u0424 \u00ab\u0412\u0456\u0434\u0440\u043e\u0434\u0436\u0435\u043d\u043d\u044f\u00bb  ()", 
+      "ngo_social": "", 
+      "ngo_web": "", 
+      "photo": "nophoto.jpg", 
+      "social": ""
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 154, 
+      "name": "\u0428\u0435\u0432\u0446\u043e\u0432\u0430 \u041e\u043b\u0435\u043d\u0430 \u0406\u0432\u0430\u043d\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u041b\u0410\u0413\u041e\u0414\u0406\u0419\u041d\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \u00ab\u041c\u0406\u0416\u041d\u0410\u0420\u041e\u0414\u041d\u0418\u0419 \u0411\u041b\u0410\u0413\u041e\u0414\u0406\u0419\u041d\u0418\u0419 \u0424\u041e\u041d\u0414 \u00ab\u041f\u0415\u0422\u0418\u0426\u0406\u042f \u0423\u041a\u0420\u0410\u0407\u041d\u0418\u00bb  (40608928)", 
+      "ngo_social": "https://www.facebook.com/kupno.org/", 
+      "ngo_web": "http://www.kupno.org", 
+      "photo": "154-05-1490698376.8611257.jpg", 
+      "social": "https://www.facebook.com/alena.sevcova?fref=ts"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 98, 
+      "name": "\u0428\u0435\u0432\u0447\u0443\u043a \u0413\u0430\u043d\u043d\u0430 \u0410\u043d\u0434\u0440\u0456\u0457\u0432\u043d\u0430", 
+      "ngo_name": "\u0411\u041b\u0410\u0413\u041e\u0414\u0406\u0419\u041d\u0410 \u041e\u0420\u0413\u0410\u041d\u0406\u0417\u0410\u0426\u0406\u042f \"\u0411\u041b\u0410\u0413\u041e\u0414\u0406\u0419\u041d\u0418\u0419 \u0424\u041e\u041d\u0414 \"\u0421\u0415\u0420\u0426\u0415\u041c \u0406 \u0414\u0423\u0428\u0415\u042e\"  (3965223)", 
+      "ngo_social": "https://www.facebook.com/pages/\u0411\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439-\u0444\u043e\u043d\u0434-\u0421\u0435\u0440\u0446\u0435\u043c-\u0456-\u0414\u0443\u0448\u0435\u044e/569352609834459", 
+      "ngo_web": "", 
+      "photo": "098-05-1490373928.1704495.jpg", 
+      "social": "https://m.facebook.com/profile.php"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 1, 
+        "res": 1, 
+        "tax": 1
+      }, 
+      "id": 212, 
+      "name": "\u0428\u0435\u0440\u0448\u043d\u044c\u043e\u0432 \u041e\u043b\u0435\u043a\u0441\u0456\u0439 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u041c\u0456\u0436\u043d\u0430\u0440\u043e\u0434\u043d\u0438\u0439 \u0431\u043b\u0430\u0433\u043e\u0434\u0456\u0439\u043d\u0438\u0439 \u0444\u043e\u043d\u0434 \u201c\u0416\u0438\u0442\u0442\u044f \u0437 \u043d\u0430\u0434\u043b\u0438\u0448\u043a\u043e\u043c\u201d  (37081310)", 
+      "ngo_social": "https://www.facebook.com/keeplife ", 
+      "ngo_web": "http://keeplife.org/ ", 
+      "photo": "212-05-1492875869.6109035.jpg", 
+      "social": "https://www.facebook.com/alexey.shershnev"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 0, 
+        "tax": 0
+      }, 
+      "id": 237, 
+      "name": "\u042e\u0440\u0447\u0435\u043d\u043a\u043e \u041a\u0430\u0442\u0435\u0440\u0438\u043d\u0430 \u041e\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0426\u0438\u0432\u0456\u043b\u044c\u043d\u0438\u0439 \u0440\u0443\u0445 \"\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0438\u0439 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u0434\u0456\u0454\" (NGO \"Civic control is acting\")  (40927899)", 
+      "ngo_social": "https://www.facebook.com/gcd.com.ua/", 
+      "ngo_web": "http://gcd.com.ua/", 
+      "photo": "nophoto.jpg", 
+      "social": "https://www.facebook.com/katrina.yurchenko.7"
+    }, 
+    {
+      "docs": {
+        "bio": 1, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 0
+      }, 
+      "id": 26, 
+      "name": "\u042f\u043a\u043e\u0432\u0435\u043d\u043a\u043e \u0406\u0433\u043e\u0440 \u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d\u043e\u0432\u0438\u0447", 
+      "ngo_name": "\u0433\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0406\u043d\u0441\u0442\u0438\u0442\u0443\u0442 \u0441\u0443\u0441\u043f\u0456\u043b\u044c\u043d\u043e-\u0435\u043a\u043e\u043d\u043e\u043c\u0456\u0447\u043d\u0438\u0445 \u0434\u043e\u0441\u043b\u0456\u0434\u0436\u0435\u043d\u044c\"  (39867470)", 
+      "ngo_social": "https://www.facebook.com/iser.org.ua/?pnref=lhc", 
+      "ngo_web": "http://www.iser.org.ua", 
+      "photo": "026-05-1490606843.991837.jpg", 
+      "social": "https://www.facebook.com/iser.org.ua/?pnref=lhc"
+    }, 
+    {
+      "docs": {
+        "bio": 2, 
+        "mot": 2, 
+        "res": 3, 
+        "tax": 0
+      }, 
+      "id": 193, 
+      "name": "\u042f\u043d\u0438\u0448\u0435\u0432\u0441\u044c\u043a\u0430 \u0412\u0456\u043e\u043b\u0435\u0442\u0442\u0430 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0421 \"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430   \u0410\u0441\u043e\u0446\u0456\u0430\u0446\u0456\u044f \u041c\u0435\u0434\u0438\u0447\u043d\u043e\u0433\u043e \u0422\u0443\u0440\u0438\u0437\u043c\u0443\" - \"\u0423\u0410\u041c\u0422\"  (38924066)", 
+      "ngo_social": "https://www.facebook.com/Ukrainian-Association-of-Medical-Tourism-484218641698001/?pnref=lhc", 
+      "ngo_web": "http://www.uamt.com.ua", 
+      "photo": "193-05-1490691917.997515.jpg", 
+      "social": "https://www.facebook.com/Ukrainian-Association-of-Medical-Tourism-484218641698001/?pnref=lhc"
+    }, 
+    {
+      "docs": {
+        "bio": 0, 
+        "mot": 0, 
+        "res": 1, 
+        "tax": 2
+      }, 
+      "id": 228, 
+      "name": "\u042f\u043d\u0447\u0435\u0432\u0441\u044c\u043a\u0430 \u0410\u043d\u043d\u0430 \u0412\u043e\u043b\u043e\u0434\u0438\u043c\u0438\u0440\u0456\u0432\u043d\u0430", 
+      "ngo_name": "\u0413\u0440\u043e\u043c\u0430\u0434\u0441\u044c\u043a\u0430 \u043e\u0440\u0433\u0430\u043d\u0456\u0437\u0430\u0446\u0456\u044f \"\u0412\u0441\u0435\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0438\u0439 \u0446\u0435\u043d\u0442\u0440 \u0434\u043e\u043f\u043e\u043c\u043e\u0433\u0438 \u0443\u0447\u0430\u0441\u043d\u0438\u043a\u0430\u043c \u0410\u0422\u041e\"  (40357236)", 
+      "ngo_social": "https://www.facebook.com/vsedopomogaATO/", 
+      "ngo_web": "http://cdu-ato.com.ua", 
+      "photo": "228-05-1490701907.930893.jpg", 
+      "social": "https://www.facebook.com/angell.angell.9404"
+    }
   ]
 }
