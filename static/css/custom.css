@@ -56,7 +56,7 @@ a.ext {
   color: #e0e0e0;
 }
 .navbar-header {
-  height: 80px;
+  min-height: 80px;
 }
 .navbar-brand {
   background-image: url(../img/logo-moz.png);
