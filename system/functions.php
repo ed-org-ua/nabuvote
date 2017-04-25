@@ -475,10 +475,8 @@ function send_summary_email($publine, $logline) {
     $subject = "=?UTF-8?b?0JLQsNGIINCz0L7Qu9C+0YEg0LfQsdC10YDQtdC20LXQvdC+?=";
     $message = "Дякуємо що проголосували!\r\n"."\r\n".
         "Ви обрали кандидатів з номерами: {$selected}\r\n"."\r\n".
-        "Про що зроблено наступний запис у протоколі голосування:\r\n".
-        "{$logline}\r\n".
         "\r\n".
-        "до кінця голосування цей запис буде закодованим і виглядатиме так:\r\n".
+        "до кінця голосування ваш голос буде закодованим і виглядатиме так:\r\n".
         "{$publine}\r\n".
         "\r\n".
         "щоб перевірити свій голос в базі даних відкрийте на сторінці голосування\r\n".
@@ -842,6 +840,7 @@ function filter_candidates($keys) {
         log_debug("bad_keys", serialize($keys));
         return array();
     }
+    sort($keys_out, SORT_NUMERIC);
     return $keys_out;
 }
 
