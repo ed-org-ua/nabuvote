@@ -14,9 +14,10 @@
     <link href="static/css/bootstrap-checkbox.css" rel="stylesheet">
     <link href="static/css/custom.css" rel="stylesheet">
 
-    <meta property="og:image" content="https://gromrada.moz.gov.ua/voting/static/img/og-moz.png"/>
+    <meta property="og:title" content="Громадська рада при МОЗ України"/>
     <meta property="og:site_name" content="Громадська рада при МОЗ України"/>
     <meta property="og:description" content="Рейтингове інтернет-голосування за склад громадської ради при Міністерстві охорони здоров'я України"/>
+    <meta property="og:image" content="https://gromrada.moz.gov.ua/voting/static/img/og-moz.jpg"/>
   </head>
 
   <body style="background-color:#fff;">
