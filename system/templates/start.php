@@ -23,13 +23,13 @@
           <dt>Посилання</dt>
           <dd>
             <?php if($c['social']): ?>
-              <a href="<?= $c['social'] ?>" target="_blank">Персональна сторінка</a><br>
+              <a href="<?= $c['social'] ?>" class="ext" target="_blank">Персональна сторінка</a><br>
             <?php endif; ?>
             <?php if($c['ngo_social']): ?>
-              <a href="<?= $c['ngo_social'] ?>" target="_blank">Сторінка організації</a><br>
+              <a href="<?= $c['ngo_social'] ?>" class="ext" target="_blank">Сторінка організації</a><br>
             <?php endif; ?>
             <?php if($c['ngo_web']): ?>
-              <a href="<?= $c['ngo_web'] ?>" target="_blank">Сайт організації</a><br>
+              <a href="<?= $c['ngo_web'] ?>" class="ext" target="_blank">Сайт організації</a><br>
             <?php endif; ?>
           </dd>
           <dt>Документи</dt>
