@@ -22,7 +22,7 @@
 
   <body style="background-color:#fff;">
 
-    <nav class="navbar navbar-custom">
+    <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="./">
