@@ -69,7 +69,7 @@
 <br>
 
 <div class="well text-center">
-    <a href="start.php" class="btn btn-lg btn-success">Ознайомитись з кандидатами</a>
+    <a href="start.php" class="btn btn-lg btn-default">Ознайомитись з кандидатами</a>
 </div>
 
 <script>

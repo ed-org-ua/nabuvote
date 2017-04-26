@@ -1,5 +1,7 @@
 <?php include("header.php"); ?>
 
+<h2 style="color:#f33">Голосування розпочнеться 27 квітня 2017 року</h2>
+
 <p class="lead">
   Список учасників установчих зборів для формування складу Громадської ради
 </p>
@@ -54,9 +56,11 @@
   <?php endforeach; ?>
 </div>
 
+<!--
 <div class="well text-center">
   <a href="step1.php" class="btn btn-lg btn-primary">Розпочати голосування</a>
 </div>
+-->
 
 <script>
 // check and force SSL

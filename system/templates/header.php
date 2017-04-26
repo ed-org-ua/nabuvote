@@ -13,11 +13,15 @@
     <link href="static/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="static/css/bootstrap-checkbox.css" rel="stylesheet">
     <link href="static/css/custom.css" rel="stylesheet">
+
+    <meta property="og:image" content="https://gromrada.moz.gov.ua/voting/static/img/og-moz.png"/>
+    <meta property="og:site_name" content="Громадська рада при МОЗ України"/>
+    <meta property="og:description" content="Рейтингове інтернет-голосування за склад громадської ради при Міністерстві охорони здоров'я України"/>
   </head>
 
   <body style="background-color:#fff;">
 
-    <nav class="navbar navbar-inverse navbar-custom">
+    <nav class="navbar navbar-custom">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="./">

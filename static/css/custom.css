@@ -44,27 +44,32 @@ a.ext {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   background-repeat: repeat-x;
 }
-.navbar-custom {
+.navbar-menr {
   background-color: #006633;
   background-image: linear-gradient(to bottom,#008c46 0,#004924 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff008c46', endColorstr='#004924', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   background-repeat: repeat-x;
 }
+.navbar-custom {
+  background-color: #e0e8e0;
+}
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-nav>li>a {
-  color: #e0e0e0;
+  color: #444;
 }
 .navbar-header {
-  min-height: 80px;
+  height: 80px;
 }
 .navbar-brand {
   background-image: url(../img/logo-moz.png);
-  background-position: 16px 0;
+  background-position: 0 0;
   background-repeat: no-repeat;
+  margin-left: -20px !important;
+  color: #444 !important;
   font-size: 24px;
   padding-top: 30px;
-  padding-left: 100px;
+  padding-left: 140px;
   padding-bottom: 50px;
 }
 .navbar-right>li>a {
@@ -79,9 +84,6 @@ a.ext {
 .countdown, .candidates_left {
   font-weight: bold;
 }
-.candidates .row {
-  height: 300px;
-}
 .candidates .photo img {
   max-width: 150px;
 }
@@ -93,9 +95,10 @@ a.ext {
   margin-left: 30px;
 }
 .candidates .row {
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #ccc;
   margin-top: 20px;
   margin-bottom: 20px;
+  min-height: 300px;
 }
 .att img {
   max-width: 750px;
