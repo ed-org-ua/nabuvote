@@ -91,9 +91,9 @@
   <?php } ?>
 
   <div class="row">
-    <a href="index.php" class="btn btn-default">&laquo; На початок</a>
+    <a href="index.php" class="button-inverse">&laquo; На початок</a>
     <?php if (!$form_readonly) { ?>
-    <button type="submit" class="btn btn-primary">Перевірити &raquo;</button>
+    <button type="submit" class="button-default">Перевірити &raquo;</button>
     <?php } ?>
   </div>
 </form>

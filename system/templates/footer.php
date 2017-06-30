@@ -9,9 +9,9 @@
         </p>
         <p class="text">
           &copy; 2015-2017 ГО «<a href="http://ed.org.ua/">Електронна демократія</a>»
-          на замовлення <a href="https://arma.gov.ua/">Національного агентства України</a>,<br>
-          за підтримки Програми «<a href="https://www.facebook.com/EUACI.Ukraine">
-          Антикорупційна Ініціатива ЄС в Україні</a>».
+          на замовлення <a href="https://arma.gov.ua/">Національного агентства</a>,<br>
+          за підтримки Програми «<a href="https://www.facebook.com/EUACI.Ukraine">Антикорупційна
+          Ініціатива ЄС в Україні</a>».
         </p>
       </footer>
 

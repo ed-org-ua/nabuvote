@@ -4,7 +4,7 @@
   Будь ласка, пройдіть тест і підтвердіть вашу згоду з правилами конкурсу.
 </p>
 
-<form method="POST" role="form">
+<form method="POST" role="form" class="form-captcha">
   <div class="g-recaptcha" data-sitekey="<?= $settings['recaptcha_key']; ?>"></div>
   <br>
   <div class="checkbox">

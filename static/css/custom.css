@@ -44,6 +44,10 @@ a.ext {
 .countdown, .candidates_left {
   font-weight: bold;
 }
+.form-captcha,
+.form-horizontal {
+  margin-top: 30px;
+}
 footer .text {
   margin-right: 70px;
 }

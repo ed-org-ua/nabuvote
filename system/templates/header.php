@@ -36,7 +36,7 @@
       <aside class="aside">
           <div class="aside-wrapper">
               <div class="aside-main">
-                  <a href="/">
+                  <a href="./">
                       <p class="aside-main_content">НАЦІОНАЛЬНЕ АГЕНТСТВО УКРАЇНИ<br><span>з питань виявлення, розшуку та управління активами, одержаними від корупційних та інших злочинів</span></p>
                       <img class="aside-main_logo" src="static/img/arma.svg" alt="">
                   </a>
