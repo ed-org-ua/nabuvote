@@ -31,8 +31,8 @@
   </table>
   <br>
   <div>
-    <a href="index.php" class="btn btn-default">&laquo; На початок</a>
-    <button type="submit" class="btn btn-danger">Проголосувати &raquo;</button>
+    <a href="index.php" class="button-inverse">&laquo; На початок</a>
+    <button type="submit" class="button-default">Проголосувати &raquo;</button>
   </div>
 </form>
 

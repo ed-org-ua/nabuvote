@@ -164,9 +164,11 @@ function log_debug($func, $msg="-") {
         $session_data = http_build_query($_SESSION);
     else
         $session_data = "-";
+    if (empty($session_id = trim(session_id())))
+        $session_id = "-";
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
     $logline .= " ".full_remote_addr();
-    $logline .= " ".session_id();
+    $logline .= " ".$session_id;
     $logline .= " ".$_SERVER['REQUEST_URI'];
     $logline .= " ".$session_data;
     $logline .= " ".$func;

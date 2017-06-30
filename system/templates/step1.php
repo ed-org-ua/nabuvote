@@ -35,8 +35,8 @@
   </div>
   <br>
   <div>
-    <a href="index.php" class="btn btn-default">&laquo; На початок</a>
-    <button type="submit" class="btn btn-primary">Продовжити &raquo;</button>
+    <a href="index.php" class="button-inverse">&laquo; На початок</a>
+    <button type="submit" class="button-default">Продовжити &raquo;</button>
   </div>
 </form>
 

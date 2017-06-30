@@ -26,7 +26,7 @@
 
 <br>
 <div>
-  <a href="index.php" class="btn btn-default">&laquo; На початок</a>
+  <a href="index.php" class="button-inverse">&laquo; На початок</a>
 </div>
 
 <?php include("footer.php"); ?>

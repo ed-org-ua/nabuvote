@@ -3,17 +3,20 @@
 
       <footer>
         <p class="logo">
+          <img src="static/img/danida.png" alt="герб" class="danida">
           <img src="static/img/gerb.png" alt="герб" class="gerb">
           <img src="static/img/ed1.png" alt="ed" class="ed">
         </p>
         <p class="text">
-          &copy; 2015-2017 Розробка ГО «<a href="http://ed.org.ua/">Електронна демократія</a>»
-          на замовлення <a href="https://arma.gov.ua/">Національного агентства України</a>
-          з питань виявлення, розшуку та управління активами, одержаними від корупційних
-          та інших злочинів за підтримки Програми <a href="https://www.facebook.com/EUACI.Ukraine">
-          "Антикорупційна Ініціатива ЄС в Україні"</a>.
+          &copy; 2015-2017 ГО «<a href="http://ed.org.ua/">Електронна демократія</a>»
+          на замовлення <a href="https://arma.gov.ua/">Національного агентства України</a>,<br>
+          за підтримки Програми «<a href="https://www.facebook.com/EUACI.Ukraine">
+          Антикорупційна Ініціатива ЄС в Україні</a>».
         </p>
       </footer>
+
+      </section>
+
     </div> <!-- /container -->
 
     <script>

@@ -29,10 +29,7 @@ a.ext {
   background-image: none;
 }
 .navbar-custom {
-  background-color: #003366;
-  background-image: linear-gradient(to bottom,#00468c 0,#002449 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00468c', endColorstr='#002449', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-color: #000;
   background-repeat: repeat-x;
 }
 .navbar-custom .navbar-brand,
@@ -40,10 +37,6 @@ a.ext {
   color: #d9d9d9;
 }
 .navbar-brand {
-  background-image: url(../img/gerb.png);
-  background-position: 16px 6px;
-  background-repeat: no-repeat;
-  padding-left: 50px;
 }
 .space-top {
   margin-top: 40px;
@@ -56,10 +49,10 @@ footer .text {
 }
 footer .logo {
   float: right;
-  width: 70px;
+  width: 280px;
 }
 footer .logo img {
   float: right;
   height: 24px;
-  margin: -5px 5px 0;
+  margin: 0 8px;
 }
