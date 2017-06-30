@@ -1,7 +1,7 @@
 <?php include("header.php"); ?>
 
 <p class="lead">
-    Будь ласка, вкажіть ваш номер мобільного (українського оператора).
+    Будь ласка, вкажіть ваш номер мобільного (українського GSM оператора).
 </p>
 
 <form method="POST" role="form" class="form-horizontal">

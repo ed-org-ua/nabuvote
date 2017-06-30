@@ -24,7 +24,7 @@
         <div id="navbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://nabu.gov.ua/polozhennya-pro-radu-gromadskogo-kontrolyu">Про Раду</a></li>
-            <li><a href="https://nabu.gov.ua/dovybory-do-rady-gromadskogo-kontrolyu-2016-5-osib">Про кандидатів</a></li>
+            <li><a href="https://nabu.gov.ua/perelik-uchasnykiv-konkursu-z-obrannya-skladu-rady-gromadskogo-kontrolyu-traven-2017">Про кандидатів</a></li>
             <li><a href="https://nabu.gov.ua/zvernennya-gromadyan">Не можу проголосувати</a></li>
           </ul>
         </div><!--/.navbar-collapse -->
@@ -34,7 +34,7 @@
     <div class="container">
       <!-- Main content container -->
 
-      <h1>Сторінка інтернет-голосування за кандидатів до Ради громадського контролю при НАБУ у 2016 році</h1>
+      <h1>Сторінка інтернет-голосування за кандидатів до Ради громадського контролю при НАБУ у 2017 році</h1>
 
       <?php print_errors(); ?>
 
