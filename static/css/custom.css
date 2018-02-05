@@ -48,6 +48,17 @@ a.ext {
 .form-horizontal {
   margin-top: 30px;
 }
+.candidates_table input[type="checkbox"] {
+  padding-right: 10px;
+}
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #e8e8e8;
+}
+.table > tbody > tr.info > td,
+.table > tbody > tr > td.info {
+  background-color: #d9edf7;
+}
 footer .text {
   margin-right: 70px;
 }
