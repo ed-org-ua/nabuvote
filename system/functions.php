@@ -872,8 +872,7 @@ function candidates_table($form=false) {
             (int)$c['id'], (int)$c['id'], h($c['name']));
         $table .= sprintf('<td>%s</td>', h($c['org']));
         $table .= sprintf('<td class="nowrap">'.
-            '<a href="%s%s" target="_blank">',
-            'https://nabu.gov.ua', h($c['link']));
+            '<a href="%s" target="_blank">', h($c['link']));
         $table .= 'досьє</a></td>';
         $table .= "</tr>\n";
     }
