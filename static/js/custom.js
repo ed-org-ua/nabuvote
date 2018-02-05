@@ -24,6 +24,21 @@ $(document).ready(function(){
 
   (function(){
     var max_selected_limit = window.max_selected_limit;
+    function update_selected_list(event) {
+      var sel = [];
+      $('.candidates_table tr').removeClass('info').each(function (index){
+        var $this = $(this),
+          checked = $this.find('input:checked').length;
+        if (checked) {
+          $this.addClass('info');
+          sel.push($this.children('td').first().text());
+        }
+        if (sel.length)
+          $('#selected_candidates').html(sel.join(" <br>\n"));
+        else
+          $('#selected_candidates').html('<i>Не обрано жодного</i>');
+      });
+    }
     function update_candidates_left(event) {
       var selected_count = $('.candidates_table input:checked').length;
       var remains_choose = max_selected_limit - selected_count;
@@ -35,11 +50,16 @@ $(document).ready(function(){
         }, 100);
         return false;
       }
-      if (remains_choose == 1)
-        text = '1 кандидата';
+      if (max_selected_limit > 1)
+        text = 'ще ';
       else
-        text = ' '+remains_choose+' кандидатів';
+        text = '';
+      if (remains_choose == 1)
+        text += '1 кандидата';
+      else
+        text += ''+remains_choose+' кандидатів';
       $('.candidates_left').html(text);
+      update_selected_list(event);
     }
     if (max_selected_limit)
       update_candidates_left();
