@@ -475,11 +475,18 @@ function send_summary_email($publine, $logline) {
         "Content-Disposition: inline";
     $subject = "=?UTF-8?b?0JLQsNGIINCz0L7Qu9C+0YEg0LfQsdC10YDQtdC20LXQvdC+?=";
     $message = "Дякуємо що проголосували!\r\n"."\r\n".
-        "Ви обрали кандидатів: {$selected}\r\n"."\r\n".
+        "Ви обрали кандидатів з номерами: {$selected}\r\n".
+        "\r\n".
         "Про що зроблено запис у протоколі голосування:\r\n".
-        "{$logline}\r\n"."\r\n".
-        "та до кінця голосування цей запис буде відображатись частково закодованим:\r\n".
-        "{$publine}\r\n"."\r\n".
+        "{$logline}\r\n".
+        "\r\n".
+        "до кінця голосування запис в протоколі про ваше "."\r\n".
+        "голосування буде відображатись закодованим:\r\n".
+        "{$publine}\r\n".
+        "\r\n".
+        "На сторінці голосування є посилання на відкритий протокол, "."\r\n".
+        "в якому ви можете перевірити як ваш голос було записано."."\r\n".
+        "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
         "Запитання та зауваження надсилайте на vote@ed.org.ua";
@@ -854,12 +861,13 @@ function candidates_table($form=false) {
     $table = '';
     foreach ($candidates as $c) {
         $table .= '<tr>';
+        $checkbox = '';
         if ($form) {
-            $table .= sprintf('<td><input type="checkbox" '.
-                'id="id_%d" name="id[%d]"></td>',
+            $checkbox = sprintf('<input type="checkbox" '.
+                'id="id_%d" name="id[%d]"> ',
                 (int)$c['id'], (int)$c['id']);
         }
-        $table .= sprintf('<td class="nowrap">'.
+        $table .= sprintf('<td class="nowrap">'.$checkbox.
             '<label for="id_%d">%d. %s</label></td>',
             (int)$c['id'], (int)$c['id'], h($c['name']));
         $table .= sprintf('<td>%s</td>', h($c['org']));
