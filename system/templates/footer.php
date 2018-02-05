@@ -1,5 +1,5 @@
 
-      <hr>
+      <br><hr>
 
       <footer>
         <p class="logo">
