@@ -1652,13 +1652,20 @@ table td:last-child p {
   min-height: 176px;
 }*/
 
-
 /* MEDIA QUERY */
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 767px) {
   aside {
     display: none;
+  }
+  .container-custom-1600 {
+    padding: 0 15px;
+  }
+  .button-default,
+  .button-inverse {
+    display: inline-block;
+    margin: 2px 5px;
   }
   .main-section {
     width: 100%;
