@@ -14,8 +14,13 @@ ini_set('display_errors', 'On');
 if (empty($settings['show_res_secret']))
     die("Not configured\n");
 
-if ($argv[2] != $settings['show_res_secret'])
+if (empty($argv[1]) or $argv[2] != $settings['show_res_secret'])
     die("Usage: php show_res.php <mode> <secret>\n");
+
+if ($argv[1] == "export") {
+    export_results();
+    exit;
+}
 
 if ($argv[1] == "db")
     $res = get_db_results();
@@ -59,7 +64,10 @@ function get_file_results() {
 }
 
 function compare_vote($a, $b) {
-    return $b['votes'] - $a['votes'];
+    $diff = $b['votes'] - $a['votes'];
+    if ($diff != 0)
+        return $diff;
+    return (int)$a['id'] - (int)$b['id'];
 }
 
 function transcode_results($res) {
@@ -84,16 +92,86 @@ function transcode_results($res) {
         }
     }
     usort($out, 'compare_vote');
+    // merge places
+    $votes = -1;
+    for ($i = 0; $i < count($out); $i++) {
+        if ($votes != $out[$i]['votes']) {
+            $votes = $out[$i]['votes'];
+            $place = $i + 1;
+            $end = 0;
+            for ($j = $i + 1; $j < count($out); $j++) {
+                if ($votes == $out[$j]['votes'])
+                    $end = $j + 1;
+                else
+                    break;
+            }
+            if ($end)
+                $place = "$place-$end";
+        }
+        $out[$i]['place'] = "$place";
+    }
     return $out;
 }
 
 function show_results($res) {
     $n = 0;
-    printf("%3s | %8s | %s\n", "No", "Голосів ", "Кандидат");
+    printf("%5s | %8s | %s\n", "No", "Голосів ", "Кандидат");
     printf("----+----------+----------------------------\n");
     foreach ($res as $r) {
         $n += 1;
-        printf("%3d | %8d | %2d. %s\n", $n, $r['votes'],
+        printf("%5s | %8d | %2d. %s\n", $r['place'], $r['votes'],
             $r['id'], $r['name']);
     }
+}
+
+function results_table($results) {
+    $table = '';
+    foreach ($results as $c) {
+        $table .= sprintf('<tr><th>%s</th>', $c['place']);
+        $table .= sprintf('<td class="nowrap">%s (№ %d)</td>',
+            h($c['name']), (int)$c['id']);
+        $table .= sprintf('<td>%s</td>', h($c['org']));
+        $table .= sprintf('<td>%d</td>', $c['votes']);
+        $table .= "</tr>\n";
+    }
+    return $table;
+}
+
+function export_results() {
+    global $candidates, $settings;
+    $current_date = date('Y-m-d H:i:s', time()-900);
+
+    if ($current_date < $settings['close_elections_time'])
+        die("Error: elections not cloed. Please wait until ".$settings['close_elections_time']." +15 min.\n");
+
+    $res_db = get_db_results();
+    $res_file = get_file_results();
+
+    sort($res_db);
+    sort($res_file);
+
+    if (count($res_db) != count($res_file) or $res_db !== $res_file)
+        die("Error: results in db and public report not equal\n");
+
+    $out_db = transcode_results($res_db);
+    $out_file = transcode_results($res_file);
+
+    if (count($out_db) != count($out_file) or $out_db != $out_file)
+        die("Error: results in db and public report not equal\n");
+
+    for ($i = 0; $i < count($out_db); $i++)
+        if ($out_db[$i]['votes'] != $out_file[$i]['votes'])
+            die("Error: results in db and public report not equal\n");
+
+    if (file_exists($settings['results_html']))
+        die("Error: results file already exists\n");
+
+    ob_start();
+    $results = $out_file;
+    require('templates/table.php');
+    $table = ob_get_contents();
+    ob_end_clean();
+
+    file_put_contents($settings['results_html'], $table);
+    echo("Results saved to ".$settings['results_html']."\n");
 }
