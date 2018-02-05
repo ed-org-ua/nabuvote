@@ -61,10 +61,11 @@
 
 <div class="candidates_list" style="display:none">
   <h2>Список кандидатів у Раду громадського контролю</h2>
+  <div class="table-responsive">
   <table class="table table-striped candidates_table">
     <thead>
       <tr>
-        <th>П.І.Б.</th>
+        <th>№, П.І.Б.</th>
         <th>Громадське об’єднання</th>
         <th>Досьє</th>
       </tr>
@@ -73,6 +74,7 @@
     <?= candidates_table(); ?>
     </tbody>
   </table>
+  </div>
   <br>
 </div>
 
