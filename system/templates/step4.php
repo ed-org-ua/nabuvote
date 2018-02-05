@@ -6,7 +6,7 @@
 
 <p class="lead">
   У вас залишилось <span class="countdown">?? хв.</span>
-  Ви можете обрати ще <span class="candidates_left">кандидатів</span>.
+  Ви можете обрати <span class="candidates_left">кандидатів</span>.
 </p>
 
 <p class="timer_text">
@@ -16,11 +16,11 @@
 
 <form method="POST" role="form" class="form-horizontal">
   <?= csrf_token_input(); ?>
+  <div class="table-responsive">
   <table class="table table-striped candidates_table">
     <thead>
       <tr>
-        <th>#</th>
-        <th>П.І.Б.</th>
+        <th>№, П.І.Б.</th>
         <th>Громадське об’єднання</th>
         <th>Досьє</th>
       </tr>
@@ -29,10 +29,16 @@
     <?= candidates_table(true); ?>
     </tbody>
   </table>
+  </div>
   <br>
+  <h4>Обрані кандидати</h4>
+  <div id="selected_candidates">
+    <i>Ще не обрано жодного кандидата</i>
+  </div>
+  <br><br>
   <div>
     <a href="index.php" class="button-inverse">&laquo; На початок</a>
-    <button type="submit" class="button-default">Проголосувати &raquo;</button>
+    <button type="submit" class="button-default">Проголосувати</button>
   </div>
 </form>
 
