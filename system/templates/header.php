@@ -38,7 +38,7 @@
               <div class="aside-main">
                   <a href="./">
                       <p class="aside-main_content">НАЦІОНАЛЬНЕ АГЕНТСТВО УКРАЇНИ<br><span>з питань виявлення, розшуку та управління активами, одержаними від корупційних та інших злочинів</span></p>
-                      <img class="aside-main_logo" src="static/img/arma.svg" alt="">
+                      <img class="aside-main_logo" src="static/img/arma.png" alt="">
                   </a>
               </div>
             </div>
@@ -48,7 +48,7 @@
 
       <!-- Main content container -->
 
-      <h1>Сторінка інтернет-голосування за кандидатів до Громадської ради при Національному агентстві (АРМА)</h1>
+      <h1>Сторінка інтернет-голосування за кандидата до Громадської ради при Національному агентстві (АРМА)</h1>
 
       <?php print_errors(); ?>
 
