@@ -144,6 +144,9 @@ function export_results() {
     if ($current_date < $settings['close_elections_time'])
         die("Error: elections not cloed. Please wait until ".$settings['close_elections_time']." +15 min.\n");
 
+    if (empty($settings['results_html']) || strlen($settings['results_html']) < 20)
+        die("Error: settings[results_html] not set, please update settings.");
+
     $res_db = get_db_results();
     $res_file = get_file_results();
 

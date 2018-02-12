@@ -11,6 +11,7 @@ $settings['close_elections_time'] = "2015-06-06 20:00:00";
 $settings['debug_log'] = '/path/to/log/nabu_debug.log'; # MUST BE SECURE ~~~ ALL TIME ~~~
 $settings['public_report'] = '/path/to/log/public_report.txt'; # MUST BE SECURE TILL END OF VOTING
 $settings['hashed_report'] = '/var/www/voting/public/hashed_report.txt'; # SHOULD BE PUBLIC
+$settings['results_html'] = '/var/www/voting/pre_results.html'; # WILL BE PUBLIC
 
 $settings['session_lifetime'] = 900;
 $settings['total_post_limit'] = 10;
