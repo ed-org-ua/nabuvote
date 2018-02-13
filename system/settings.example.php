@@ -35,6 +35,7 @@ $settings['recaptcha_secret'] = '__________(change_me)__________';
 $settings['email_from_header'] = "ARMA Gromrada <arma.rada___(change_me)___.gov.ua>";
 $settings['email_subject_header'] = "Kod perevirky Gromrada";
 $settings['email_code_url'] = false;
+$settings['email_check_url'] = false;
 
 $settings['disable_sms_test'] = false;
 $settings['kyivstar_cpi_new'] = true;
