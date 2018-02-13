@@ -460,6 +460,23 @@ function send_email_code($email, $code) {
     log_debug('send_email_code', "to=$email");
 }
 
+/**
+ * build query string for check.php
+ */
+function build_check_args() {
+    $args = array(
+        'e' => $_SESSION['email_value'],
+        'k1' => $_SESSION['email_code'],
+        'm' => $_SESSION['mobile_value'],
+        'k2' => $_SESSION['mobile_code'],
+        'v' => implode(',', $_SESSION['vote_keys'])
+    );
+    return http_build_query($args);
+}
+
+/**
+ * send summary email after voting
+ */
 function send_summary_email($publine, $logline) {
     global $settings;
     $email = $_SESSION['email_value'];
@@ -468,6 +485,9 @@ function send_summary_email($publine, $logline) {
         return false;
     if (strpos($email, ",") !== false)
         return false;
+    $checkurl = "";
+    if (isset($settings['email_check_url']) && $settings['email_check_url'])
+        $checkurl = $settings['email_check_url'] . build_check_args();
     $headers = "From: ".$settings['email_from_header']."\r\n".
         "MIME-Version: 1.0\r\n".
         "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
@@ -477,19 +497,20 @@ function send_summary_email($publine, $logline) {
     $message = "Дякуємо що проголосували!\r\n"."\r\n".
         "Ви обрали кандидатів з номерами: {$selected}\r\n".
         "\r\n".
-        "Про що зроблено запис у протоколі голосування:\r\n".
-        "{$logline}\r\n".
-        "\r\n".
-        "до кінця голосування запис в протоколі про ваше "."\r\n".
+        "Про що зроблено запис у протоколі голосування.\r\n".
+        "До кінця голосування запис в протоколі про ваше "."\r\n".
         "голосування буде відображатись закодованим:\r\n".
+        "\r\n".
         "{$publine}\r\n".
         "\r\n".
         "На сторінці голосування є посилання на відкритий протокол, "."\r\n".
         "в якому ви можете перевірити як ваш голос було записано."."\r\n".
         "\r\n".
+        "{$checkurl}\r\n".
+        "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
-        "Запитання та зауваження надсилайте на vote@ed.org.ua";
+        "Зауваження по роботі системи надсилайте на vote@ed.org.ua\r\n";
     mail($email, $subject, $message, $headers);
     log_debug('send_summary_email', "to=$email");
 }
@@ -537,7 +558,7 @@ function send_mobile_code_new($mobile, $code) {
         '<body content-type="text/plain">%s</body>'.
         '</message>';
     $code = format_secret_code($code);
-    $text = "Kod perevirky $code \n".
+    $text = "Kod $code \n".
         "dijsnyj do ".session_expires_hhmm();
     $url = $settings['kyivstar_cpi_url'];
     $username = $settings['kyivstar_cpi_username'];
@@ -579,7 +600,7 @@ function send_mobile_code_old($mobile, $code) {
     $mid = time().".".$mobile;
     $sin = $mobile;
     $paid = $settings['kyivstar_cpi_paid'];
-    $text = "Kod perevirky $code \n".
+    $text = "Kod $code \n".
         "dijsnyj do ".session_expires_hhmm();
     $postdata = sprintf($xml, $mid, $paid, $sin, $text);
     $url = $settings['kyivstar_cpi_url'];
