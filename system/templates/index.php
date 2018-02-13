@@ -85,7 +85,7 @@
 </div>
 
 <div class="well text-center">
-    <a href="#" class="button-inverse show-candidates">Cписок кандидата</a>
+    <a href="#" class="button-inverse show-candidates">Cписок кандидатів</a>
     <a href="step1.php" class="button-default">Розпочати голосування</a>
 </div>
 
