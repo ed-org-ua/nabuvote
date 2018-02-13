@@ -19,6 +19,14 @@ $mobile_value = "";
 $mobile_code = "";
 $vote_keys = "";
 
+if (count($_GET) > 4) {
+    $email_value = h($_GET['e']);
+    $email_code = h($_GET['k1']);
+    $mobile_value = h($_GET['m']);
+    $mobile_code = h($_GET['k2']);
+    $vote_keys = h($_GET['v']);
+}
+
 /**
  * Handle form data
  */
