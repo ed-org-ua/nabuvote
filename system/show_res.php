@@ -26,6 +26,9 @@ function main($argv) {
     if ($argv[1] == "export")
         return export_results();
 
+    if ($argv[1] == "check")
+        return check_hashes();
+
     else if ($argv[1] == "db")
         $res = get_db_results();
 
@@ -137,6 +140,34 @@ function show_results($res) {
         printf("%5s | %8d | %2d. %s\n", $r['place'], $r['votes'],
             $r['id'], $r['name']);
     }
+}
+
+function check_hashes() {
+    global $settings;
+    $public_lines = file($settings['public_report']);
+    $hashed_lines = file($settings['hashed_report']);
+
+    if (count($public_lines) != count($hashed_lines))
+        die("Error: lines count mismatch\n");
+
+    for ($i = 0; $i < count($public_lines); $i++) {
+        $ps = $public_lines[$i];
+        $hs = $hashed_lines[$i];
+        $epos = strpos($ps, " EML=");
+        if ($epos === false || $epos < 40)
+            die("Error on line $i, EML not found\n");
+        if (substr($ps, 0, $epos) != substr($hs, 0, $epos))
+            die("Error on line $i, date/id mismatch\n");
+        $hpos = strpos($hs, " HASH=");
+        if ($hpos === false || $hpos != $epos)
+            die("Error on line $i, date/id mismatch\n");
+        $forhash = trim(substr($ps, $epos));
+        $hash = "HASH=".hash_logline($forhash);
+        if (trim(substr($hs, $hpos)) != $hash)
+            die("Error on line $i, hash mismatch\n");
+        echo $hs;
+    }
+    echo "$i lines OK\n";
 }
 
 function results_table($results) {
