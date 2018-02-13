@@ -11,33 +11,40 @@ restore_error_handler();
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
-if (empty($settings['show_res_secret']))
-    die("Not configured\n");
-
-if (empty($argv[1]) or $argv[2] != $settings['show_res_secret'])
-    die("Usage: php show_res.php <mode> <secret>\n");
-
-if ($argv[1] == "export") {
-    export_results();
-    exit;
-}
-
-if ($argv[1] == "db")
-    $res = get_db_results();
-
-if ($argv[1] == "file")
-    $res = get_file_results();
-
-$res = transcode_results($res);
-show_results($res);
+main($argv);
 exit;
+
+function main($argv) {
+    global $settings;
+
+    if (empty($settings['show_res_secret']))
+        die("Not configured\n");
+
+    if (empty($argv[2]) or $argv[2] != $settings['show_res_secret'])
+        die("Usage: php show_res.php <mode> <secret>\n");
+
+    if ($argv[1] == "export")
+        return export_results();
+
+    else if ($argv[1] == "db")
+        $res = get_db_results();
+
+    else if ($argv[1] == "file")
+        $res = get_file_results();
+
+    else
+        die("Error: unknown command\n");
+
+    $res = transcode_results($res);
+    show_results($res);
+}
 
 function get_db_results() {
     $db = db_connect();
-    $res = $db->query("SELECT choice FROM ballot_box");
+    $res = $db->query("SELECT id,choice FROM ballot_box");
     $out = array();
     while ($obj = $res->fetch_object())
-        $out[] = $obj->choice;
+        $out[intval($obj->id)] = $obj->choice;
     $res->close();
     db_close($db);
     return $out;
@@ -53,21 +60,29 @@ function get_file_results() {
         die("File not found $filename\n");
     $out = array();
     foreach ($lines as $s) {
+        if (($pos = strpos($s, " ID=")) === false)
+            continue;
+        $pos += 4;
+        $end = strpos($s, " ", $pos+1);
+        $id = intval(substr($s, $pos, $end-$pos));
+        if (isset($out[$id]))
+            trigger_error("Record with ID=$id already exists", E_USER_ERROR);
+
         if (($pos = strpos($s, " SEL=")) === false)
             continue;
         $pos += 5;
         if (($end = strpos($s, " ", $pos)) === false)
             $end = strlen($s);
-        $out[] = trim(substr($s, $pos, $end-$pos));
+        $out[$id] = trim(substr($s, $pos, $end-$pos));
     }
     return $out;
 }
 
 function compare_vote($a, $b) {
     $diff = $b['votes'] - $a['votes'];
-    if ($diff != 0)
-        return $diff;
-    return (int)$a['id'] - (int)$b['id'];
+    if ($diff == 0)
+        $diff = strnatcmp($a['id'], $b['id']);
+    return $diff;
 }
 
 function transcode_results($res) {
@@ -116,7 +131,7 @@ function transcode_results($res) {
 function show_results($res) {
     $n = 0;
     printf("%5s | %8s | %s\n", "No", "Голосів ", "Кандидат");
-    printf("----+----------+----------------------------\n");
+    printf("------+----------+----------------------------\n");
     foreach ($res as $r) {
         $n += 1;
         printf("%5s | %8d | %2d. %s\n", $r['place'], $r['votes'],
@@ -144,17 +159,16 @@ function export_results() {
     if ($current_date < $settings['close_elections_time'])
         die("Error: elections not cloed. Please wait until ".$settings['close_elections_time']." +15 min.\n");
 
-    if (empty($settings['results_html']) || strlen($settings['results_html']) < 20)
-        die("Error: settings[results_html] not set, please update settings.");
-
     $res_db = get_db_results();
     $res_file = get_file_results();
 
-    sort($res_db);
-    sort($res_file);
-
     if (count($res_db) != count($res_file) or $res_db !== $res_file)
         die("Error: results in db and public report not equal\n");
+
+    // check for holes
+    for ($i = 1; $i <= count($res_db); $i++)
+        if (empty($res_db[$i]) || $res_db[$i] != $res_file[$i])
+            die("Error: results in db and public report not equal\n");
 
     $out_db = transcode_results($res_db);
     $out_file = transcode_results($res_file);
@@ -162,9 +176,8 @@ function export_results() {
     if (count($out_db) != count($out_file) or $out_db != $out_file)
         die("Error: results in db and public report not equal\n");
 
-    for ($i = 0; $i < count($out_db); $i++)
-        if ($out_db[$i]['votes'] != $out_file[$i]['votes'])
-            die("Error: results in db and public report not equal\n");
+    if (empty($settings['results_html']) || strlen($settings['results_html']) < 20)
+        die("Error: settings[results_html] not set, please update settings.\n");
 
     if (file_exists($settings['results_html']))
         die("Error: results file already exists\n");
@@ -177,4 +190,5 @@ function export_results() {
 
     file_put_contents($settings['results_html'], $table);
     echo("Results saved to ".$settings['results_html']."\n");
+    return true;
 }
