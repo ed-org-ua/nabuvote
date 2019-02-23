@@ -1,7 +1,17 @@
-/* Move down content because we have a fixed navbar that is 50px tall */
+@font-face { font-family: "SourceSansPro"; font-weight: 400; }
+@font-face { font-family: "SourceSansProBold"; font-weight: 700; }
+@font-face { font-family: "ProbaPro"; src: url("../fonts/ProbaPro-Regular.ttf") format("truetype"); font-weight: 400; }
+@font-face { font-family: "ProbaPro-Medium"; src: url("../fonts/ProbaPro-Medium.ttf") format("truetype"); font-weight: 500; }
+@font-face { font-family: "ProbaPro-SemiBold"; src: url("../fonts/ProbaPro-SemiBold.otf") format("truetype"); font-weight: 600; }
+@font-face { font-family: "ProbaPro-Bold"; src: url("../fonts/ProbaPro-Bold.ttf") format("truetype"); font-weight: 700; }
 body {
-    p-adding-top: 50px;
     padding-bottom: 20px;
+    font-family: "ProbaPro";
+    font-size: 15px;
+    background-color: #F2F2F2;
+}
+h1, h2, h3, h4 {
+  font-family: "ProbaPro-SemiBold";
 }
 @media (max-width:770px) {
     body {
@@ -11,6 +21,9 @@ body {
         width:100%;
         height: auto;
         position: relative;
+    }
+    footer .logo {
+      float: none !important;
     }
 }
 @media (min-width: 768px) {
@@ -23,6 +36,9 @@ body {
 }
 .hr {
     border-bottom: 1px solid #ddd;
+}
+hr.footer {
+  margin-top: 50px;
 }
 .nowrap {
     white-space: nowrap;
@@ -52,16 +68,35 @@ a.ext {
   background-repeat: repeat-x;
 }
 .navbar-custom {
-  background-color: #e0e4e0;
+  background-color: #224F91;
 }
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-nav>li>a {
-  color: #444;
+.navbar-mva .navbar-nav a {
+  color: #fff !important;
+}
+.navbar-mva .navbar-brand {
+  font-family: "ProbaPro-SemiBold";
+  font-size: 24px;
+  color: #fff !important;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgNDAwIj48cGF0aCBkPSJNMTIwIDBjLTkuMyAxMC42LTE1IDI0LjQtMTUgMzkuNi42IDMzLjQgNC42IDY2LjcgNSAxMDAgLjcgMzEuMS04LjYgNjAuMy0xOS45IDg4LjgtMy44IDcuOS03LjkgMTUuNi0xMiAyMy4zbC0xMi0yLjRjLTEwLjgtMi4yLTE3LjktMTIuNy0xNS43LTIzLjUgMS45LTkuNSAxMC4yLTE2LjEgMTkuNS0xNi4xbDQuNC41LTkuOC04MS42Yy0zLjItMzYuNC0yMS45LTY4LjMtNDkuNS04OS00LjctMy42LTkuOC02LjgtMTUtOS43djI4OS43aDY2LjljNSAyNy4xIDE5LjkgNTAuOCA0MC45IDY3IDUgMy40IDkuMiA4IDEyLjIgMTMuMyAzLTUuMyA3LjItOS44IDEyLjItMTMuMyAyMS0xNi4yIDM1LjktMzkuOSA0MC45LTY3SDI0MFYyOS45Yy01LjIgMi45LTEwLjMgNi4xLTE1IDkuNy0yNy42IDIwLjctNDYuMyA1Mi42LTQ5LjUgODguOWwtOS44IDgxLjYgNC40LS41YzkuMyAwIDE3LjYgNi42IDE5LjUgMTYuMSAyLjIgMTAuOC00LjkgMjEuNC0xNS43IDIzLjVsLTEyIDIuNGMtNC4xLTcuNy04LjItMTUuNC0xMi0yMy4zLTExLjMtMjguNS0yMC43LTU3LjctMTkuOS04OC44LjQtMzMuNCA0LjQtNjYuNyA1LTEwMCAwLTE1LjEtNS43LTI4LjktMTUtMzkuNXpNMjAgNzEuN2MxMi45IDE1LjIgMjEuNiAzNC4xIDI0LjIgNTQuOWw4IDY3LjNjLTEwLjIgNS4xLTE4IDE0LjUtMjAuOSAyNS44SDIwdi0xNDh6bTIwMCAwdjE0OGgtMTEuM2MtMi45LTExLjMtMTAuNy0yMC43LTIwLjktMjUuOGw4LTY3LjNjMi42LTIwLjggMTEuMy0zOS44IDI0LjItNTQuOXpNMTIwIDIwNi45YzUuNCAxNy42IDEyLjggMzQuMyAyMiA0OS44LTguNyAyLjctMTYuMyA3LjgtMjIgMTQuOC01LjYtNi45LTEzLjItMTIuMS0yMi0xNC44IDkuMi0xNS41IDE2LjYtMzIuMiAyMi00OS44ek0yMCAyMzkuN2gxMS4zYzMuNiAxMy44IDE0LjMgMjQuNyAyOCAyOC41bDkuNiAyLjJjLTIuNiA5LjMtNCAxOS4yLTQgMjkuM0gyMHYtNjB6bTE4OC43IDBIMjIwdjYwaC00NWMwLTEwLjEtMS40LTIwLTQtMjkuM2w5LjYtMi4yYzEzLjctMy44IDI0LjUtMTQuNyAyOC4xLTI4LjV6TTg4LjUgMjc1YzEyLjEgMS43IDIxLjUgMTIuMSAyMS41IDI0LjdIODVjMC04LjYgMS4zLTE2LjkgMy41LTI0Ljd6bTYzIDBjMi4yIDcuOSAzLjUgMTYuMSAzLjUgMjQuN2gtMjVjMC0xMi42IDkuNC0yMyAyMS41LTI0Ljd6bS02NC4yIDQ0LjdIMTEwdjQyLjFjLTExLTExLjUtMTktMjYtMjIuNy00Mi4xem00Mi43IDBoMjIuN2MtMy43IDE2LjEtMTEuNyAzMC42LTIyLjcgNDIuMXYtNDIuMXoiIGZpbGw9IiNmZmU0NDkiLz48L3N2Zz4=");
+  background-position: 0 15px;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  padding-bottom: 25px;
+  padding-left: 40px;
 }
 .navbar-header {
   height: 80px;
 }
-.navbar-brand {
+.navbar-mva a {
+  padding-top: 30px;
+}
+.navbar-mva {
+  background-size: cover;
+  background: #224F91 url("../img/mva-header.jpg") center no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.navbar-moz {
   background-image: url(../img/logo-moz.png);
   background-position: 0 0;
   background-repeat: no-repeat;
@@ -112,12 +147,15 @@ a.ext {
 .well dd.last {
   margin-bottom: 0;
 }
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f0f0f0;
+}
 footer .text {
   margin-right: 70px;
 }
 footer .logo {
   float: right;
-  width: 70px;
+  width: 200px;
 }
 footer .logo img {
   float: right;
