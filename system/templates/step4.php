@@ -16,6 +16,7 @@
 
 <form method="POST" role="form" class="form-horizontal">
   <?= csrf_token_input(); ?>
+<div class="table-responsive">
   <table class="table table-striped candidates_table">
     <thead>
       <tr>
@@ -29,6 +30,11 @@
     <?= candidates_table(true); ?>
     </tbody>
   </table>
+</div>
+  <br>
+  <p>
+    Всього обрано <span class="candidates_selected">0 кандидатів</span>.
+  </p>
   <br>
   <div>
     <a href="index.php" class="btn btn-default">&laquo; На початок</a>
