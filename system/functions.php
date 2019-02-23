@@ -445,7 +445,7 @@ function send_email_code($email, $code) {
         "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
-    $subject = $settings['email_subject_header'];
+    $subject = $settings['email_subject_header'] . date(" H:m");
     $code = format_secret_code($code);
     $message = "Код перевірки {$code}\r\n";
     if (!empty($settings['email_code_url'])) {
@@ -476,16 +476,12 @@ function send_summary_email($publine, $logline) {
     $message = "Дякуємо що проголосували!\r\n"."\r\n".
         "Ви обрали кандидатів з номерами: {$selected}\r\n"."\r\n".
         "\r\n".
-        "до кінця голосування ваш голос буде закодованим і виглядатиме так:\r\n".
+        "до кінця голосування ваш голос в протоколі буде закодованим і виглядатиме так:\r\n".
         "{$publine}\r\n".
-        "\r\n".
-        "щоб перевірити свій голос в базі даних відкрийте на сторінці голосування\r\n".
-        "посилання \"Форма перевірки\" (внизу сторінки) та введіть коди перевірки,\r\n".
-        "які ви отримали під час голосування: {$vcodes}\r\n".
         "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
-        "Запитання та зауваження надсилайте на gromrada@moz.gov.ua";
+        "Запитання та зауваження надсилайте на info@mva.gov.ua";
     mail($email, $subject, $message, $headers);
     log_debug('send_summary_email', "to=$email");
 }
@@ -866,6 +862,10 @@ function candidates_table($form=false) {
     $candidates = get_candidates();
     $table = '';
     foreach ($candidates as $c) {
+        if (empty($c['org']) && !empty($c['ngo_name']))
+            $c['org'] = $c['ngo_name'];
+        if (empty($c['link']))
+            $c['link'] = "../candidates/".$c['id'].".html";
         $table .= '<tr>';
         if ($form) {
             $table .= sprintf(
