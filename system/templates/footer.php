@@ -1,14 +1,15 @@
 
-      <hr>
+      <hr class="footer">
 
       <footer>
         <p class="logo">
           <img src="static/img/gerb.png" alt="герб" class="gerb">
           <img src="static/img/ed1.png" alt="ed" class="ed">
+          <a href="#" data-toggle="modal" data-target="#aboutModal">Зворотній зв'язок</a>
         </p>
         <p class="text">
-          &copy; 2016 Розробка ГО «<a href="http://ed.org.ua/">Електронна демократія</a>»
-          на замовлення <a href="http://moz.gov.ua/">Міністерства охорони здоров'я України</a>.
+          &copy; 2016-2019 Розробка ГО «<a href="http://ed.org.ua/">Електронна демократія</a>»
+          на замовлення <a href="http://mva.gov.ua/">Міністерства у справах ветеранів України</a>.
         </p>
       </footer>
     </div> <!-- /container -->
@@ -25,7 +26,7 @@
           <div class="modal-body">
             <p>Якщо у вас виникли запитання або труднощі в процесі голосування
               надішліть листа з детальним описом проблеми (і бажано знімком екрана,
-              скріншотом) на адресу: <b>gromrada@moz.gov.ua</b></p>
+              скріншотом) на адресу: <b>info@mva.gov.ua</b></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-success" data-dismiss="modal">Закрити</button>
@@ -38,13 +39,13 @@
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/custom.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131521899-1"></script>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-93470322-1', 'auto');
-      ga('send', 'pageview');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-131521899-1');
     </script>
   </body>
 </html>
