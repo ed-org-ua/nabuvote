@@ -120,7 +120,7 @@ function append_error($msg) {
     if (empty($_ERRORS))
         $_ERRORS = array();
     $_ERRORS[] = $msg;
-    log_debug("append_error", $msg);
+    log_debug("append_error", $msg, true);
 }
 
 /**
@@ -154,17 +154,17 @@ function full_remote_addr() {
 /**
  * Save message to debug.log
  */
-function log_debug($func, $msg="-") {
+function log_debug($func, $msg="-", $no_session_data=false) {
     global $settings;
     if (!($filename = $settings['debug_log']))
         return false;
     if (!($fp = fopen($filename, "at")))
         return false;
-    if (!empty($_COOKIE))
+    if (!empty($_COOKIE) && !$no_session_data)
         $cookie_data = http_build_query($_COOKIE);
     else
         $cookie_data = "-";
-    if (!empty($_SESSION))
+    if (!empty($_SESSION) && !$no_session_data)
         $session_data = http_build_query($_SESSION);
     else
         $session_data = "-";
@@ -189,7 +189,7 @@ function log_debug($func, $msg="-") {
  */
 function log_debug_post_data() {
     $post_data = http_build_query($_POST);
-    log_debug("RAW_POST_DATA", $post_data);
+    log_debug("RAW_POST_DATA", $post_data, true);
 }
 
 /**
