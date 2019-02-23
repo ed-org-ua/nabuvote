@@ -17,6 +17,7 @@ if (!empty($_SESSION)) {
 if ($_POST) {
     $ukr_citizen = post_arg('ukr_citizen');
     $personal_data = post_arg('personal_data');
+    $rules_agree = post_arg('rules_agree');
     $captcha_res = captcha_verify();
     $current_date = date('Y-m-d H:i:s');
 
@@ -24,6 +25,8 @@ if ($_POST) {
         append_error("Не підтверджена згода з правилами голосування.");
     if (!$personal_data)
         append_error("Немає згоди на обробку персональних даних.");
+    if (!$rules_agree)
+        append_error("Немає згоди з правилами проведення голосування.");
     if (!$captcha_res)
         append_error("Не пройдено тест на роботів!");
     if ($current_date < $settings['open_elections_time'])
