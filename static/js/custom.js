@@ -1,4 +1,4 @@
-
+/* Copyright © 2015-2019 e-Democracy NGO Ukraine info@ed.org.ua */
 $(document).ready(function(){
   /*!
    * IE10 viewport hack for Surface/desktop Windows 8 bug

@@ -34,6 +34,7 @@ $settings['recaptcha_key'] = '__________(change_me)__________';
 $settings['recaptcha_secret'] = '__________(change_me)__________';
 
 # sender address can be simple or mime encoded =?UTF-8?b?...?=
+$settings['email_feedback_addr'] = 'info@....';
 $settings['email_from_header'] = "=?UTF-8?b?0J__________(change_me)__________.gov.ua>";
 $settings['email_subject_header'] = "=?UTF-8?b?0JrQvtC0INC/0LXRgNC10LLRltGA0LrQuA==?=";
 $settings['email_code_url'] = false; // "http://ed.org.ua/nabu-test/step2.php?code=";

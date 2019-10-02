@@ -168,11 +168,14 @@ function log_debug($func, $msg="-", $no_session_data=false) {
         $session_data = http_build_query($_SESSION);
     else
         $session_data = "-";
+    if (empty($request_id = $_SERVER['REQUEST_ID']))
+        $request_id = "-";
     if (empty($session_id = trim(session_id())))
         $session_id = "-";
     $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
     $logline .= " ".full_remote_addr();
     $logline .= " ".$session_id;
+    $logline .= " ".$request_id;
     $logline .= " ".$_SERVER['REQUEST_URI'];
     $logline .= " ".$session_data;
     $logline .= " ".$cookie_data;
@@ -244,8 +247,6 @@ function captcha_verify() {
 function init_user_session() {
     global $settings;
     session_set_cookie_params($settings['session_lifetime']);
-    if (session_id())
-        session_destroy();
     session_start();
     $_SESSION = array();
     $_SESSION['ip_addr'] = full_remote_addr();
@@ -452,7 +453,7 @@ function send_email_code($email, $code) {
         "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
-    $subject = $settings['email_subject_header'] . date(" H:m");
+    $subject = $settings['email_subject_header'] . date(" H:i");
     $code = format_secret_code($code);
     $message = "Код перевірки {$code}\r\n";
     if (!empty($settings['email_code_url'])) {
@@ -478,7 +479,6 @@ function send_summary_email($publine, $logline) {
         "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
-    $vcodes = substr($logline, strpos($logline, " K1="));
     $subject = "=?UTF-8?b?0JLQsNGIINCz0L7Qu9C+0YEg0LfQsdC10YDQtdC20LXQvdC+?=";
     $message = "Дякуємо що проголосували!\r\n"."\r\n".
         "Ви обрали кандидатів з номерами: {$selected}\r\n"."\r\n".
@@ -488,7 +488,7 @@ function send_summary_email($publine, $logline) {
         "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
-        "Запитання та зауваження надсилайте на info@mva.gov.ua";
+        "Запитання та зауваження надсилайте на ".$settings['email_feedback_addr'];
     mail($email, $subject, $message, $headers);
     log_debug('send_summary_email', "to=$email");
 }
@@ -703,17 +703,25 @@ function hash_logline($data) {
 function save_vote_database($table="ballot_box") {
     $db = db_connect();
     $row = array();
+    $ballot_id = 0;
     $row['ip_addr'] = $_SESSION['ip_addr'];
     $row['email'] = $_SESSION['email_value'];
     $row['mobile'] = $_SESSION['mobile_value'];
     $row['choice'] = implode(',', $_SESSION['vote_keys']);
-    if (db_row_exists($db, 'email', $row['email']))
+    if (db_row_exists($db, 'email', $row['email'])) {
         append_error("Такий e-mail вже проголосував.");
-    if (db_row_exists($db, 'mobile', $row['mobile']))
+        db_close($db);
+        return;
+    }
+    if (db_row_exists($db, 'mobile', $row['mobile'])) {
         append_error("Такий мобільний вже проголосував.");
+        db_close($db);
+        return;
+    }
     if (db_insert_row($db, $row, $ballot_id) == false)
         append_error("Запис голосу не вдався.");
     $_SESSION['ballot_id'] = $ballot_id;
+    db_close($db);
 }
 
 /**
@@ -817,9 +825,9 @@ function get_template($name) {
  */
 function get_candidates() {
     global $g_candidates;
-    if (!isset($g_candidates)) {
-        $res = json_decode(file_get_contents("system/candidates.json"), true);
-        $g_candidates = $res['candidates'];
+    if (empty($g_candidates)) {
+        require("candidates.php");
+        $g_candidates = $candidates;
     }
     return $g_candidates;
 }
@@ -869,10 +877,6 @@ function candidates_table($form=false) {
     $candidates = get_candidates();
     $table = '';
     foreach ($candidates as $c) {
-        if (empty($c['org']) && !empty($c['ngo_name']))
-            $c['org'] = $c['ngo_name'];
-        if (empty($c['link']))
-            $c['link'] = "../candidates/".$c['id'].".html";
         $table .= '<tr>';
         if ($form) {
             $table .= sprintf(
@@ -890,7 +894,7 @@ function candidates_table($form=false) {
             h($c['org']));
         $table .= sprintf(
             '<td class="nowrap">'.
-            '<a href="%s" target="_blank">сторінка</a>'.
+            '<a href="%s" target="_blank">документи</a>'.
             '</td>',
             h($c['link']));
         $table .= "</tr>\n";

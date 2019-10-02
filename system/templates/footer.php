@@ -9,7 +9,7 @@
         </p>
         <p class="text">
           &copy; 2016-2019 Розробка ГО «<a href="http://ed.org.ua/">Електронна демократія</a>»
-          на замовлення <a href="http://mva.gov.ua/">Міністерства у справах ветеранів України</a>.
+          на замовлення <a href="https://dbr.gov.ua/">Державного бюро розслідувань</a>.
         </p>
       </footer>
     </div> <!-- /container -->
@@ -25,11 +25,13 @@
           </div>
           <div class="modal-body">
             <p>Якщо у вас виникли запитання або труднощі в процесі голосування
-              надішліть листа з детальним описом проблеми (і бажано знімком екрана,
-              скріншотом) на адресу: <b>info@mva.gov.ua</b></p>
+              надішліть листа з детальним описом проблеми (і бажано знімком екрана)
+              на адресу: <b>info@dbr.gov.ua</b></p>
+            <p>Більше способів зв'язку в розділі <a href="https://dbr.gov.ua/kontakti">контакти</a>
+              на веб-сайті ДБР.</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Закрити</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
           </div>
         </div>
       </div>
@@ -40,12 +42,12 @@
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/custom.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131521899-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149250092-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-131521899-1');
+      gtag('config', 'UA-149250092-1');
     </script>
   </body>
 </html>

@@ -6,37 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Рейтингове голосування з формування складу Громадської ради
-      при Міністерстві у справах ветеранів України</title>
+    <title>Рейтингове голосування з формування складу Ради громадського контролю
+      при Державному бюро розслідувань</title>
+
+    <!-- Copyright © 2015-2019 e-Democracy NGO Ukraine info@ed.org.ua -->
 
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="static/css/bootstrap-checkbox.css" rel="stylesheet">
     <link href="static/css/custom.css" rel="stylesheet">
 
-    <meta property="og:title" content="Громадська рада при Мінветеранів"/>
-    <meta property="og:site_name" content="Громадська рада при Мінветеранів"/>
-    <meta property="og:description" content="Рейтингове інтернет-голосування за склад громадської ради при Міністерстві у справах ветеранів України"/>
-    <meta property="og:image" content="https://gromrada.mva.gov.ua/voting/static/img/og-mva.jpg"/>
+    <meta property="og:title" content="Голосування за кандидатів до Ради громадського контролю при Державному бюро розслідувань"/>
+    <meta property="og:site_name" content="Рада громадського контролю при Державному бюро розслідувань"/>
+    <meta property="og:description" content="Рейтингове інтернет-голосування за кандидатів до складу
+      Ради громадського контролю при Державному бюро розслідувань"/>
+    <meta property="og:image" content="https://voting.dbr.gov.ua/voting/static/img/dbr_og_image.png"/>
   </head>
 
   <body style="background-color:#fff;">
 
-    <nav class="navbar navbar-default navbar-mva navbar-static-top">
+    <header class="navbar navbar-inverse navbar-dbr scrolled" id="navbar" role="banner">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="./">
-            Громадська рада при Міністерстві у справах ветеранів України
-          </a>
+          <div class="region region-navigation">
+            <a class="logo navbar-btn pull-left" href="/" title="Головна" rel="home">
+              <img src="static/img/dbr-logo.svg" alt="Головна">
+            </a>
+            <a class="name navbar-brand" href="/" title="Головна" rel="home">Рада громадського контролю
+              при Державному бюро розслідувань</a>
+          </div>
         </div>
-        <div id="navbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="text-right"><a href="#" class="navbar-link" data-toggle="modal"
-              data-target="#aboutModal">Зворотній зв'язок</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
+        <div id="navbar-c" class="navbar-c">
+          <div class="region region-navigation-collapsible">
+            <section id="block-ultimenumainnavigation" class="pull-right block block-ultimenu block-ultimenu-blockultimenu-main clearfix">
+              <ul id="ultimenu-main" data-ultimenu="main" class="ultimenu ultimenu--main ultimenu--htb ultimenu--horizontal ultimenu--dbr">
+                <li class="ultimenu__item uitem has-ultimenu">
+                  <a href="https://dbr.gov.ua/khto-mi-i-yak-mi-pracyuemo" class="ultimenu__link">Про бюро</a>
+                </li>
+                <li class="ultimenu__item uitem has-ultimenu">
+                  <a href="#" class="ultimenu__link" data-toggle="modal" data-target="#aboutModal">Зворотній зв'язок</a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
       </div>
-    </nav>
+    </header>
 
     <div class="container">
       <!-- Main content container -->
