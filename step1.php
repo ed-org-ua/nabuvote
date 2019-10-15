@@ -30,9 +30,9 @@ if ($_POST) {
     if (!$captcha_res)
         append_error("Не пройдено тест на роботів!");
     if ($current_date < $settings['open_elections_time'])
-        append_error("Вибори ще не розпочались.");
+        append_error("Голосування ще не розпочалось.");
     if ($current_date > $settings['close_elections_time'])
-        append_error("Вибори вже закінчились.");
+        append_error("Голосування вже закінчилось.");
 
     if (empty($_ERRORS) && $ukr_citizen && $personal_data && $rules_agree && $captcha_res) {
         init_user_session();

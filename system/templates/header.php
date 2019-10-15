@@ -20,7 +20,9 @@
     <meta property="og:site_name" content="Рада громадського контролю при Державному бюро розслідувань"/>
     <meta property="og:description" content="Рейтингове інтернет-голосування за кандидатів до складу
       Ради громадського контролю при Державному бюро розслідувань"/>
-    <meta property="og:image" content="https://voting.dbr.gov.ua/voting/static/img/dbr_og_image.png"/>
+    <meta property="og:image" content="https://voting.dbr.gov.ua/voting/static/img/fb-image.png"/>
+    <meta property="og:xurl" content="https://voting.dbr.gov.ua/voting/"/>
+    <meta property="og:type" content="website"/>
   </head>
 
   <body style="background-color:#fff;">
@@ -58,7 +60,7 @@
 
       <h1>Сторінка рейтингового інтернет-голосування</h1>
 
-      <h2 style="color:#f33">Увага! Це тестове голосування!</h2>
+      <!-- h2 style="color:#f33">Увага! Це тестове голосування!</h2 -->
 
       <?php print_errors(); ?>
 

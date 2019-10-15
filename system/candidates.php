@@ -6,10 +6,12 @@ $candidates_dbr_2019 = array(
           'link'=>"https://dbr.gov.ua/sites/default/files/Apasov.pdf"),
     array('id'=>2, 'name'=>"Безпалий Тарас Геннадійович",
           'org'=>"ВГО «Асоціація правників України»",
-          'link'=>"https://dbr.gov.ua/sites/default/files/Bezpaluy.pdf"),
+	  'link'=>"https://dbr.gov.ua/sites/default/files/Bezpaluy.pdf"),
+    /*
     array('id'=>3, 'name'=>"Бойко Тарас Орестович",
           'org'=>"«Центр правових та політичних досліджень «СІМ»",
-          'link'=>"https://dbr.gov.ua/sites/default/files/Boyko.pdf"),
+	  'link'=>"https://dbr.gov.ua/sites/default/files/Boyko.pdf"),
+     */
     array('id'=>4, 'name'=>"Болдін Максим Якович",
           'org'=>"«Центр правового аналізу та дослідження політичних ризиків»",
           'link'=>"https://dbr.gov.ua/sites/default/files/Boldin.pdf"),
@@ -30,10 +32,12 @@ $candidates_dbr_2019 = array(
           'link'=>"https://dbr.gov.ua/sites/default/files/Detyuk.pdf"),
     array('id'=>10, 'name'=>"Дяденко Михайло Васильович",
           'org'=>"«Центр правового аналізу та дослідження політичних ризиків»",
-          'link'=>"https://dbr.gov.ua/sites/default/files/Dyadenko.pdf"),
+	  'link'=>"https://dbr.gov.ua/sites/default/files/Dyadenko.pdf"),
+    /*
     array('id'=>11, 'name'=>"Заблоцький Мар’ян Богданович",
           'org'=>"«Українське товариство економічних свобод»",
-          'link'=>"https://dbr.gov.ua/sites/default/files/Zabolotskiy.pdf"),
+	  'link'=>"https://dbr.gov.ua/sites/default/files/Zabolotskiy.pdf"),
+     */
     array('id'=>12, 'name'=>"Золотар Степан Андрійович",
           'org'=>"«Асоціація українських моніторів дотримання прав людини в діяльності правоохоронних органів»",
           'link'=>"https://dbr.gov.ua/sites/default/files/Zolotar.pdf"),
@@ -267,5 +271,5 @@ $candidates_dbr_test = array(
 /**
  * candidates switch
  */
-$candidates = $candidates_dbr_test;
+$candidates = $candidates_dbr_2019;
 

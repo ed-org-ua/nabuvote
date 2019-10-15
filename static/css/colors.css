@@ -6090,6 +6090,7 @@ label,
 }
 .alert {
   color: #fff;
+  background-image: none;
 }
 .alert a,
 .alert .alert-link {

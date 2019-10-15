@@ -32,10 +32,17 @@ h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small,
     body {
       padding-top: 0;
     }
-    .navbar-fixed-top {
-        width:100%;
-        height: auto;
-        position: relative;
+    .navbar .logo {
+      display: none;
+    }
+    a.name.navbar-brand {
+      max-width: 300px;
+    }
+    #ultimenu-main {
+      margin-top: 70px !important;
+    }
+    .btn {
+      margin-bottom: 20px;
     }
     footer .logo {
       float: none !important;
@@ -117,6 +124,7 @@ a.name.navbar-brand {
   background-color: #3c5176;
   min-height: 90px;
   border-radius: 0;
+  padding: 10px 0;
 }
 .navbar-nabu {
   background-color: #003366;

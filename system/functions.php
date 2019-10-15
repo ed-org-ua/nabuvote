@@ -55,6 +55,10 @@ function csrf_token_input() {
 function check_csrf_token() {
     if (empty($_SESSION['csrf_token']))
         return false;
+    if ($_POST && empty($_POST['csrf_token'])) {
+        log_debug("check_csrf_token", "csrf not set");
+        die("csrf not set ".goto_on_die('step1.php'));
+    }
     if ($_POST['csrf_token'] != $_SESSION['csrf_token']) {
         log_debug("check_csrf_token", "csrf protection");
         die("csrf protection ".goto_on_die('step1.php'));
@@ -228,6 +232,8 @@ function safe_rand($min, $max, $times=1) {
  */
 function captcha_verify() {
     global $settings;
+    if (!isset($_POST['g-recaptcha-response']))
+        return false;
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $privatekey = $settings['recaptcha_secret'];
     $response = file_get_contents($url.
@@ -246,8 +252,8 @@ function captcha_verify() {
  */
 function init_user_session() {
     global $settings;
-    session_set_cookie_params($settings['session_lifetime']);
-    session_start();
+    if (empty($_COOKIE[session_name()]))
+        session_start();
     $_SESSION = array();
     $_SESSION['ip_addr'] = full_remote_addr();
     $_SESSION['expires'] = time() + $settings['session_lifetime'];
@@ -261,6 +267,10 @@ function init_user_session() {
  * verify basic session restrictions
  */
 function check_session_limits() {
+    if (empty($_SESSION['ip_addr'])) {
+        log_debug("check_session_limits", "ip not set");
+        return false;
+    }
     if ($_SESSION['ip_addr'] != full_remote_addr()) {
         log_debug("check_session_limits", "ip not match");
         return false;
@@ -480,11 +490,12 @@ function send_summary_email($publine, $logline) {
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
     $subject = "=?UTF-8?b?0JLQsNGIINCz0L7Qu9C+0YEg0LfQsdC10YDQtdC20LXQvdC+?=";
-    $message = "Дякуємо що проголосували!\r\n"."\r\n".
-        "Ви обрали кандидатів з номерами: {$selected}\r\n"."\r\n".
+    $message = "Дякуємо, що проголосували!\r\n".
+        "\r\n".
+        "Ви обрали кандидатів з номерами: {$selected}\r\n".
         "\r\n".
         "до кінця голосування ваш голос в протоколі буде закодованим і виглядатиме так:\r\n".
-        "{$publine}\r\n".
+        "\r\n{$publine}\r\n".
         "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
@@ -531,6 +542,7 @@ function send_mobile_code_new($mobile, $code) {
         '<login>%s</login>'.
         '<paswd>%s</paswd>'.
         '<tid>1</tid>'.
+        '<channel>%s</channel>'.
         '<sin>%s</sin>'.
         '<service>bulk-request</service>'.
         '<body content-type="text/plain">%s</body>'.
@@ -541,8 +553,9 @@ function send_mobile_code_new($mobile, $code) {
     $url = $settings['kyivstar_cpi_url'];
     $username = $settings['kyivstar_cpi_username'];
     $password = $settings['kyivstar_cpi_password'];
+    $channel = $settings['kyivstar_cpi_channel'];
     $postdata = sprintf($xml, $username, $password,
-        $mobile, $text);
+        $channel, $mobile, $text);
     $curlopts = array(
         CURLOPT_URL => $url,
         CURLOPT_TIMEOUT => 10,
