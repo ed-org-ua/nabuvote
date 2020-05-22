@@ -7,8 +7,7 @@ require("system/__init__.php");
  * Session must be clean on this step
  */
 if (!empty($_SESSION)) {
-    session_unset();
-    session_destroy();
+    $_SESSION = array();
 }
 
 /**

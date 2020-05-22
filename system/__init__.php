@@ -26,8 +26,6 @@ if ($_POST) {
  * if session present check common restrictions
  */
 if (!empty($_SESSION) && !check_session_limits()) {
-    session_unset();
-    session_destroy();
     $_SESSION = array();
 }
 
