@@ -133,7 +133,7 @@ function transcode_results($res) {
 
 function show_results($res) {
     $n = 0;
-    printf("%5s | %8s | %s\n", "No", "Голосів ", "Кандидат");
+    printf("%5s | %8s | %s\n", "Місце", "Голосів ", "Кандидат");
     printf("------+----------+----------------------------\n");
     foreach ($res as $r) {
         $n += 1;
@@ -210,7 +210,7 @@ function export_results() {
     if (empty($settings['results_html']) || strlen($settings['results_html']) < 20)
         die("Error: settings[results_html] not set, please update settings.\n");
 
-    if (file_exists($settings['results_html']))
+    if (file_exists($settings['results_html']) && filesize($settings['results_html']) > 20)
         die("Error: results file already exists\n");
 
     ob_start();
