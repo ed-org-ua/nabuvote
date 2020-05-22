@@ -53,8 +53,12 @@ function csrf_token_input() {
  *
  */
 function check_csrf_token() {
-    if (empty($_SESSION['csrf_token']))
+    if (empty($_POST) || empty($_SESSION['csrf_token']))
         return false;
+    if ($_POST && empty($_POST['csrf_token'])) {
+        log_debug("check_csrf_token", "csrf not set");
+        die("csrf not set ".goto_on_die('step1.php'));
+    }
     if ($_POST['csrf_token'] != $_SESSION['csrf_token']) {
         log_debug("check_csrf_token", "csrf protection");
         die("csrf protection ".goto_on_die('step1.php'));
@@ -75,6 +79,8 @@ function check_request_referer() {
         return false;
     }
     $ref = parse_url($_SERVER['HTTP_REFERER']);
+    if (!empty($ref['port']))
+        $ref['host'] .= ':'.$ref['port'];
     if (!empty($ref['host']) && strcasecmp($host, $ref['host']) != 0) {
         log_debug("check_request_referer", "not match ".$ref['host']);
         // protect against redirect loops
@@ -120,7 +126,7 @@ function append_error($msg) {
     if (empty($_ERRORS))
         $_ERRORS = array();
     $_ERRORS[] = $msg;
-    log_debug("append_error", $msg);
+    log_debug("append_error", $msg, true);
 }
 
 /**
@@ -154,29 +160,49 @@ function full_remote_addr() {
 /**
  * Save message to debug.log
  */
-function log_debug($func, $msg="-") {
+function log_debug($func, $msg="-", $short_format=false) {
     global $settings;
-    if (!($filename = $settings['debug_log']))
-        return false;
-    if (!($fp = fopen($filename, "at")))
-        return false;
-    if (!empty($_SESSION))
+    if (!empty($_COOKIE) && !$short_format)
+        $cookie_data = http_build_query($_COOKIE);
+    else
+        $cookie_data = "-";
+    if (!empty($_SESSION) && !$short_format)
         $session_data = http_build_query($_SESSION);
     else
         $session_data = "-";
+    if (!empty($_SERVER['REQUEST_ID']))
+        $request_id = $_SERVER['REQUEST_ID'];
+    else
+        $request_id = "-";
     if (empty($session_id = trim(session_id())))
         $session_id = "-";
-    $logline = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
-    $logline .= " ".full_remote_addr();
+    $datestr = date("Y-m-d H:i:s").substr(microtime(), 1, 4);
+    $logline = full_remote_addr();
+    $logline .= " ".$request_id;
     $logline .= " ".$session_id;
     $logline .= " ".$_SERVER['REQUEST_URI'];
     $logline .= " ".$session_data;
+    $logline .= " ".$cookie_data;
     $logline .= " ".$func;
-    $logline .= " ".$msg."\r\n";
-    if (flock($fp, LOCK_EX))
-        fwrite($fp, $logline);
+    $logline .= " ".$msg;
+    // save to syslog w/o datetime but with ident
+    if (!empty($settings['debug_syslog'])) {
+        if (!syslog(LOG_INFO, "VOTE ".$logline))
+            return die("Log fail 1");
+    }
+    if (!($filename = $settings['debug_logfile']))
+        return;
+    if (!($fp = fopen($filename, "at")))
+        return die("Log fail 2");
+    if (!flock($fp, LOCK_EX))
+        return die("Log fail 3");
+    $logline = "$datestr $logline\r\n";
+    $linelen = strlen($logline);
+    $writeln = fwrite($fp, $logline);
     flock($fp, LOCK_UN);
     fclose($fp);
+    if ($writeln != $linelen)
+        die("Log fail 4");
 }
 
 /**
@@ -184,7 +210,7 @@ function log_debug($func, $msg="-") {
  */
 function log_debug_post_data() {
     $post_data = http_build_query($_POST);
-    log_debug("RAW_POST_DATA", $post_data);
+    log_debug("RAW_POST_DATA", $post_data, true);
 }
 
 /**
@@ -220,14 +246,26 @@ function safe_rand($min, $max, $times=1) {
  */
 function captcha_verify() {
     global $settings;
-    $url = 'https://www.google.com/recaptcha/api/siteverify';
-    $privatekey = $settings['recaptcha_secret'];
-    $response = file_get_contents($url.
-        "?secret=".$privatekey.
+    if (empty($_POST) || empty($_POST['g-recaptcha-response']))
+        return false;
+    $url = 'https://www.google.com/recaptcha/api/siteverify'.
+        "?secret=".$settings['recaptcha_secret'].
         "&response=".$_POST['g-recaptcha-response'].
-        "&remoteip=".$_SERVER['REMOTE_ADDR']);
-    $data = json_decode($response);
-    if (isset($data->success) && $data->success == true) {
+        "&remoteip=".$_SERVER['REMOTE_ADDR'];
+    $curlopts = array(
+        CURLOPT_URL => $url,
+        CURLOPT_TIMEOUT => 10,
+        CURLOPT_RETURNTRANSFER => 1
+    );
+    $ch = curl_init();
+    curl_setopt_array($ch, $curlopts);
+    $res = curl_exec($ch);
+    $err = curl_error($ch);
+    curl_close($ch);
+    if (!$res && $err)
+        log_debug("CAPTCHA curl_error ".$err, false);
+    $data = json_decode($res);
+    if (!empty($data->success) && $data->success === true) {
         return true;
     }
     return false;
@@ -238,10 +276,9 @@ function captcha_verify() {
  */
 function init_user_session() {
     global $settings;
-    session_set_cookie_params($settings['session_lifetime']);
-    if (session_id())
-        session_destroy();
-    session_start();
+    // session_set_cookie_params($settings['session_lifetime']);
+    if (empty($_COOKIE[session_name()]))
+        session_start();
     $_SESSION = array();
     $_SESSION['ip_addr'] = full_remote_addr();
     $_SESSION['expires'] = time() + $settings['session_lifetime'];
@@ -255,6 +292,10 @@ function init_user_session() {
  * verify basic session restrictions
  */
 function check_session_limits() {
+    if (empty($_SESSION['ip_addr'])) {
+        log_debug("check_session_limits", "ip not set");
+        return false;
+    }
     if ($_SESSION['ip_addr'] != full_remote_addr()) {
         log_debug("check_session_limits", "ip not match");
         return false;
@@ -433,6 +474,63 @@ function format_secret_code($code) {
     return implode("-", str_split($code, 2));
 }
 
+/*
+ *
+ */
+function smtp_mail($email, $subject, $message, $headers, $host='127.0.0.1', $port=25) {
+    global $settings;
+    $from = $settings['email_from_address'];
+    $date = date("r");
+    $body = "Date: $date\r\n".
+        "Subject: $subject\r\n".
+        "To: $email\r\n".
+        $headers."\r\n\r\n".
+        $message."\r\n\r\n.\r\n";
+    $sock = fsockopen($host, $port, $enum, $error, 10);
+    if ($sock === false) {
+        log_debug("Mail connect error($enum)", $error);
+        return;
+    }
+    stream_set_timeout($sock, 5);
+    $log = date("r")."\n";
+    while (true) {
+        $log .= $res = fread($sock, 250);
+        if (substr($res, 0, 3) != "220")
+            break;
+        fwrite($sock, "EHLO localhost\r\n");
+        $log .= $res = fread($sock, 750);
+        if (substr($res, 0, 3) != "250")
+            break;
+        fwrite($sock, "MAIL FROM: <$from>\r\n");
+        $log .= $res = fread($sock, 250);
+        if (substr($res, 0, 3) != "250")
+            break;
+        fwrite($sock, "RCPT TO: <$email>\r\n");
+        $log .= $res = fread($sock, 250);
+        if (substr($res, 0, 3) != "250")
+            break;
+        fwrite($sock, "DATA\r\n");
+        $log .= $res = fread($sock, 250);
+        if (substr($res, 0, 3) != "354")
+            break;
+        fwrite($sock, $body);
+        $log .= $res = fread($sock, 250);
+        break;
+    }
+    if (substr($res, 0, 3) != "250")
+        log_debug("Mail Error", $log);
+    fwrite($sock, "QUIT\r\n");
+    fclose($sock);
+    return $res;
+}
+
+/**
+ *
+ */
+function safe_mail($email, $subject, $message, $headers) {
+    return smtp_mail($email, $subject, $message, $headers);
+}
+
 /**
  *
  */
@@ -447,7 +545,7 @@ function send_email_code($email, $code) {
         "Content-Type: text/plain; charset=\"UTF-8\"\r\n".
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
-    $subject = $settings['email_subject_header'];
+    $subject = $settings['email_subject_header'] . date(" H:i");
     $code = format_secret_code($code);
     $message = "Код перевірки {$code}\r\n";
     if (!empty($settings['email_code_url'])) {
@@ -456,8 +554,8 @@ function send_email_code($email, $code) {
         $message .= "\r\n";
     }
     $message .= "\r\n"."дійсний до ".session_expires_hhmm()."\r\n";
-    mail($email, $subject, $message, $headers);
-    log_debug('send_email_code', "to=$email");
+    $res = safe_mail($email, $subject, $message, $headers);
+    log_debug('send_email_code', "to=$email res=".trim($res));
 }
 
 /**
@@ -480,7 +578,7 @@ function build_check_args() {
 function send_summary_email($publine, $logline) {
     global $settings;
     $email = $_SESSION['email_value'];
-    $selected = implode(',', $_SESSION['vote_keys']);
+    $selected = implode(', ', $_SESSION['vote_keys']);
     if (strpos($email, "\n") !== false)
         return false;
     if (strpos($email, ",") !== false)
@@ -494,25 +592,39 @@ function send_summary_email($publine, $logline) {
         "Content-Transfer-Encoding: binary\r\n".
         "Content-Disposition: inline";
     $subject = "=?UTF-8?b?0JLQsNGIINCz0L7Qu9C+0YEg0LfQsdC10YDQtdC20LXQvdC+?=";
-    $message = "Дякуємо що проголосували!\r\n"."\r\n".
-        "Ви обрали кандидатів з номерами: {$selected}\r\n".
+    $message = "Дякуємо що проголосували!\r\n".
+        "\r\n".
+        "Ви обрали кандидатів з № {$selected}\r\n".
         "\r\n".
         "Про що зроблено запис у протоколі голосування.\r\n".
-        "До кінця голосування запис в протоколі про ваше "."\r\n".
-        "голосування буде відображатись закодованим:\r\n".
+        "\r\n".
+        "Звертаємо увагу, що до кінця голосування запис в протоколі "."\r\n".
+        "буде відображатись закодованим наступним чином:\r\n".
         "\r\n".
         "{$publine}\r\n".
         "\r\n".
-        "На сторінці голосування є посилання на відкритий протокол, "."\r\n".
+        "Крім цього сторінці голосування розміщено відкритий протокол, "."\r\n".
         "в якому ви можете перевірити як ваш голос було записано."."\r\n".
         "\r\n".
-        "{$checkurl}\r\n".
+        "Для цього перейдіть за посиланням: {$checkurl}\r\n".
         "\r\n".
         "З повагою,\r\n".
         "Розробники системи рейтингового інтернет-голосування.\r\n".
         "Зауваження по роботі системи надсилайте на vote@ed.org.ua\r\n";
-    mail($email, $subject, $message, $headers);
-    log_debug('send_summary_email', "to=$email");
+    $res = safe_mail($email, $subject, $message, $headers);
+    log_debug('send_summary_email', "to=$email res=".trim($res));
+}
+
+/**
+ * check for retry_wait cookie
+ */
+function need_wait_before_retry() {
+    if (empty($_COOKIE['retry_wait']))
+        return false;
+    $wait = intval($_COOKIE['retry_wait']) - time();
+    if ($wait < 0)
+        return false;
+    return intval($wait / 60) + 1;
 }
 
 /**
@@ -552,6 +664,7 @@ function send_mobile_code_new($mobile, $code) {
         '<message xmlns="http://goldetele.com/cpa">'.
         '<login>%s</login>'.
         '<paswd>%s</paswd>'.
+        '<channel>%s</channel>'.
         '<tid>1</tid>'.
         '<sin>%s</sin>'.
         '<service>bulk-request</service>'.
@@ -563,8 +676,9 @@ function send_mobile_code_new($mobile, $code) {
     $url = $settings['kyivstar_cpi_url'];
     $username = $settings['kyivstar_cpi_username'];
     $password = $settings['kyivstar_cpi_password'];
+    $channel = $settings['kyivstar_cpi_channel'];
     $postdata = sprintf($xml, $username, $password,
-        $mobile, $text);
+        $channel, $mobile, $text);
     $curlopts = array(
         CURLOPT_URL => $url,
         CURLOPT_TIMEOUT => 10,
@@ -633,6 +747,11 @@ function send_mobile_code($mobile, $code) {
         send_mobile_code_new($mobile, $code);
     else
         send_mobile_code_old($mobile, $code);
+    // set next try cookie
+    if (!empty($settings['retry_wait_time'])) {
+        $wait_until = time() + $settings['retry_wait_time'];
+        setcookie('retry_wait', $wait_until, $wait_until);
+    }
 }
 
 /**
@@ -675,7 +794,8 @@ function next_if_test_pass($name, $next) {
  */
 function clean_passed_tests($tests) {
     foreach ($tests as $name)
-        unset($_SESSION[$name.'_pass']);
+        if (isset($_SESSION[$name.'_pass']))
+            unset($_SESSION[$name.'_pass']);
 }
 
 /**
@@ -725,17 +845,24 @@ function hash_logline($data) {
 function save_vote_database($table="ballot_box") {
     $db = db_connect();
     $row = array();
+    $ballot_id = 0;
     $row['ip_addr'] = $_SESSION['ip_addr'];
     $row['email'] = $_SESSION['email_value'];
     $row['mobile'] = $_SESSION['mobile_value'];
     $row['choice'] = implode(',', $_SESSION['vote_keys']);
-    if (db_row_exists($db, 'email', $row['email']))
+    if (db_row_exists($db, 'email', $row['email'])) {
         append_error("Такий e-mail вже проголосував.");
-    if (db_row_exists($db, 'mobile', $row['mobile']))
+        return db_close($db);
+    }
+    if (db_row_exists($db, 'mobile', $row['mobile'])) {
         append_error("Такий мобільний вже проголосував.");
-    if (db_insert_row($db, $row, $ballot_id) == false)
+        return db_close($db);
+    }
+    if (db_insert_row($db, $row, $ballot_id) !== false)
+        $_SESSION['ballot_id'] = $ballot_id;
+    else
         append_error("Запис голосу не вдався.");
-    $_SESSION['ballot_id'] = $ballot_id;
+    return db_close($db);
 }
 
 /**
@@ -854,6 +981,7 @@ function filter_candidates($keys) {
         log_debug("bad_keys", serialize($keys));
         return array();
     }
+    sort($keys_out, SORT_NUMERIC);
     return $keys_out;
 }
 
