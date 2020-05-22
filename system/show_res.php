@@ -20,7 +20,17 @@ function main($argv) {
     if (empty($settings['show_res_secret']))
         die("Not configured\n");
 
-    if (empty($argv[2]) or $argv[2] != $settings['show_res_secret'])
+    if (empty($argv[2])) {
+        fwrite(STDERR, "Password: ");
+        system('stty -echo');
+        $secret = trim(fgets(STDIN));
+        system('stty echo');
+        fwrite(STDERR, "\n");
+    } else {
+        $secret = $argv[2];
+    }
+
+    if (empty($argv[1]) or sha1($secret) != $settings['show_res_secret'])
         die("Usage: php show_res.php <mode> <secret>\n");
 
     if ($argv[1] == "export")
@@ -48,6 +58,17 @@ function get_db_results() {
     $out = array();
     while ($obj = $res->fetch_object())
         $out[intval($obj->id)] = $obj->choice;
+    $res->close();
+    db_close($db);
+    return $out;
+}
+
+function get_db_results_full() {
+    $db = db_connect();
+    $res = $db->query("SELECT id,ts,ip_addr,email,mobile,choice FROM ballot_box");
+    $out = array();
+    while ($row = $res->fetch_assoc())
+        $out[intval($row['id'])] = $row;
     $res->close();
     db_close($db);
     return $out;
@@ -81,6 +102,35 @@ function get_file_results() {
     return $out;
 }
 
+function get_file_results_full() {
+    global $settings;
+    $filename = $settings['public_report'];
+    if (!file_exists($filename))
+        $filename = '../'.$filename;
+    $lines = file($filename);
+    if (empty($lines))
+        die("File not found $filename\n");
+    $out = array();
+    foreach ($lines as $s) {
+        if (($pos = strpos($s, " ID=")) === false)
+            continue;
+        $p = explode(" ", $s);
+        $row = array(
+            'id' => substr($p[2], 3),
+            'ts' => $p[0]." ".$p[1],
+            'ip_addr' => substr($p[3], 3),
+            'email' => substr($p[4], 4),
+            'mobile' => substr($p[5], 4),
+            'choice' => substr($p[6], 4)
+        );
+        $id = intval($row['id']);
+        if (isset($out[$id]))
+            trigger_error("Record with ID=$id already exists", E_USER_ERROR);
+        $out[$id] = $row;
+    }
+    return $out;
+}
+
 function compare_vote($a, $b) {
     $diff = $b['votes'] - $a['votes'];
     if ($diff == 0)
@@ -90,6 +140,8 @@ function compare_vote($a, $b) {
 
 function transcode_results($res) {
     global $candidates;
+    if (empty($res))
+        die("Error: empty results\n");
     $out = array();
     foreach ($candidates as $c) {
         $id = (string)$c['id'];
@@ -170,19 +222,6 @@ function check_hashes() {
     echo "$i lines OK\n";
 }
 
-function results_table($results) {
-    $table = '';
-    foreach ($results as $c) {
-        $table .= sprintf('<tr><th>%s</th>', $c['place']);
-        $table .= sprintf('<td class="nowrap">%s (№ %d)</td>',
-            h($c['name']), (int)$c['id']);
-        $table .= sprintf('<td>%s</td>', h($c['org']));
-        $table .= sprintf('<td>%d</td>', $c['votes']);
-        $table .= "</tr>\n";
-    }
-    return $table;
-}
-
 function export_results() {
     global $candidates, $settings;
     $current_date = date('Y-m-d H:i:s', time()-900);
@@ -190,36 +229,58 @@ function export_results() {
     if ($current_date < $settings['close_elections_time'])
         die("Error: elections not cloed. Please wait until ".$settings['close_elections_time']." +15 min.\n");
 
-    $res_db = get_db_results();
-    $res_file = get_file_results();
+    $res_db = get_db_results_full();
+    $res_file = get_file_results_full();
 
-    if (count($res_db) != count($res_file) or $res_db !== $res_file)
+    if (empty($res_db) or count($res_db) != count($res_file))
         die("Error: results in db and public report not equal\n");
 
-    // check for holes
-    for ($i = 1; $i <= count($res_db); $i++)
-        if (empty($res_db[$i]) || $res_db[$i] != $res_file[$i])
-            die("Error: results in db and public report not equal\n");
-
-    $out_db = transcode_results($res_db);
-    $out_file = transcode_results($res_file);
-
-    if (count($out_db) != count($out_file) or $out_db != $out_file)
-        die("Error: results in db and public report not equal\n");
-
-    if (empty($settings['results_html']) || strlen($settings['results_html']) < 20)
-        die("Error: settings[results_html] not set, please update settings.\n");
-
-    if (file_exists($settings['results_html']) && filesize($settings['results_html']) > 20)
-        die("Error: results file already exists\n");
-
-    ob_start();
-    $results = $out_file;
-    require('templates/table.php');
-    $table = ob_get_contents();
-    ob_end_clean();
-
-    file_put_contents($settings['results_html'], $table);
-    echo("Results saved to ".$settings['results_html']."\n");
-    return true;
+    $out = array();
+    foreach ($candidates as $c) {
+        $id = (string)$c['id'];
+        $out[$id] = array();
+    }
+    foreach ($res_db as $k => $row) {
+        $ref = $res_file[$k];
+        if ($row['choice'] != $ref['choice'])
+            trigger_error("Record ID=$k choice mismatch", E_USER_ERROR);
+        $uniq = array();
+        $sel = explode(",", $row['choice']);
+        unset($row['choice']);
+        foreach ($sel as $c) {
+            if (!isset($out[$c]))
+                trigger_error("Record ID=$k candidate $c not found", E_USER_ERROR);
+            if (isset($uniq[$c]))
+                trigger_error("Record ID=$k two time vote $c", E_USER_ERROR);
+            $out[$c][] = $row;
+            $uniq[$c] = 1;
+        }
+    }
+    printf("Key,Count,E-Mail,Mobile,IP Addr,Uniq IP,IPs 2-5,IPs 6+,\r\n");
+    foreach ($out as $k => $rows) {
+        $ips = array();
+        foreach ($rows as $r) {
+            $ip = $r['ip_addr'];
+            if (empty($ips[$ip]))
+                $ips[$ip] = 1;
+            else
+                $ips[$ip] += 1;
+        }
+        $ip1 = $ip25 = $ip6 = 0;
+        foreach ($ips as $n) {
+            if ($n <= 1)
+                $ip1 += 1;
+            else if ($n <= 5)
+                $ip25 += $n;
+            else
+                $ip6 += $n;
+        }
+        $c = count($rows);
+        printf("%s,%d,-,-,-,%d,%d,%d,\r\n", $k, $c, $ip1, $ip25, $ip6);
+        foreach ($rows as $r) {
+            printf("%s,-,\"%s\",\"x%s\",\"%s\",,,,\r\n",
+                $k, $r['email'], $r['mobile'], $r['ip_addr']);
+        }
+        printf("-,,,,,,,,\r\n");
+    }
 }
