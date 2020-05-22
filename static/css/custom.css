@@ -1,20 +1,28 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 @media (max-width:770px) {
-    body {
-      padding-top: 0;
+    .container {
+      padding: auto 5px;
     }
-    .navbar-fixed-top {
-        width:100%;
-        height: auto;
-        position: relative;
+    button[type="submit"],
+    a.button-default {
+      display: inline-block;
     }
+}
+.container {
+  padding: auto 15px;
 }
 .hr {
     border-bottom: 1px solid #eee;
+}
+.check {
+  overflow-x: scroll;
+}
+.check dl {
+  margin-bottom: 0;
 }
 .nowrap {
     white-space: nowrap;
@@ -61,6 +69,8 @@ a.ext {
 }
 footer .text {
   margin-right: 70px;
+  font-size: 0.8em;
+  color: #888;
 }
 footer .logo {
   float: right;
