@@ -23,7 +23,7 @@ $email_code = "";
 if ($_POST) {
     check_and_dec_limit('check_email_limit');
 
-    $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\.]+@[\w\d\-\.]+\.\w+$/');
+    $email_value = post_arg('email_input', 'strtolower', '/^[\w\d_\-\.]+@[\w\d\-\.]+\.[a-z]+$/');
     $email_code = post_arg('email_code_input', 'clean_intval', '/^\d+$/');
 
     // if we on second step restore email from session
@@ -48,6 +48,9 @@ if ($_POST) {
         if (strlen($email_value) < 6)
             $email_value = "";
         if (strpbrk($email_value, " ,;'\"\t\n") !== false)
+            $email_value = "";
+        // .ru domain is forbidden
+        if (substr($email_value, -3) === '.ru')
             $email_value = "";
         // verify not empty and not used email then send code
         if ($email_value && email_not_used($email_value)) {

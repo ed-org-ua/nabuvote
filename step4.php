@@ -30,6 +30,7 @@ if ($_POST) {
     } elseif (count($keys) > get_selected_limit()) {
         append_error("Ви обрали більше ніж дозволено кандидатів.");
     } else {
+        clean_passed_tests(array('captcha', 'email', 'mobile'));
         if (safe_save_vote($keys)) {
             set_test_passed('vote');
             redirect('step5.php');

@@ -44,6 +44,8 @@ if ($_POST) {
             append_error("Код невірний");
             $mobile_code = "";
         }
+    } else if (($wait = need_wait_before_retry()) !== false) {
+        append_error("Повторна спроба можлива через $wait хв.");
     } else {
         // last few simple checks
         if (strlen($mobile_value) != 12)
