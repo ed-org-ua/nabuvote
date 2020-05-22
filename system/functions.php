@@ -147,9 +147,11 @@ function print_errors() {
  */
 function full_remote_addr() {
     $ip_addr = $_SERVER['REMOTE_ADDR'];
-    if (!empty($_SERVER['HTTP_CLIENT_IP']))
+    if (!empty($_SERVER['HTTP_CLIENT_IP']) &&
+            $_SERVER['HTTP_CLIENT_IP'] != $_SERVER['REMOTE_ADDR'])
         $ip_addr .= "/".$_SERVER['HTTP_CLIENT_IP'];
-    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']) &&
+            $_SERVER['HTTP_X_FORWARDED_FOR'] != $_SERVER['REMOTE_ADDR'])
         $ip_addr .= "/".$_SERVER['HTTP_X_FORWARDED_FOR'];
     // http headers data are possibly unsafe
     if (strpbrk($ip_addr, " ,;'=\"\t\r\n"))
@@ -430,6 +432,8 @@ function load_ip_addr_exceptions() {
     $lines = @file("system/exceptions.txt");
     $exceptions = array();
     foreach ($lines as $line) {
+        if (strpos($line, "=") === false)
+            continue;
         $p = explode("=", $line);
         $exceptions[trim($p[0])] = (int)$p[1];
     }
@@ -449,14 +453,16 @@ function check_ip_addr_limits() {
     if ($res > 0)
         $res = db_row_count($db, 'ip_addr', $ip_addr);
     db_close($db);
-    if ($res < $settings['votes_per_ip_limit'])
+    $limit = $settings['votes_per_ip_limit'];
+    if ($res > 0)
+        log_debug("check_ip_addr_limits", "res=$res limit=$limit");
+    if ($res < $limit)
         return false;
     $exceptions = load_ip_addr_exceptions();
     foreach ($exceptions as $key => $limit) {
         if ((strpos($ip_addr, $key) === 0) && ($res < $limit))
             return false;
     }
-    log_debug("check_ip_addr_limits", "res=$res");
     return true;
 }
 
@@ -619,9 +625,9 @@ function send_summary_email($publine, $logline) {
  * check for retry_wait cookie
  */
 function need_wait_before_retry() {
-    if (empty($_COOKIE['retry_wait']))
+    if (empty($_COOKIE['rw']))
         return false;
-    $wait = intval($_COOKIE['retry_wait']) - time();
+    $wait = intval($_COOKIE['rw']) - time();
     if ($wait < 0)
         return false;
     return intval($wait / 60) + 1;
@@ -750,7 +756,7 @@ function send_mobile_code($mobile, $code) {
     // set next try cookie
     if (!empty($settings['retry_wait_time'])) {
         $wait_until = time() + $settings['retry_wait_time'];
-        setcookie('retry_wait', $wait_until, $wait_until);
+        setcookie('rw', $wait_until, $wait_until);
     }
 }
 
