@@ -8,7 +8,7 @@
           <img src="static/img/ed1.png" alt="ed" class="ed">
         </p>
         <p class="text">
-          &copy; 2015-2018 ГО&nbsp;«<a href="http://ed.org.ua/">Електронна демократія</a>»
+          &copy; 2015-2020 ГО&nbsp;«<a href="http://ed.org.ua/">Електронна демократія</a>»
           на замовлення <a href="https://arma.gov.ua/">Національного агентства</a>,<br>
           за підтримки Програми «<a href="https://www.facebook.com/EUACI.Ukraine">Антикорупційна
           Ініціатива ЄС в Україні</a>».

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="static/css/style.css" />
     <link rel="stylesheet" href="static/css/custom.css" />
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+    <link rel="shortcut icon" href="static/img/favicon.png" type="image/png">
   </head>
 
   <body style="background-color:#fff;">
@@ -38,7 +39,7 @@
               <div class="aside-main">
                   <a href="./">
                       <p class="aside-main_content">НАЦІОНАЛЬНЕ АГЕНТСТВО УКРАЇНИ<br><span>з питань виявлення, розшуку та управління активами, одержаними від корупційних та інших злочинів</span></p>
-                      <img class="aside-main_logo" src="static/img/arma.png" alt="">
+                      <img class="aside-main_logo" src="static/img/arma_ukr.png" alt="">
                   </a>
               </div>
             </div>
@@ -48,7 +49,7 @@
 
       <!-- Main content container -->
 
-      <h1>Сторінка інтернет-голосування за кандидата до Громадської ради при Національному агентстві (АРМА)</h1>
+      <h1>Сторінка інтернет-голосування за кандидатів до Громадської ради при АРМА</h1>
 
       <?php print_errors(); ?>
 
