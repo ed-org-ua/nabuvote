@@ -18,7 +18,12 @@ $(document).ready(function(){
 
   $('.show-candidates').click(function(event){
     event.preventDefault();
-    $('.candidates_list').show(500);
+    $('.show-candidates').hide();
+    var window_width = $(window).width()-30;
+    $('.candidates_list').show(500, function(){
+      if (window_width < 500)
+        $('.candidates_list').width(window_width);
+    });
     return false;
   });
 
